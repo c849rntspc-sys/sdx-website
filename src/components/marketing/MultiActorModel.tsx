@@ -56,13 +56,13 @@ export function MultiActorModel() {
         >
           <motion.div variants={fadeInUp} className="text-center mb-14">
             <p className="text-xs font-semibold tracking-widest text-primary-400 uppercase mb-4">
-              Built for everyone
+              Built for owners of all sizes
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Owners, consultants, and technology partners
+              From a single building to global portfolios
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              SDX supports three distinct access models — each with tailored capabilities, granular permissions, and a complete audit trail.
+              Whether you own one building or ten thousand, SDX scales with you. The same free tools, benchmarks, and data dividends are available to every owner — plus tailored access for the consultants and technology partners who support them.
             </p>
           </motion.div>
 

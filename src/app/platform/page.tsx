@@ -26,7 +26,8 @@ export default function PlatformPage() {
 
       <FeatureGrid
         eyebrow="Core Capabilities"
-        title="Built for institutional real estate"
+        title="Built for owners of all sizes and types"
+        subtitle="From a single-building owner benchmarking for the first time to the largest institutional investors in the world — SDX scales with you."
         features={PLATFORM_FEATURES}
         columns={4}
       />
