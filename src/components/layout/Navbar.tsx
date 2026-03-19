@@ -44,14 +44,14 @@ export function Navbar() {
               </span>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-1">
+            {/* Desktop Nav — visible on md+ */}
+            <div className="hidden md:flex items-center gap-1">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    pathname === link.href
+                    (pathname === link.href || pathname.startsWith(link.href + '/'))
                       ? scrolled ? 'text-primary-500 bg-primary-50' : 'text-white bg-white/10'
                       : scrolled ? 'text-text-secondary hover:text-text-primary hover:bg-gray-100' : 'text-gray-300 hover:text-white hover:bg-white/10'
                   }`}
@@ -65,7 +65,7 @@ export function Navbar() {
             <div className="flex items-center gap-3">
               <a
                 href={`${APP_URL}/login`}
-                className={`hidden sm:inline-flex px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                className={`hidden md:inline-flex px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                   scrolled
                     ? 'text-text-secondary hover:text-text-primary hover:bg-gray-100'
                     : 'text-gray-300 hover:text-white hover:bg-white/10'
@@ -75,13 +75,13 @@ export function Navbar() {
               </a>
               <a
                 href={`${APP_URL}/register`}
-                className="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-primary-500 to-primary-400 text-white shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:brightness-110 transition-all active:scale-[0.98]"
+                className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-primary-500 to-primary-400 text-white shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:brightness-110 transition-all active:scale-[0.98]"
               >
                 Create Account
               </a>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className={`lg:hidden p-2 rounded-lg transition-colors ${
+                className={`md:hidden p-2 rounded-lg transition-colors ${
                   scrolled ? 'text-text-primary hover:bg-gray-100' : 'text-white hover:bg-white/10'
                 }`}
               >
@@ -94,7 +94,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <div className="fixed inset-0 z-40 md:hidden">
           <div className="absolute inset-0 bg-black/50" onClick={() => setMobileOpen(false)} />
           <div className="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl p-6 pt-20">
             <nav className="space-y-1">
@@ -103,7 +103,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                    pathname === link.href
+                    (pathname === link.href || pathname.startsWith(link.href + '/'))
                       ? 'text-primary-500 bg-primary-50'
                       : 'text-text-secondary hover:text-text-primary hover:bg-gray-50'
                   }`}

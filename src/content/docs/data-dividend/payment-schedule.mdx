@@ -1,0 +1,74 @@
+---
+title: "Payment Schedule"
+description: "When SDX Data Dividends are paid, how surplus is allocated, and how to set up payment details."
+category: "Data Dividend"
+order: 4
+audience:
+  - contributor
+---
+
+# Payment Schedule
+
+The Data Dividend is distributed quarterly, aligned with SDX's licensed content revenue cycle.
+
+## Quarterly cycle
+
+| Quarter | Data snapshot date | Payment date |
+|---|---|---|
+| Q1 (Jan – Mar) | March 31 | April 30 |
+| Q2 (Apr – Jun) | June 30 | July 31 |
+| Q3 (Jul – Sep) | September 30 | October 31 |
+| Q4 (Oct – Dec) | December 31 | January 31 |
+
+### How the cycle works
+
+1. **Snapshot** — On the last day of each quarter, SDX takes a snapshot of every building's eligibility status, floor area, data quality grade, and whole-building completeness.
+2. **Calculation** — The dividend pool is determined based on net licensed content revenue for the quarter. Individual building dividends are calculated using the [formula](/docs/data-dividend/how-its-calculated).
+3. **Statement** — Within 15 days of the snapshot date, a Dividend Statement is published to each eligible organisation's account under **Data Dividend > Statements**. The statement shows each building's score, share, and payout amount.
+4. **Payment** — Payment is issued on the payment date via the organisation's configured payment method.
+
+## Payment methods
+
+SDX supports the following payment methods for dividend disbursement:
+
+- **Bank transfer (ACH / SWIFT)** — Available in all supported countries.
+- **PayPal** — For organisations that prefer PayPal.
+- **Credit to SDX account** — The dividend is held as a credit balance that can be applied against future licensed content purchases (relevant for organisations that are both contributors and buyers).
+
+Configure your payment method under **Settings > Data Dividend > Payment Details**. Payment details must be set up before the end of the quarter to receive that quarter's payout.
+
+## Minimum payout threshold
+
+Dividends below $25 USD (or equivalent in local currency) are rolled over to the next quarter. Once the accumulated balance exceeds the threshold, the full amount is paid out.
+
+## Surplus allocation
+
+If the total dividend pool exceeds the sum of individual building dividends due to rounding or other adjustments, the surplus is carried forward to the next quarter's pool. The SDX board may also direct surplus funds toward platform development, data quality incentive programmes, or reserves. Allocation decisions are published in the quarterly board minutes.
+
+## Tax considerations
+
+SDX does not withhold taxes on dividend payments. Each organisation is responsible for declaring dividend income in accordance with its local tax obligations. SDX provides a year-end summary (available under **Data Dividend > Tax Documents**) showing total dividends received during the calendar year. Consult your tax advisor for guidance on how Data Dividend income should be treated in your jurisdiction.
+
+## Currency
+
+Dividend amounts are calculated in USD. Payments in other currencies are converted at the prevailing exchange rate on the payment date. The exchange rate used is disclosed on the Dividend Statement.
+
+## Disputes
+
+If you believe your dividend was calculated incorrectly, contact SDX support within 60 days of the payment date. Disputes are reviewed against the snapshot data and the published formula. Corrections, if any, are applied in the next quarterly cycle.
+
+## Notifications
+
+SDX sends the following notifications related to the Data Dividend:
+
+- **Snapshot complete** — Confirms the data snapshot was taken and your buildings' eligibility status.
+- **Statement available** — Your quarterly statement is ready to review.
+- **Payment issued** — Confirmation that payment has been sent.
+
+Notification preferences can be managed under **Settings > Notifications**.
+
+## Next steps
+
+- [Data Dividend overview](/docs/data-dividend)
+- [How the dividend is calculated](/docs/data-dividend/how-its-calculated)
+- [Eligibility and rules](/docs/data-dividend/eligibility-and-rules)

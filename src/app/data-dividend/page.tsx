@@ -9,11 +9,12 @@ import { Card } from '@/components/ui/Card';
 import { Accordion } from '@/components/ui/Accordion';
 import { FAQ } from '@/lib/constants';
 import { FadeInView } from '@/components/marketing/FadeInView';
-import { Check, Shield, Eye, DollarSign } from 'lucide-react';
+import { SharedValueEconomics } from '@/components/marketing/SharedValueEconomics';
+import { Check, Shield, Eye, DollarSign, Building2, Ruler, BarChart3, Scale } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Data Dividend',
-  description: 'SDX shares benchmark revenue back to data contributors. Your data creates value — you should share in it.',
+  description: 'The Data Dividend is a breakthrough in shared value. SDX shares benchmark revenue back to the data contributors who make the platform possible.',
 };
 
 const revenueSources = [
@@ -43,23 +44,47 @@ export default function DataDividendPage() {
         eyebrow="The Data Dividend"
         title={
           <>
-            Your data creates value.{' '}
+            A breakthrough in{' '}
             <span className="bg-gradient-to-r from-primary-400 to-cyan bg-clip-text text-transparent">
-              You should share in it.
+              shared value.
             </span>
           </>
         }
-        subtitle="SDX flips the incentive model. Instead of private vendors owning the substrate and charging for access, SDX treats data contribution as value creation — and shares the upside."
+        subtitle="The SDX platform is completely free — for everyone. The only monetization comes from board-approved licensed content sold to third parties. Contributors receive that content free for their own internal use, plus a share of the revenue. The more you contribute, the larger your dividend."
       />
+
+      {/* Breakthrough explainer */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <FadeInView>
+              <div className="bg-surface-bg border border-gray-100 rounded-2xl p-8 md:p-10">
+                <p className="text-xs font-semibold tracking-widest text-primary-500 uppercase mb-4">Why this matters</p>
+                <div className="space-y-4 text-sm text-text-secondary leading-relaxed">
+                  <p>
+                    Every sustainability platform in the market today operates the same way: owners pay to submit data, the platform aggregates it into proprietary benchmarks, then sells those benchmarks back — often to the same owners who provided the inputs. The value created by contributor data is captured entirely by the platform operator.
+                  </p>
+                  <p>
+                    <span className="text-text-primary font-semibold">The Data Dividend inverts this model.</span> SDX is completely free to use for everyone — owners, their service providers, and third-party software platforms can all read from and write to the platform at zero cost. SDX only monetizes board-approved licensed content sold to third parties. Contributors receive that content free for their own internal use, plus a share of the revenue generated. The more you contribute, the larger your dividend.
+                  </p>
+                  <p>
+                    This isn&rsquo;t theoretical — it&rsquo;s the same economic model that powers DTCC, SWIFT, and S&P index families in financial markets. The difference is that SDX applies it to real estate sustainability data for the first time.
+                  </p>
+                </div>
+              </div>
+            </FadeInView>
+          </div>
+        </Container>
+      </section>
 
       <StepFlow />
 
       <section className="py-24 bg-white">
         <Container>
           <SectionHeading
-            eyebrow="Revenue Sources"
-            title="Bounded revenue, no raw data sales"
-            subtitle="SDX is funded through a bounded set of derived products. Benchmarks are free to contributors but licensed for a fee to third parties."
+            eyebrow="Licensed Content"
+            title="The sole source of revenue"
+            subtitle="The platform is free. The only monetization is board-approved licensed content — sold to third parties, free to contributors for internal use."
           />
           <div className="max-w-2xl mx-auto space-y-4">
             {revenueSources.map((source, i) => (
@@ -70,6 +95,103 @@ export default function DataDividendPage() {
                 </div>
               </FadeInView>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <SharedValueEconomics />
+
+      {/* Dividend Formula */}
+      <section className="py-24 bg-white">
+        <Container>
+          <SectionHeading
+            eyebrow="The Dividend Formula"
+            title="How your share is calculated"
+            subtitle="An objective, auditable formula that rewards both breadth and quality of contribution — and treats every asset class and owner size equitably."
+          />
+
+          {/* Formula variables */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
+            <FadeInView>
+              <div className="bg-surface-bg border border-gray-100 rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
+                  <Building2 className="w-6 h-6 text-primary-500" />
+                </div>
+                <h3 className="font-semibold text-text-primary mb-2">Number of Buildings</h3>
+                <p className="text-xs text-text-secondary leading-relaxed">More buildings contributed means a larger share. Incentivizes organizations to bring their full portfolio onto the platform.</p>
+              </div>
+            </FadeInView>
+            <FadeInView>
+              <div className="bg-surface-bg border border-gray-100 rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
+                  <Ruler className="w-6 h-6 text-primary-500" />
+                </div>
+                <h3 className="font-semibold text-text-primary mb-2">Total Square Footage</h3>
+                <p className="text-xs text-text-secondary leading-relaxed">Larger properties contribute more data to the substrate. Floor area weighting ensures proportional recognition of contribution scale.</p>
+              </div>
+            </FadeInView>
+            <FadeInView>
+              <div className="bg-surface-bg border border-gray-100 rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="w-6 h-6 text-primary-500" />
+                </div>
+                <h3 className="font-semibold text-text-primary mb-2">Data Quality Score</h3>
+                <p className="text-xs text-text-secondary leading-relaxed">Completeness, coverage, and freshness of whole-building data. Higher quality data produces better benchmarks and earns a larger dividend.</p>
+              </div>
+            </FadeInView>
+            <FadeInView>
+              <div className="bg-surface-bg border border-gray-100 rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
+                  <Scale className="w-6 h-6 text-primary-500" />
+                </div>
+                <h3 className="font-semibold text-text-primary mb-2">Whole-Building Completeness</h3>
+                <p className="text-xs text-text-secondary leading-relaxed">Energy, water, waste, and emissions data for the entire building. Incentivizes contributors to close data gaps, not just report partial metrics.</p>
+              </div>
+            </FadeInView>
+          </div>
+
+          {/* Fairness explainer */}
+          <div className="max-w-3xl mx-auto">
+            <FadeInView>
+              <div className="bg-navy-800 border border-white/10 rounded-2xl p-8 md:p-10">
+                <p className="text-xs font-semibold tracking-widest text-cyan uppercase mb-4">Designed for fairness</p>
+                <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
+                  <p>
+                    The weighted formula creates the right incentives: contribute more assets and strive for the highest quality whole-building data. SDX provides every contributor the free tools to achieve both — benchmarking, data quality scoring, gap detection, and audit-readiness tracking.
+                  </p>
+                  <p>
+                    <span className="text-white font-semibold">The model treats small and large owners equitably.</span> A 50-building portfolio with excellent data quality can earn a proportionally competitive dividend alongside a 500-building portfolio with moderate completeness. Quality multiplies quantity.
+                  </p>
+                  <p>
+                    <span className="text-white font-semibold">Different asset classes are treated fairly.</span> An industrial owner may have large properties and extensive portfolios but relatively sparse whole-building data compared to an office REIT. Since all asset classes and owners face the same data constraints in their respective markets, the formula applies the same weighting uniformly — no asset class is advantaged or penalized.
+                  </p>
+                </div>
+                {/* One dividend per building */}
+                <div className="mt-6 pt-5 border-t border-white/10 mb-6">
+                  <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                    <Building2 className="w-5 h-5 text-cyan shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm text-white font-semibold mb-1">One dividend per building, per owner</p>
+                      <p className="text-xs text-gray-400 leading-relaxed">If an owner has a building managed through multiple software platforms that each integrate with SDX, SDX pays the dividend only once to the underlying owner. This prevents duplicate payouts and ensures the dividend pool is distributed fairly based on unique building contributions.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
+                    <p className="text-xs text-gray-400">Objective and auditable — no subjective adjustments</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
+                    <p className="text-xs text-gray-400">Published methodology — every contributor can verify their own calculation</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
+                    <p className="text-xs text-gray-400">Board-governed — formula changes require owner supermajority</p>
+                  </div>
+                </div>
+              </div>
+            </FadeInView>
           </div>
         </Container>
       </section>

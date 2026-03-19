@@ -1,0 +1,124 @@
+---
+title: "Writing Data"
+description: "Submit properties, buildings, and meter data to SDX on behalf of building owners via the API."
+category: "Integration Guide"
+order: 4
+audience:
+  - integrator
+---
+
+# Writing Data
+
+This guide covers how to submit data to SDX on behalf of building owners — creating properties, adding buildings, and pushing meter readings through the API.
+
+## Authentication for writing
+
+Writing data requires either:
+
+- **API key** with `properties:write` and `meters:write` scopes — for server-to-server integrations.
+- **OAuth2 token** with the same scopes — for user-facing applications.
+
+The building owner must have authorised your platform to write data on their behalf. See [Authentication](/docs/api/authentication).
+
+## Typical write workflow
+
+### 1. Onboard a property
+
+When a building owner first connects your platform to their SDX account, create the property and building if they don't already exist:
+
+```bash
+# Check if the property already exists
+curl "https://api.sdx.dev/v1/properties?filter[address]=123+Main+St" \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN"
+
+# If not found, create it
+curl -X POST https://api.sdx.dev/v1/properties \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "123 Main Street",
+    "address": { "street": "123 Main St", "city": "Chicago", "state": "IL", "postal_code": "60601", "country": "US" },
+    "type": "office"
+  }'
+```
+
+### 2. Create meters
+
+Create a meter for each utility type your platform tracks:
+
+```bash
+curl -X POST https://api.sdx.dev/v1/buildings/bld_xyz/meters \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{ "type": "electricity", "name": "Grid Supply", "unit": "kWh" }'
+```
+
+### 3. Push readings on a schedule
+
+Set up a recurring job that pushes new meter readings as they become available:
+
+```bash
+curl -X POST https://api.sdx.dev/v1/buildings/bld_xyz/meters/mtr_abc/readings \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "start_date": "2026-02-01",
+    "end_date": "2026-02-28",
+    "consumption": 42000,
+    "cost": 5250.00,
+    "cost_currency": "USD"
+  }'
+```
+
+### 4. Backfill historical data
+
+Use the batch endpoint to backfill up to 500 readings in a single request:
+
+```bash
+curl -X POST https://api.sdx.dev/v1/buildings/bld_xyz/meters/mtr_abc/readings/batch \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{ "readings": [ ... ] }'
+```
+
+See [Meters endpoint](/docs/api/endpoints/meters) for the full batch format.
+
+## Idempotency
+
+SDX uses the combination of `meter_id` + `start_date` + `end_date` as a natural key. If you submit a reading with the same dates as an existing reading, the existing reading is overwritten (unless it has been locked by the owner).
+
+This means your integration can safely retry failed submissions without creating duplicates.
+
+## Data validation
+
+SDX validates every reading on submission:
+
+| Check | Behaviour |
+|---|---|
+| **Date range** | `end_date` must be after `start_date` |
+| **Overlap** | Dates must not overlap with another reading for the same meter |
+| **Positive value** | Consumption must be >= 0 |
+| **Unit match** | Unit must match the meter's configured unit |
+| **Anomaly detection** | Readings flagged as anomalous are accepted but marked with warning flags |
+
+Validation errors return `422` with field-level details. See [Error Handling](/docs/api/errors).
+
+## Handling the Data Dividend
+
+When your platform writes data for multiple buildings, remember the [one-per-building rule](/docs/data-dividend/eligibility-and-rules): the Data Dividend goes to the building's underlying owner, not to your platform. If the same building is registered through two different integrations, it earns only one dividend.
+
+Your platform should communicate to owners that contributing data through your integration makes their buildings eligible for the Data Dividend. This is a strong selling point.
+
+## Best practices
+
+- **Deduplicate before submitting** — Avoid submitting the same readings twice in quick succession. While SDX handles idempotency, unnecessary calls consume your rate limit.
+- **Use batch endpoints** — When submitting more than a few readings, use the batch endpoint to reduce API calls.
+- **Handle 429s gracefully** — Implement exponential backoff. See [Rate Limits](/docs/api/rate-limits).
+- **Monitor webhook responses** — Subscribe to `benchmark.updated` to confirm that submitted data has been processed.
+- **Test in sandbox first** — Always validate your integration in the [sandbox environment](/docs/integrations/sandbox-environment) before going to production.
+
+## Next steps
+
+- [Sandbox environment](/docs/integrations/sandbox-environment)
+- [Code examples](/docs/integrations/code-examples)
+- [Meters endpoint reference](/docs/api/endpoints/meters)

@@ -1,0 +1,150 @@
+---
+title: "Authentication"
+description: "Authenticate with the SDX API using API keys or OAuth2 — both are free."
+category: "API Reference"
+order: 2
+audience:
+  - integrator
+---
+
+# Authentication
+
+Every API request must be authenticated. SDX supports two authentication methods: API keys for server-to-server integrations and OAuth2 for applications that act on behalf of individual users.
+
+## API keys
+
+API keys are the simplest way to authenticate. They are ideal for backend services that submit or read data on behalf of an entire organisation.
+
+### Creating an API key
+
+1. Log into the SDX web application.
+2. Navigate to **Settings > API > Keys**.
+3. Click **Create Key**.
+4. Give the key a descriptive name (e.g. "Production ETL Pipeline").
+5. Select the scopes (permissions) the key should have.
+6. Copy the key immediately — it will not be shown again.
+
+### Using an API key
+
+Pass the key as a Bearer token in the `Authorization` header:
+
+```bash
+curl https://api.sdx.dev/v1/properties \
+  -H "Authorization: Bearer sdx_live_k1a2b3c4d5e6f7g8h9i0..."
+```
+
+### Key prefixes
+
+| Prefix | Environment |
+|---|---|
+| `sdx_live_` | Production |
+| `sdx_test_` | Sandbox |
+
+### Key scopes
+
+| Scope | Description |
+|---|---|
+| `properties:read` | Read property and building data |
+| `properties:write` | Create, update, and archive properties |
+| `meters:read` | Read meter data |
+| `meters:write` | Submit meter readings |
+| `benchmarks:read` | Read benchmark scores |
+| `reports:read` | Read and generate reports |
+| `reports:write` | Create custom report templates |
+| `users:read` | Read user and team data |
+| `users:write` | Manage users and roles |
+| `webhooks:manage` | Create and manage webhook subscriptions |
+
+### Key rotation
+
+Keys can be rotated without downtime. Create a new key, update your application to use it, then revoke the old key. Both keys are valid simultaneously during the transition.
+
+## OAuth2
+
+OAuth2 is required when your application needs to act on behalf of individual SDX users (e.g. a mobile app where each user logs in with their SDX credentials).
+
+### Registering an OAuth2 application
+
+1. Go to **Settings > API > OAuth Apps**.
+2. Click **Register Application**.
+3. Provide the application name, redirect URI(s), and a brief description.
+4. You will receive a `client_id` and `client_secret`.
+
+### Authorization code flow
+
+SDX implements the standard OAuth2 Authorization Code flow with PKCE:
+
+**Step 1** — Redirect the user to the authorization endpoint:
+
+```
+https://auth.sdx.dev/authorize?
+  response_type=code&
+  client_id=YOUR_CLIENT_ID&
+  redirect_uri=https://yourapp.com/callback&
+  scope=properties:read meters:read benchmarks:read&
+  state=RANDOM_STATE_STRING&
+  code_challenge=CHALLENGE&
+  code_challenge_method=S256
+```
+
+**Step 2** — The user logs into SDX and grants consent.
+
+**Step 3** — SDX redirects back to your `redirect_uri` with an authorization code.
+
+**Step 4** — Exchange the code for tokens:
+
+```bash
+curl -X POST https://auth.sdx.dev/token \
+  -H "Content-Type: application/json" \
+  -d '{
+    "grant_type": "authorization_code",
+    "code": "AUTH_CODE",
+    "redirect_uri": "https://yourapp.com/callback",
+    "client_id": "YOUR_CLIENT_ID",
+    "client_secret": "YOUR_CLIENT_SECRET",
+    "code_verifier": "VERIFIER"
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "access_token": "sdx_oauth_abc123...",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "refresh_token": "sdx_refresh_xyz789...",
+  "scope": "properties:read meters:read benchmarks:read"
+}
+```
+
+### Refreshing tokens
+
+Access tokens expire after 1 hour. Use the refresh token to obtain a new access token:
+
+```bash
+curl -X POST https://auth.sdx.dev/token \
+  -H "Content-Type: application/json" \
+  -d '{
+    "grant_type": "refresh_token",
+    "refresh_token": "sdx_refresh_xyz789...",
+    "client_id": "YOUR_CLIENT_ID",
+    "client_secret": "YOUR_CLIENT_SECRET"
+  }'
+```
+
+Refresh tokens are valid for 30 days and are single-use. Each refresh response includes a new refresh token.
+
+## Security best practices
+
+- Store API keys and client secrets in environment variables or a secrets manager — never in source code.
+- Use the minimum scopes required for your integration.
+- Rotate API keys at least every 90 days.
+- Implement PKCE for all OAuth2 flows, even for confidential clients.
+- Monitor the **Settings > API > Usage Logs** page for unexpected activity.
+
+## Next steps
+
+- [Rate limits](/docs/api/rate-limits)
+- [Error handling](/docs/api/errors)
+- [Integration quickstart](/docs/integrations/quickstart)

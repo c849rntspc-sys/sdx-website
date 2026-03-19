@@ -1,0 +1,90 @@
+---
+title: "Submitting Data"
+description: "Submit utility data to SDX via manual entry, CSV upload, or automated utility feeds."
+category: "Getting Started"
+order: 4
+audience:
+  - contributor
+---
+
+# Submitting Data
+
+Benchmarking accuracy depends on complete, timely utility data. SDX supports three ways to get data into the platform — choose whichever suits your workflow.
+
+## Submission methods
+
+| Method | Best for | Effort |
+|---|---|---|
+| **Manual entry** | A few buildings, ad-hoc updates | Low volume, immediate |
+| **CSV upload** | Bulk historical data, quarterly batch updates | Medium volume, batch |
+| **Automated feeds** | Ongoing portfolios, utility provider integrations | Zero effort after setup |
+
+## Manual entry
+
+1. Navigate to a building's detail page and click **Meters > Add Reading**.
+2. Select the meter (electricity, gas, water, district heating, etc.) or create a new one.
+3. Enter the reading date, consumption value, and unit.
+4. Optionally enter the cost and demand (kW / kVA).
+
+SDX validates the reading against previous entries and flags anomalies such as negative consumption, implausible spikes, or overlapping date ranges.
+
+## CSV upload
+
+Go to **Data > Upload** and select the building or choose **Portfolio Upload** to submit data for many buildings at once.
+
+### Template columns
+
+| Column | Required | Example |
+|---|---|---|
+| `building_ref` | Yes | `BLD-001` |
+| `meter_type` | Yes | `electricity` |
+| `start_date` | Yes | `2025-01-01` |
+| `end_date` | Yes | `2025-01-31` |
+| `consumption` | Yes | `42350` |
+| `unit` | Yes | `kWh` |
+| `cost` | No | `5280.00` |
+| `cost_currency` | No | `USD` |
+| `demand_kw` | No | `185` |
+
+Download the template from the upload page. SDX accepts `.csv` and `.xlsx` files up to 50 MB.
+
+After uploading, a validation summary shows the number of readings accepted, warnings, and errors. You can correct errors in-app before committing the batch.
+
+## Automated utility feeds
+
+SDX connects directly to 35+ utility providers and data aggregators. Once authorised, meter readings flow into the platform automatically — typically within 24 to 48 hours of the provider publishing them.
+
+### Setting up an automated feed
+
+1. Go to **Data > Automated Feeds > Connect Provider**.
+2. Search for your utility company or aggregator (e.g. "Pacific Gas & Electric", "Urjanet", "Measurabl Import").
+3. Authenticate with the provider using your account credentials or an authorisation token.
+4. Map the provider's meter IDs to the corresponding SDX buildings and meters.
+
+SDX will backfill up to 24 months of historical data where the provider supports it.
+
+### Supported meter types
+
+- Electricity (grid, on-site solar, CHP)
+- Natural gas
+- Water (potable, reclaimed)
+- District heating and cooling
+- Steam
+- Fuel oil, diesel, LPG
+- Waste (landfill, recycling, compost — by weight)
+
+## Data overwrite rules
+
+- Manual readings and CSV uploads overwrite each other for the same meter and date range.
+- Automated feed data takes precedence over manual entries unless you explicitly lock a reading.
+- Locked readings are never overwritten by any source.
+
+## Data via API
+
+Third-party software can submit data on behalf of building owners through the SDX API. See the [Integration Guide](/docs/integrations) and the [Meters endpoint reference](/docs/api/endpoints/meters) for details.
+
+## Next steps
+
+- [Understand your dashboard](/docs/getting-started/understanding-your-dashboard)
+- [Learn about data quality scoring](/docs/benchmarking/data-quality-scoring)
+- [Explore benchmarking standards](/docs/benchmarking/benchmarking-standards)

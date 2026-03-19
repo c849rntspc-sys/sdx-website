@@ -1,0 +1,189 @@
+---
+title: "Users Endpoint"
+description: "Manage users, roles, and permissions within your organisation via the SDX API."
+category: "API Endpoints"
+order: 6
+audience:
+  - integrator
+---
+
+# Users Endpoint
+
+Manage the members of your SDX organisation — list users, invite new members, update roles, and remove access.
+
+**Base path:** `/v1/users`
+
+## List users
+
+Retrieve all members of the authenticated organisation.
+
+```bash
+curl https://api.sdx.dev/v1/users \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Query parameters:**
+
+| Parameter | Type | Description |
+|---|---|---|
+| `filter[role]` | string | Filter by role: `owner`, `admin`, `viewer` |
+| `filter[status]` | string | Filter by status: `active`, `invited`, `deactivated` |
+| `page` | integer | Page number |
+| `per_page` | integer | Results per page |
+
+**Response:**
+
+```json
+{
+  "data": [
+    {
+      "id": "usr_a1b2c3d4",
+      "email": "jane.doe@example.com",
+      "name": "Jane Doe",
+      "role": "owner",
+      "status": "active",
+      "last_login_at": "2026-01-19T08:45:00Z",
+      "created_at": "2025-03-10T12:00:00Z"
+    },
+    {
+      "id": "usr_e5f6g7h8",
+      "email": "john.smith@example.com",
+      "name": "John Smith",
+      "role": "admin",
+      "status": "active",
+      "last_login_at": "2026-01-18T16:30:00Z",
+      "created_at": "2025-04-22T09:00:00Z"
+    },
+    {
+      "id": "usr_i9j0k1l2",
+      "email": "alex.chen@example.com",
+      "name": null,
+      "role": "viewer",
+      "status": "invited",
+      "last_login_at": null,
+      "created_at": "2026-01-15T11:00:00Z"
+    }
+  ],
+  "meta": { "total": 3, "page": 1, "per_page": 50, "total_pages": 1 }
+}
+```
+
+## Get a user
+
+```bash
+curl https://api.sdx.dev/v1/users/usr_a1b2c3d4 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "id": "usr_a1b2c3d4",
+    "email": "jane.doe@example.com",
+    "name": "Jane Doe",
+    "role": "owner",
+    "status": "active",
+    "mfa_enabled": true,
+    "sso_provider": "google",
+    "property_access": "all",
+    "last_login_at": "2026-01-19T08:45:00Z",
+    "created_at": "2025-03-10T12:00:00Z"
+  }
+}
+```
+
+## Invite a user
+
+```bash
+curl -X POST https://api.sdx.dev/v1/users/invite \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "new.member@example.com",
+    "role": "admin",
+    "property_access": "all"
+  }'
+```
+
+**Response (201 Created):**
+
+```json
+{
+  "data": {
+    "id": "usr_m3n4o5p6",
+    "email": "new.member@example.com",
+    "role": "admin",
+    "status": "invited",
+    "property_access": "all",
+    "invite_expires_at": "2026-02-19T10:00:00Z",
+    "created_at": "2026-01-20T10:00:00Z"
+  }
+}
+```
+
+**Required fields:** `email`, `role`
+
+**Property access options:**
+- `"all"` — Access to all properties (current and future)
+- Array of property IDs — Access restricted to specific properties, e.g. `["prp_8xk2m9v4", "prp_5yt8n3j2"]`
+
+## Update a user's role
+
+```bash
+curl -X PATCH https://api.sdx.dev/v1/users/usr_e5f6g7h8 \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "role": "viewer",
+    "property_access": ["prp_8xk2m9v4"]
+  }'
+```
+
+**Response (200 OK):** Returns the full updated user object.
+
+**Restrictions:**
+- Only users with the `owner` role can change other users' roles.
+- You cannot demote yourself from `owner` if you are the last owner in the organisation.
+
+## Deactivate a user
+
+Deactivating a user immediately revokes their access without deleting their historical activity log.
+
+```bash
+curl -X POST https://api.sdx.dev/v1/users/usr_e5f6g7h8/deactivate \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response (200 OK):**
+
+```json
+{
+  "data": {
+    "id": "usr_e5f6g7h8",
+    "status": "deactivated",
+    "deactivated_at": "2026-01-20T15:00:00Z"
+  }
+}
+```
+
+## Reactivate a user
+
+```bash
+curl -X POST https://api.sdx.dev/v1/users/usr_e5f6g7h8/reactivate \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Required scopes
+
+| Action | Scope |
+|---|---|
+| List / Get | `users:read` |
+| Invite / Update / Deactivate / Reactivate | `users:write` |
+
+## Next steps
+
+- [Authentication](/docs/api/authentication)
+- [Properties endpoint](/docs/api/endpoints/properties)
+- [Creating an account](/docs/getting-started/creating-an-account)

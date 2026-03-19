@@ -1,0 +1,78 @@
+---
+title: "OpenAPI Specification"
+description: "Interactive API documentation powered by the SDX OpenAPI 3.1 specification."
+category: "API Reference"
+order: 6
+audience:
+  - integrator
+---
+
+# OpenAPI Specification
+
+SDX publishes a complete OpenAPI 3.1 specification that describes every endpoint, request parameter, and response schema. You can use this spec to generate client libraries, validate requests, and explore the API interactively.
+
+## Specification URL
+
+The latest specification is always available at:
+
+```
+https://api.sdx.dev/v1/openapi.json
+```
+
+A YAML version is also available:
+
+```
+https://api.sdx.dev/v1/openapi.yaml
+```
+
+## Interactive documentation
+
+The interactive API explorer is hosted at:
+
+```
+https://sdx.dev/developers/api-explorer
+```
+
+The explorer is powered by Swagger UI and lets you:
+
+- Browse all endpoints grouped by resource
+- View request and response schemas with examples
+- Try out requests directly from your browser using your API key
+- Download the specification file for local use
+
+## Using the spec with code generators
+
+You can generate a client library in your preferred language using [OpenAPI Generator](https://openapi-generator.tech/):
+
+```bash
+npx @openapitools/openapi-generator-cli generate \
+  -i https://api.sdx.dev/v1/openapi.json \
+  -g python \
+  -o ./sdx-python-client
+```
+
+Supported language targets include Python, JavaScript/TypeScript, Ruby, Java, Go, C#, and many more.
+
+## Spec versioning
+
+The OpenAPI spec is versioned alongside the API. The `info.version` field matches the API version. When non-breaking changes are made (new optional fields, new endpoints), the spec is updated in place. Breaking changes result in a new API version and a new spec URL.
+
+## Schema conventions
+
+The SDX OpenAPI spec follows these conventions:
+
+- **Resource IDs** — All IDs are prefixed strings (e.g. `prp_`, `bld_`, `mtr_`, `rdg_`).
+- **Timestamps** — All timestamps are ISO 8601 in UTC (`2026-01-15T10:30:00Z`).
+- **Enums** — Enumerations are documented inline with descriptions for each value.
+- **Pagination** — List endpoints include `page` and `per_page` query parameters and return `meta` pagination objects.
+- **Error responses** — All error responses reference the shared `Error` schema.
+
+## Changelog
+
+API changes are published to the [Developer Changelog](https://sdx.dev/developers/changelog) with each release. Each entry describes what changed, whether it is breaking, and any migration guidance.
+
+## Next steps
+
+- [API endpoints — Properties](/docs/api/endpoints/properties)
+- [Authentication](/docs/api/authentication)
+- [Integration quickstart](/docs/integrations/quickstart)

@@ -1,0 +1,281 @@
+---
+title: "Code Examples"
+description: "Complete code examples for integrating with the SDX API in Python, JavaScript, cURL, and Ruby."
+category: "Integration Guide"
+order: 6
+audience:
+  - integrator
+---
+
+# Code Examples
+
+Working examples for common SDX API operations in Python, JavaScript (Node.js), Ruby, and cURL.
+
+## Configuration
+
+All examples use the sandbox environment. Replace `sdx_test_YOUR_KEY` with your actual sandbox API key, and change the base URL to `https://api.sdx.dev/v1` for production.
+
+## Create a property and building
+
+### Python
+
+```python
+import requests
+
+BASE_URL = "https://sandbox.api.sdx.dev/v1"
+HEADERS = {
+    "Authorization": "Bearer sdx_test_YOUR_KEY",
+    "Content-Type": "application/json",
+}
+
+# Create property
+property_resp = requests.post(f"{BASE_URL}/properties", headers=HEADERS, json={
+    "name": "100 King Street",
+    "address": {
+        "street": "100 King Street",
+        "city": "Melbourne",
+        "state": "VIC",
+        "postal_code": "3000",
+        "country": "AU",
+    },
+    "type": "office",
+})
+property_id = property_resp.json()["data"]["id"]
+
+# Create building
+building_resp = requests.post(
+    f"{BASE_URL}/properties/{property_id}/buildings",
+    headers=HEADERS,
+    json={
+        "name": "Main Tower",
+        "primary_use_type": "office",
+        "gfa_m2": 25000,
+        "year_built": 2015,
+        "floors": 20,
+    },
+)
+building_id = building_resp.json()["data"]["id"]
+print(f"Created building: {building_id}")
+```
+
+### JavaScript (Node.js)
+
+```javascript
+const BASE_URL = "https://sandbox.api.sdx.dev/v1";
+const HEADERS = {
+  Authorization: "Bearer sdx_test_YOUR_KEY",
+  "Content-Type": "application/json",
+};
+
+async function createPropertyAndBuilding() {
+  const propertyRes = await fetch(`${BASE_URL}/properties`, {
+    method: "POST",
+    headers: HEADERS,
+    body: JSON.stringify({
+      name: "100 King Street",
+      address: {
+        street: "100 King Street",
+        city: "Melbourne",
+        state: "VIC",
+        postal_code: "3000",
+        country: "AU",
+      },
+      type: "office",
+    }),
+  });
+  const { data: property } = await propertyRes.json();
+
+  const buildingRes = await fetch(
+    `${BASE_URL}/properties/${property.id}/buildings`,
+    {
+      method: "POST",
+      headers: HEADERS,
+      body: JSON.stringify({
+        name: "Main Tower",
+        primary_use_type: "office",
+        gfa_m2: 25000,
+        year_built: 2015,
+        floors: 20,
+      }),
+    }
+  );
+  const { data: building } = await buildingRes.json();
+  console.log(`Created building: ${building.id}`);
+}
+
+createPropertyAndBuilding();
+```
+
+### Ruby
+
+```ruby
+require "net/http"
+require "json"
+require "uri"
+
+BASE_URL = "https://sandbox.api.sdx.dev/v1"
+HEADERS = {
+  "Authorization" => "Bearer sdx_test_YOUR_KEY",
+  "Content-Type" => "application/json",
+}
+
+def post(path, body)
+  uri = URI("#{BASE_URL}#{path}")
+  req = Net::HTTP::Post.new(uri, HEADERS)
+  req.body = body.to_json
+  res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(req) }
+  JSON.parse(res.body)
+end
+
+property = post("/properties", {
+  name: "100 King Street",
+  address: { street: "100 King Street", city: "Melbourne", state: "VIC", postal_code: "3000", country: "AU" },
+  type: "office",
+})
+property_id = property["data"]["id"]
+
+building = post("/properties/#{property_id}/buildings", {
+  name: "Main Tower",
+  primary_use_type: "office",
+  gfa_m2: 25000,
+  year_built: 2015,
+  floors: 20,
+})
+puts "Created building: #{building['data']['id']}"
+```
+
+## Submit meter readings in batch
+
+### Python
+
+```python
+# Create meter
+meter_resp = requests.post(
+    f"{BASE_URL}/buildings/{building_id}/meters",
+    headers=HEADERS,
+    json={"type": "electricity", "name": "Grid Supply", "unit": "kWh"},
+)
+meter_id = meter_resp.json()["data"]["id"]
+
+# Submit 12 months of readings
+readings = []
+for month in range(1, 13):
+    import calendar
+    last_day = calendar.monthrange(2025, month)[1]
+    readings.append({
+        "start_date": f"2025-{month:02d}-01",
+        "end_date": f"2025-{month:02d}-{last_day:02d}",
+        "consumption": 80000 + (month * 2000),
+    })
+
+batch_resp = requests.post(
+    f"{BASE_URL}/buildings/{building_id}/meters/{meter_id}/readings/batch",
+    headers=HEADERS,
+    json={"readings": readings},
+)
+result = batch_resp.json()["data"]
+print(f"Accepted: {result['accepted']}, Rejected: {result['rejected']}")
+```
+
+### cURL
+
+```bash
+curl -X POST "https://sandbox.api.sdx.dev/v1/buildings/bld_xyz/meters/mtr_abc/readings/batch" \
+  -H "Authorization: Bearer sdx_test_YOUR_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "readings": [
+      {"start_date": "2025-01-01", "end_date": "2025-01-31", "consumption": 82000},
+      {"start_date": "2025-02-01", "end_date": "2025-02-28", "consumption": 84000},
+      {"start_date": "2025-03-01", "end_date": "2025-03-31", "consumption": 86000}
+    ]
+  }'
+```
+
+## Retrieve benchmark scores
+
+### Python
+
+```python
+benchmarks = requests.get(
+    f"{BASE_URL}/buildings/{building_id}/benchmarks",
+    headers=HEADERS,
+).json()["data"]
+
+print(f"EUI: {benchmarks['eui_kwh_m2']} kWh/m2")
+for score in benchmarks["scores"]:
+    if score.get("score"):
+        print(f"{score['standard']}: {score['score']}")
+    elif score.get("grade"):
+        print(f"{score['standard']}: {score['grade']}")
+```
+
+### cURL
+
+```bash
+curl https://sandbox.api.sdx.dev/v1/buildings/bld_xyz/benchmarks \
+  -H "Authorization: Bearer sdx_test_YOUR_KEY"
+```
+
+## Webhook signature verification
+
+### Python
+
+```python
+import hmac
+import hashlib
+
+def verify_sdx_webhook(payload_body: bytes, signature: str, secret: str) -> bool:
+    expected = hmac.new(
+        secret.encode("utf-8"),
+        payload_body,
+        hashlib.sha256,
+    ).hexdigest()
+    return hmac.compare_digest(f"sha256={expected}", signature)
+
+# In your webhook handler:
+# is_valid = verify_sdx_webhook(request.body, request.headers["X-SDX-Signature"], WEBHOOK_SECRET)
+```
+
+### JavaScript
+
+```javascript
+const crypto = require("crypto");
+
+function verifySdxWebhook(payloadBody, signature, secret) {
+  const expected = crypto
+    .createHmac("sha256", secret)
+    .update(payloadBody)
+    .digest("hex");
+  return crypto.timingSafeEqual(
+    Buffer.from(`sha256=${expected}`),
+    Buffer.from(signature)
+  );
+}
+```
+
+## Error handling
+
+### Python
+
+```python
+resp = requests.post(f"{BASE_URL}/buildings/bld_xyz/meters/mtr_abc/readings",
+    headers=HEADERS,
+    json={"start_date": "2025-01-01", "end_date": "2025-01-31", "consumption": -100},
+)
+
+if resp.status_code == 422:
+    error = resp.json()["error"]
+    print(f"Validation error: {error['message']}")
+    for detail in error.get("details", []):
+        print(f"  - {detail['field']}: {detail['issue']}")
+elif resp.status_code == 429:
+    retry_after = int(resp.headers.get("Retry-After", 1))
+    print(f"Rate limited. Retry after {retry_after} seconds.")
+```
+
+## Next steps
+
+- [API reference](/docs/api)
+- [Sandbox environment](/docs/integrations/sandbox-environment)
+- [Webhooks](/docs/api/webhooks)

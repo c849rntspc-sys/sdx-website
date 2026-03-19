@@ -1,0 +1,199 @@
+---
+title: "Properties Endpoint"
+description: "Create, read, update, and archive properties via the SDX API."
+category: "API Endpoints"
+order: 1
+audience:
+  - integrator
+---
+
+# Properties Endpoint
+
+Properties represent real-estate assets at a physical address. Each property contains one or more [buildings](/docs/api/endpoints/buildings).
+
+**Base path:** `/v1/properties`
+
+## List properties
+
+Retrieve all properties in the authenticated organisation.
+
+```bash
+curl https://api.sdx.dev/v1/properties \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Query parameters:**
+
+| Parameter | Type | Description |
+|---|---|---|
+| `page` | integer | Page number (default: 1) |
+| `per_page` | integer | Results per page (default: 50, max: 200) |
+| `filter[type]` | string | Filter by property type (e.g. `office`, `retail`) |
+| `filter[country]` | string | ISO 3166-1 alpha-2 country code |
+| `sort` | string | Sort field. Prefix with `-` for descending. Options: `name`, `created_at`, `updated_at` |
+
+**Response:**
+
+```json
+{
+  "data": [
+    {
+      "id": "prp_8xk2m9v4",
+      "name": "One Market Plaza",
+      "address": {
+        "street": "1 Market Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94105",
+        "country": "US"
+      },
+      "type": "office",
+      "internal_ref": "FUND-A-042",
+      "status": "active",
+      "building_count": 2,
+      "total_gfa_m2": 85000,
+      "created_at": "2025-06-15T09:00:00Z",
+      "updated_at": "2026-01-10T14:22:00Z"
+    }
+  ],
+  "meta": {
+    "total": 47,
+    "page": 1,
+    "per_page": 50,
+    "total_pages": 1
+  }
+}
+```
+
+## Get a property
+
+```bash
+curl https://api.sdx.dev/v1/properties/prp_8xk2m9v4 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "id": "prp_8xk2m9v4",
+    "name": "One Market Plaza",
+    "address": {
+      "street": "1 Market Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "postal_code": "94105",
+      "country": "US",
+      "latitude": 37.7937,
+      "longitude": -122.3950
+    },
+    "type": "office",
+    "internal_ref": "FUND-A-042",
+    "status": "active",
+    "building_count": 2,
+    "total_gfa_m2": 85000,
+    "buildings": [
+      { "id": "bld_3nf7p2q1", "name": "Tower A" },
+      { "id": "bld_9mk4r8w6", "name": "Tower B" }
+    ],
+    "created_at": "2025-06-15T09:00:00Z",
+    "updated_at": "2026-01-10T14:22:00Z"
+  }
+}
+```
+
+## Create a property
+
+```bash
+curl -X POST https://api.sdx.dev/v1/properties \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Riverside Office Park",
+    "address": {
+      "street": "500 Thames Road",
+      "city": "London",
+      "postal_code": "SE1 2AA",
+      "country": "GB"
+    },
+    "type": "office",
+    "internal_ref": "UK-FUND-018"
+  }'
+```
+
+**Response (201 Created):**
+
+```json
+{
+  "data": {
+    "id": "prp_5yt8n3j2",
+    "name": "Riverside Office Park",
+    "address": {
+      "street": "500 Thames Road",
+      "city": "London",
+      "postal_code": "SE1 2AA",
+      "country": "GB",
+      "latitude": 51.5014,
+      "longitude": -0.1190
+    },
+    "type": "office",
+    "internal_ref": "UK-FUND-018",
+    "status": "active",
+    "building_count": 0,
+    "total_gfa_m2": 0,
+    "created_at": "2026-01-20T11:00:00Z",
+    "updated_at": "2026-01-20T11:00:00Z"
+  }
+}
+```
+
+**Required fields:** `name`, `address.street`, `address.city`, `address.country`, `type`
+
+## Update a property
+
+```bash
+curl -X PATCH https://api.sdx.dev/v1/properties/prp_5yt8n3j2 \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Riverside Office Park (Phase 2)",
+    "internal_ref": "UK-FUND-018-P2"
+  }'
+```
+
+**Response (200 OK):** Returns the full updated property object.
+
+## Archive a property
+
+Archiving removes the property from active dashboards but preserves all historical data.
+
+```bash
+curl -X POST https://api.sdx.dev/v1/properties/prp_5yt8n3j2/archive \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response (200 OK):**
+
+```json
+{
+  "data": {
+    "id": "prp_5yt8n3j2",
+    "status": "archived",
+    "archived_at": "2026-03-01T09:00:00Z"
+  }
+}
+```
+
+## Required scopes
+
+| Action | Scope |
+|---|---|
+| List / Get | `properties:read` |
+| Create / Update / Archive | `properties:write` |
+
+## Next steps
+
+- [Buildings endpoint](/docs/api/endpoints/buildings)
+- [Meters endpoint](/docs/api/endpoints/meters)
+- [Authentication](/docs/api/authentication)

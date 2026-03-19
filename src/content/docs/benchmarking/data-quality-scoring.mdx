@@ -1,0 +1,91 @@
+---
+title: "Data Quality Scoring"
+description: "How SDX scores data quality across completeness, coverage, and freshness — and why it matters for benchmarks and dividends."
+category: "Benchmarking"
+order: 3
+audience:
+  - contributor
+---
+
+# Data Quality Scoring
+
+SDX assigns every building a Data Quality Grade from A to F. This grade reflects how complete, comprehensive, and current your utility data is. Higher grades produce more reliable benchmarks and increase your [Data Dividend](/docs/data-dividend).
+
+## Three dimensions
+
+Data quality is evaluated across three independent dimensions, each scored from 0 to 100.
+
+### 1. Completeness
+
+Completeness measures whether all expected meter readings have been received for the reporting period.
+
+- **What counts** — A reading is expected for every active meter for every month (or billing period) in the trailing 12-month window.
+- **Gaps** — Missing months reduce the completeness score proportionally.
+- **Example** — A building with 12 of 12 monthly electricity readings and 10 of 12 gas readings has a completeness score of (12 + 10) / (12 + 12) = 91.7%.
+
+### 2. Coverage
+
+Coverage measures whether submitted meters account for the building's total consumption. SDX distinguishes between whole-building and partial metering.
+
+- **Whole-building** — All energy sources flowing into the building are metered. This is the gold standard.
+- **Partial** — Only some meters are present (e.g. electricity but not gas). Benchmarks can still be calculated but are flagged as partial.
+- **Scoring** — Coverage is scored based on the percentage of expected utility types that have at least one active meter.
+
+| Scenario | Coverage score |
+|---|---|
+| All utility types metered | 100 |
+| Electricity + gas, missing water | 67 |
+| Electricity only | 33 |
+
+### 3. Freshness
+
+Freshness measures how recently the most recent reading was received.
+
+| Last reading age | Freshness score |
+|---|---|
+| Within 30 days | 100 |
+| 31–60 days | 80 |
+| 61–90 days | 60 |
+| 91–180 days | 40 |
+| 181–365 days | 20 |
+| Over 365 days | 0 |
+
+## Composite grade
+
+The three dimension scores are combined into a weighted composite:
+
+**Composite = (0.50 x Completeness) + (0.30 x Coverage) + (0.20 x Freshness)**
+
+The composite score maps to a letter grade:
+
+| Composite score | Grade |
+|---|---|
+| 90–100 | **A** |
+| 75–89 | **B** |
+| 60–74 | **C** |
+| 40–59 | **D** |
+| 20–39 | **E** |
+| 0–19 | **F** |
+
+## Where grades appear
+
+- **Building detail page** — Each building shows its letter grade alongside the three dimension scores.
+- **Portfolio dashboard** — The aggregate grade is the area-weighted average of all buildings.
+- **Benchmark scores** — Buildings with a grade of D or below display a warning that results may be unreliable.
+- **Data Dividend** — Grade is a direct input to the dividend formula. See [How It's Calculated](/docs/data-dividend/how-its-calculated).
+
+## Improving your grade
+
+- **Fill gaps** — Upload historical data for missing months to raise completeness.
+- **Add meters** — Register gas, water, and district energy meters — not just electricity — to raise coverage.
+- **Automate** — Connect automated feeds so freshness stays high without manual effort. See [Submitting Data](/docs/getting-started/submitting-data).
+
+## Grade history
+
+SDX stores a monthly snapshot of every building's data quality grade. You can view the grade trend on the building detail page under **Data Quality > History**. This helps you track improvement over time and diagnose any dips.
+
+## Next steps
+
+- [Generate reports and exports](/docs/benchmarking/reports-and-exports)
+- [Understand your Data Dividend](/docs/data-dividend)
+- [Explore compliance frameworks](/docs/benchmarking/compliance-frameworks)

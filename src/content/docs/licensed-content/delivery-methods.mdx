@@ -1,0 +1,127 @@
+---
+title: "Delivery Methods"
+description: "How SDX licensed content is delivered — API, SFTP, and bulk download options."
+category: "Licensed Content"
+order: 4
+audience:
+  - buyer
+---
+
+# Delivery Methods
+
+SDX offers three ways to receive licensed content. Choose the method that fits your infrastructure and workflow.
+
+## API delivery
+
+Access licensed content programmatically through the SDX Licensed Content API.
+
+**Base URL:** `https://api.sdx.dev/v1/licensed-content`
+
+### Authentication
+
+Licensed content API access uses the same authentication mechanism as the main SDX API. Your buyer account receives an API key with the `licensed_content:read` scope.
+
+### List your subscriptions
+
+```bash
+curl https://api.sdx.dev/v1/licensed-content/subscriptions \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+### Retrieve a product
+
+```bash
+curl "https://api.sdx.dev/v1/licensed-content/products/sdx_market_benchmark?period=2025-Q4&format=json" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Query parameters:**
+
+| Parameter | Type | Description |
+|---|---|---|
+| `period` | string | Reporting quarter (e.g. `2025-Q4`) |
+| `format` | string | `json`, `csv`, or `parquet` |
+| `segments` | string | Comma-separated segment filters (e.g. `office,US,large`) |
+
+### Webhooks for new releases
+
+Subscribe to the `licensed_content.published` webhook event to be notified when a new quarterly release is available:
+
+```bash
+curl -X POST https://api.sdx.dev/v1/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://yourapp.com/webhooks/sdx-content",
+    "events": ["licensed_content.published"]
+  }'
+```
+
+## SFTP delivery
+
+For buyers who prefer file-based delivery, SDX can push content to your SFTP server on a recurring schedule.
+
+### Setup
+
+1. Provide your SFTP server hostname, port, and directory path.
+2. Upload your SSH public key to the SDX buyer portal, or request SDX to generate a key pair.
+3. Select the products, formats, and delivery schedule.
+
+### Delivery schedule
+
+| Option | Description |
+|---|---|
+| **Quarterly** | Files delivered within 5 business days of each quarter close |
+| **Monthly** | Available for products with monthly granularity |
+| **On release** | Files pushed as soon as a new version is published |
+
+### File naming convention
+
+Files are named with a consistent pattern:
+
+```
+sdx_{product}_{period}_{schema_version}.{format}.gz
+```
+
+Example: `sdx_market_benchmark_2025Q4_v2.json.gz`
+
+### Delivery confirmation
+
+SDX sends a manifest file alongside each delivery listing the files, their checksums (SHA-256), and sizes. A notification email is also sent to the configured recipients.
+
+## Bulk download
+
+Download licensed content directly from the SDX buyer portal.
+
+1. Log into [sdx.dev/buyer](https://sdx.dev/buyer).
+2. Navigate to **Licensed Content > Downloads**.
+3. Select the product, period, and format.
+4. Click **Download**.
+
+Files are available for 90 days from the release date. Archived releases can be requested from SDX support.
+
+### Download sizes
+
+| Product | Typical size (compressed) |
+|---|---|
+| Market benchmark (JSON) | 2–5 MB |
+| Market index (CSV) | < 1 MB |
+| Anonymised building dataset (Parquet) | 50–200 MB |
+| Emission factor dataset (CSV) | 3 MB |
+
+## Delivery SLA
+
+SDX commits to the following service levels for licensed content delivery:
+
+| Metric | Target |
+|---|---|
+| **Publication date** | Within 15 business days of quarter close |
+| **API availability** | 99.9% uptime |
+| **SFTP delivery** | Within 24 hours of publication |
+| **Support response** | Within 1 business day |
+
+## Next steps
+
+- [Licensing terms](/docs/licensed-content/licensing-terms)
+- [Data formats](/docs/licensed-content/data-formats)
+- [Available products](/docs/licensed-content/available-products)

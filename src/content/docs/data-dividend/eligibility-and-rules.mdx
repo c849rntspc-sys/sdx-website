@@ -1,0 +1,87 @@
+---
+title: "Eligibility & Rules"
+description: "Who qualifies for the SDX Data Dividend, the one-per-building rule, and data freshness requirements."
+category: "Data Dividend"
+order: 3
+audience:
+  - contributor
+---
+
+# Eligibility & Rules
+
+The Data Dividend is designed to reward genuine, ongoing data contributions. This page outlines the requirements a building must meet and the rules that govern dividend distribution.
+
+## Eligibility criteria
+
+A building qualifies for the Data Dividend when it meets all of the following conditions:
+
+### 1. Active organisation
+
+The building must belong to an organisation with an active SDX account. Archived organisations are not eligible.
+
+### 2. Verified ownership
+
+The building's owner (or their authorised representative) must be identified on the SDX platform. This is verified through the organisation's account setup and can be confirmed via domain verification, legal entity matching, or manual review by SDX support.
+
+### 3. Minimum data quality grade
+
+The building must have a [Data Quality Grade](/docs/benchmarking/data-quality-scoring) of E or above. Buildings with a grade of F are excluded from the dividend pool entirely.
+
+| Grade | Eligible? |
+|---|---|
+| A | Yes |
+| B | Yes |
+| C | Yes |
+| D | Yes |
+| E | Yes (minimum multiplier) |
+| F | No |
+
+### 4. Data freshness
+
+The building must have at least one meter reading within the last 180 days. Buildings with no recent data are considered dormant and are excluded until new data arrives.
+
+### 5. Minimum floor area
+
+The building must have a gross floor area of at least 100 m² (approximately 1,076 sq ft). This excludes trivially small entries that could be used to inflate building counts.
+
+## The one-per-building rule
+
+**Each building earns one dividend per underlying owner, regardless of how many software platforms submit data for it.**
+
+This is a foundational principle of the Data Dividend. It exists to prevent gaming — for example, an owner instructing five different ESG platforms to each push data for the same building in hopes of receiving five payouts.
+
+### How deduplication works
+
+SDX identifies unique buildings by a combination of:
+
+- Normalised street address
+- Country and postal code
+- Owner organisation identity
+
+If two organisations claim the same building at the same address, SDX requires ownership verification before either can receive a dividend. The verified owner (or their designated representative) receives the single dividend.
+
+### Third-party integrators
+
+Software platforms that submit data on behalf of owners via the [API](/docs/api) do not receive the dividend themselves. The dividend flows to the building's owner organisation. Integrators may reference the dividend in their value proposition to owners but cannot claim it on the owner's behalf unless explicitly authorised via a power-of-attorney arrangement registered with SDX.
+
+## Service providers
+
+Service providers (energy consultants, property managers, sustainability advisors) who submit data on behalf of owners are treated the same as integrators: the dividend goes to the building owner, not the service provider.
+
+## Dividend opt-out
+
+Organisations can opt out of the Data Dividend under **Settings > Data Dividend > Opt Out**. Opted-out buildings are excluded from the pool and do not receive payouts. Their data still contributes to aggregate benchmarks unless the organisation also opts out of data sharing entirely.
+
+## Reinstatement
+
+Buildings that fall below eligibility thresholds (e.g. data goes stale) are automatically removed from the dividend pool. They are reinstated in the next quarterly cycle once they meet all criteria again. There is no penalty or waiting period.
+
+## Changes to rules
+
+Eligibility rules and distribution methodology may be updated by the SDX board. Changes are announced at least 90 days before taking effect and are communicated via email to all organisation Owners and Admins.
+
+## Next steps
+
+- [How the dividend is calculated](/docs/data-dividend/how-its-calculated)
+- [Payment schedule](/docs/data-dividend/payment-schedule)
+- [Improve your data quality grade](/docs/benchmarking/data-quality-scoring)

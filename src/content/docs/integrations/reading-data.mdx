@@ -1,0 +1,119 @@
+---
+title: "Reading Data"
+description: "Read benchmark scores, data quality grades, and compliance reports from SDX on behalf of building owners."
+category: "Integration Guide"
+order: 3
+audience:
+  - integrator
+---
+
+# Reading Data
+
+This guide covers how to read data from SDX on behalf of building owners — retrieving benchmark scores, data quality grades, meter readings, and reports.
+
+## Authentication for reading
+
+When reading data that belongs to a specific owner, you must authenticate using one of:
+
+- **API key** — If your organisation owns the data directly.
+- **OAuth2** — If you are reading data on behalf of another user. The user must have granted your application the appropriate scopes. See [Authentication](/docs/api/authentication).
+
+For server-to-server integrations where the building owner has registered your platform as an authorised integrator, use an API key with delegated access. The owner grants delegated access under **Settings > Integrations > Authorise Platform**.
+
+## What you can read
+
+### Properties and buildings
+
+Retrieve the owner's property portfolio and building details.
+
+```bash
+curl https://api.sdx.dev/v1/properties \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN"
+```
+
+See [Properties endpoint](/docs/api/endpoints/properties) and [Buildings endpoint](/docs/api/endpoints/buildings).
+
+### Meter readings
+
+Read historical meter data for any building.
+
+```bash
+curl "https://api.sdx.dev/v1/buildings/bld_3nf7p2q1/meters/mtr_e1f2g3h4/readings?start_date=2025-01-01&end_date=2025-12-31" \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN"
+```
+
+See [Meters endpoint](/docs/api/endpoints/meters).
+
+### Benchmark scores
+
+Retrieve current and historical benchmark scores across all applicable standards.
+
+```bash
+curl https://api.sdx.dev/v1/buildings/bld_3nf7p2q1/benchmarks \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN"
+```
+
+See [Benchmarks endpoint](/docs/api/endpoints/benchmarks).
+
+### Data quality grades
+
+Data quality information is included in the building and benchmark responses. The `data_quality_grade` field on the building object gives the current letter grade. The benchmark response includes the grade alongside the scores.
+
+### Reports
+
+Generate and download compliance reports programmatically.
+
+```bash
+curl -X POST https://api.sdx.dev/v1/reports \
+  -H "Authorization: Bearer OWNER_SCOPED_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type": "benchmark_certificate",
+    "building_id": "bld_3nf7p2q1",
+    "format": "pdf",
+    "reporting_period": { "start": "2025-01-01", "end": "2025-12-31" }
+  }'
+```
+
+See [Reports endpoint](/docs/api/endpoints/reports).
+
+## Efficient reading patterns
+
+### Use webhooks instead of polling
+
+Rather than polling the benchmarks endpoint after every data submission, subscribe to the `benchmark.updated` webhook event. SDX will push a notification to your endpoint whenever scores change.
+
+```bash
+curl -X POST https://api.sdx.dev/v1/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://yourapp.com/webhooks/sdx",
+    "events": ["benchmark.updated", "data_quality.changed"]
+  }'
+```
+
+### Use ETags for caching
+
+Building and benchmark responses include an `ETag` header. Cache the response and send `If-None-Match` on subsequent requests. If nothing has changed, the API returns `304 Not Modified` with no body.
+
+### Request only what you need
+
+Use `filter` and field selection parameters to reduce response sizes:
+
+```bash
+curl "https://api.sdx.dev/v1/properties?filter[type]=office&fields=id,name,total_gfa_m2" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Owner consent management
+
+Building owners can revoke your read access at any time from their SDX account. If access is revoked, your API calls will return `403 Forbidden` with error code `insufficient_scope`.
+
+Your application should handle this gracefully — display a message explaining that the owner needs to re-authorise access, and provide a link to initiate the OAuth2 flow again.
+
+## Next steps
+
+- [Writing data on behalf of owners](/docs/integrations/writing-data)
+- [Webhooks](/docs/api/webhooks)
+- [Code examples](/docs/integrations/code-examples)

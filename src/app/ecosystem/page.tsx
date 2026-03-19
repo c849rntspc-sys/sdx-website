@@ -12,7 +12,7 @@ import { Minus, Check } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Ecosystem',
-  description: 'Build on SDX. Open APIs, usage-based pricing, and equal access for all ecosystem partners.',
+  description: 'Build on SDX. Open APIs, free integration, and equal access for all ecosystem partners.',
 };
 
 const apiFeatures = [
@@ -23,8 +23,8 @@ const apiFeatures = [
   },
   {
     icon: 'Key',
-    title: 'Usage-Based Pricing',
-    description: 'Pay per API call. No licensing minimums, no lock-in. Scale up or down with your needs.',
+    title: 'Free to Integrate',
+    description: 'Read and write data on behalf of your owner clients at zero cost. No licensing fees, no per-call charges, no lock-in.',
   },
   {
     icon: 'Gauge',
@@ -115,8 +115,8 @@ export default function EcosystemPage() {
 
       <FeatureGrid
         eyebrow="Open API Access"
-        title="Usage-based API pricing"
-        subtitle="Published endpoints, equal terms, transparent pricing. No licensing minimums."
+        title="Free integration for everyone"
+        subtitle="Published endpoints, equal terms, zero cost. Read and write data on behalf of owners at no charge."
         features={apiFeatures}
         columns={3}
       />
@@ -160,7 +160,7 @@ export default function EcosystemPage() {
 
       <CTABanner
         title="Build on SDX"
-        subtitle="Join the ecosystem. Access standardized benchmark data via open APIs with usage-based pricing."
+        subtitle="Join the ecosystem. Integrate with SDX for free. Access standardized benchmark data via open APIs."
         cta="Partner with SDX"
         href="/join"
       />

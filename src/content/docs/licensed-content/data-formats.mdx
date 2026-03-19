@@ -1,0 +1,155 @@
+---
+title: "Data Formats"
+description: "Schema definitions and format specifications for SDX licensed content — JSON, CSV, and Parquet."
+category: "Licensed Content"
+order: 3
+audience:
+  - buyer
+---
+
+# Data Formats
+
+SDX licensed content is available in three formats. Choose the format that best fits your data infrastructure.
+
+## Supported formats
+
+| Format | Best for | Compression |
+|---|---|---|
+| **JSON** | APIs, web applications, programmatic consumption | gzip |
+| **CSV** | Spreadsheets, SQL imports, simple analysis | gzip |
+| **Parquet** | Data warehouses, big data pipelines, analytics | Snappy (built-in) |
+
+All formats contain the same data — only the encoding differs.
+
+## Schema: Benchmark subscription
+
+### JSON
+
+```json
+{
+  "product": "sdx_market_benchmark",
+  "period": "2025-Q4",
+  "generated_at": "2026-01-15T00:00:00Z",
+  "segments": [
+    {
+      "use_type": "office",
+      "geography": "US",
+      "size_band": "large",
+      "building_count": 3842,
+      "metrics": {
+        "eui_kwh_m2": {
+          "min": 62.1,
+          "p25": 142.3,
+          "median": 189.7,
+          "p75": 248.5,
+          "max": 520.0
+        },
+        "carbon_kgco2e_m2": {
+          "min": 18.4,
+          "p25": 48.2,
+          "median": 65.1,
+          "p75": 89.3,
+          "max": 198.0
+        },
+        "water_litres_m2": {
+          "min": 120,
+          "p25": 380,
+          "median": 520,
+          "p75": 710,
+          "max": 1850
+        }
+      }
+    }
+  ]
+}
+```
+
+### CSV
+
+```
+use_type,geography,size_band,building_count,eui_min,eui_p25,eui_median,eui_p75,eui_max,carbon_min,carbon_p25,carbon_median,carbon_p75,carbon_max
+office,US,large,3842,62.1,142.3,189.7,248.5,520.0,18.4,48.2,65.1,89.3,198.0
+```
+
+The CSV header row is always present. Fields are comma-separated, strings are quoted where they contain commas.
+
+## Schema: Market index
+
+### JSON
+
+```json
+{
+  "product": "sdx_global_index",
+  "index_type": "eui_kwh_m2",
+  "base_period": "2020-Q1",
+  "base_value": 100.0,
+  "data_points": [
+    { "period": "2020-Q1", "value": 100.0, "building_count": 45000 },
+    { "period": "2020-Q2", "value": 98.2, "building_count": 46200 },
+    { "period": "2025-Q4", "value": 87.4, "building_count": 112000 }
+  ]
+}
+```
+
+### Parquet schema
+
+| Column | Type | Description |
+|---|---|---|
+| `period` | string | Quarter identifier (YYYY-QN) |
+| `value` | float64 | Index value (base = 100.0) |
+| `building_count` | int64 | Number of buildings in the calculation |
+| `index_type` | string | Metric (eui_kwh_m2, carbon_kgco2e_m2, water_litres_m2) |
+
+## Schema: Anonymised building-level data pack
+
+### JSON
+
+```json
+{
+  "product": "anonymised_buildings",
+  "period": "2025-Q4",
+  "records": [
+    {
+      "record_id": "anon_00001",
+      "use_type": "office",
+      "country": "US",
+      "climate_zone": "4A",
+      "gfa_band": "25000-50000",
+      "year_built_band": "2000-2009",
+      "eui_kwh_m2": 195.3,
+      "carbon_kgco2e_m2": 67.8,
+      "water_litres_m2": 540,
+      "sdx_score": 72,
+      "data_quality_grade": "A",
+      "crrem_stranding_band": "2035-2040"
+    }
+  ]
+}
+```
+
+### CSV columns
+
+| Column | Type | Description |
+|---|---|---|
+| `record_id` | string | Anonymised unique identifier |
+| `use_type` | string | Building use type |
+| `country` | string | ISO 3166-1 alpha-2 |
+| `climate_zone` | string | ASHRAE climate zone |
+| `gfa_band` | string | Floor area band in m² |
+| `year_built_band` | string | Construction decade band |
+| `eui_kwh_m2` | float | Energy Use Intensity |
+| `carbon_kgco2e_m2` | float | Carbon intensity |
+| `water_litres_m2` | float | Water use intensity |
+| `sdx_score` | integer | SDX benchmark percentile |
+| `data_quality_grade` | string | Letter grade (A–F) |
+| `crrem_stranding_band` | string | Projected stranding year range |
+
+## Versioning
+
+Data schemas are versioned. The schema version is included in the file metadata (JSON root object, CSV filename, Parquet file metadata). Breaking schema changes are communicated at least 90 days in advance.
+
+## Next steps
+
+- [Delivery methods](/docs/licensed-content/delivery-methods)
+- [Available products](/docs/licensed-content/available-products)
+- [Licensing terms](/docs/licensed-content/licensing-terms)

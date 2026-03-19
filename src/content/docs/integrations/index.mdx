@@ -1,0 +1,78 @@
+---
+title: "Integration Overview"
+description: "Build integrations with SDX to read and write sustainability data on behalf of building owners — completely free."
+category: "Integration Guide"
+order: 1
+audience:
+  - integrator
+---
+
+# Integration Overview
+
+SDX provides a free, open API that allows third-party software platforms to read and write real estate sustainability data on behalf of building owners. Whether you build an energy management system, ESG reporting tool, property management platform, or investor analytics product, you can integrate with SDX at no cost.
+
+## Why integrate with SDX
+
+### For your users (building owners)
+
+- **Free benchmarking** across six international standards from a single data submission
+- **Compliance reporting** for 16+ regulatory and voluntary frameworks
+- **Data Dividend** revenue from licensed content sales
+- **Free licensed content** for their own internal use
+
+### For your platform
+
+- **Richer data** — Access benchmark scores, data quality grades, and compliance status to enhance your product
+- **Reduced churn** — Owners whose data flows to SDX through your platform receive tangible benefits (free benchmarking, Data Dividend)
+- **No cost** — Zero API fees, no partnership tiers, no revenue share. See [Integrator Pricing](/docs/pricing/integrator-pricing)
+
+## Integration patterns
+
+SDX supports two primary integration patterns:
+
+### 1. Write data on behalf of owners
+
+Your platform submits utility meter readings, property details, and building characteristics to SDX. This is the most common pattern for energy management and ESG platforms.
+
+**Flow:**
+1. Owner authorises your platform to write data to their SDX account
+2. Your platform pushes data via the API
+3. SDX benchmarks the data and generates scores
+4. Owner sees results on their SDX dashboard (and optionally in your platform via read access)
+
+See [Writing Data](/docs/integrations/writing-data) for implementation details.
+
+### 2. Read data on behalf of owners
+
+Your platform retrieves benchmark scores, data quality grades, and compliance reports from SDX to display in your own UI.
+
+**Flow:**
+1. Owner authorises your platform to read data from their SDX account
+2. Your platform fetches data via the API
+3. Your platform displays SDX data alongside your own features
+
+See [Reading Data](/docs/integrations/reading-data) for implementation details.
+
+Most integrators implement both patterns: write data in, read scores out.
+
+## Technical requirements
+
+- **Authentication** — API keys for server-to-server, OAuth2 for user-facing apps. See [Authentication](/docs/api/authentication).
+- **Data format** — JSON over HTTPS. See [API Overview](/docs/api).
+- **Owner consent** — Owners must explicitly authorise your platform before you can read or write their data.
+- **Rate limits** — 1,000 requests/minute per API key. See [Rate Limits](/docs/api/rate-limits).
+
+## Getting started
+
+1. [Sign up for a developer account](https://sdx.dev/developers) — free
+2. [Follow the 5-minute quickstart](/docs/integrations/quickstart)
+3. [Test in the sandbox environment](/docs/integrations/sandbox-environment)
+4. [Go to production](/docs/api/authentication)
+
+## Next steps
+
+- [5-minute quickstart](/docs/integrations/quickstart)
+- [Reading data](/docs/integrations/reading-data)
+- [Writing data](/docs/integrations/writing-data)
+- [Sandbox environment](/docs/integrations/sandbox-environment)
+- [Code examples](/docs/integrations/code-examples)

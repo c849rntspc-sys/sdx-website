@@ -1,0 +1,178 @@
+---
+title: "Benchmarks Endpoint"
+description: "Retrieve benchmark scores for buildings across all supported standards via the SDX API."
+category: "API Endpoints"
+order: 4
+audience:
+  - integrator
+---
+
+# Benchmarks Endpoint
+
+Retrieve benchmark scores for a building across all applicable standards. Scores are recalculated automatically whenever new meter data is submitted.
+
+**Base path:** `/v1/buildings/{building_id}/benchmarks`
+
+## Get current benchmarks
+
+```bash
+curl https://api.sdx.dev/v1/buildings/bld_3nf7p2q1/benchmarks \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "building_id": "bld_3nf7p2q1",
+    "reporting_period": {
+      "start": "2025-01-01",
+      "end": "2025-12-31"
+    },
+    "data_quality_grade": "A",
+    "eui_kwh_m2": 185.4,
+    "carbon_intensity_kgco2e_m2": 62.3,
+    "scores": [
+      {
+        "standard": "sdx",
+        "score": 78,
+        "percentile": 78,
+        "peer_group": "office_climate4_large",
+        "peer_count": 3421,
+        "calculated_at": "2026-01-15T10:30:00Z"
+      },
+      {
+        "standard": "energy_star",
+        "score": 82,
+        "eligible": true,
+        "certification_eligible": true,
+        "calculated_at": "2026-01-15T10:30:00Z"
+      },
+      {
+        "standard": "eu_epc",
+        "grade": "B",
+        "country_methodology": "GB",
+        "calculated_at": "2026-01-15T10:30:00Z"
+      },
+      {
+        "standard": "crrem",
+        "stranding_year_1_5c": 2038,
+        "stranding_year_2c": 2045,
+        "current_intensity_kgco2e_m2": 62.3,
+        "target_intensity_kgco2e_m2": 28.1,
+        "pathway": "1.5C",
+        "calculated_at": "2026-01-15T10:30:00Z"
+      },
+      {
+        "standard": "nabers",
+        "applicable": false,
+        "reason": "Building is not located in Australia"
+      }
+    ]
+  }
+}
+```
+
+## Get historical benchmarks
+
+Retrieve benchmark scores for previous reporting periods.
+
+```bash
+curl "https://api.sdx.dev/v1/buildings/bld_3nf7p2q1/benchmarks/history?periods=4" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Query parameters:**
+
+| Parameter | Type | Description |
+|---|---|---|
+| `periods` | integer | Number of historical periods to return (default: 4, max: 20) |
+| `standard` | string | Filter to a single standard (e.g. `sdx`, `energy_star`) |
+
+**Response:**
+
+```json
+{
+  "data": {
+    "building_id": "bld_3nf7p2q1",
+    "history": [
+      {
+        "period": { "start": "2025-01-01", "end": "2025-12-31" },
+        "eui_kwh_m2": 185.4,
+        "sdx_score": 78,
+        "energy_star_score": 82
+      },
+      {
+        "period": { "start": "2024-01-01", "end": "2024-12-31" },
+        "eui_kwh_m2": 198.7,
+        "sdx_score": 71,
+        "energy_star_score": 74
+      },
+      {
+        "period": { "start": "2023-01-01", "end": "2023-12-31" },
+        "eui_kwh_m2": 210.2,
+        "sdx_score": 65,
+        "energy_star_score": 68
+      },
+      {
+        "period": { "start": "2022-01-01", "end": "2022-12-31" },
+        "eui_kwh_m2": 225.0,
+        "sdx_score": 58,
+        "energy_star_score": 61
+      }
+    ]
+  }
+}
+```
+
+## Get portfolio benchmarks
+
+Retrieve aggregate benchmark metrics across all buildings in the organisation.
+
+```bash
+curl https://api.sdx.dev/v1/benchmarks/portfolio \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Query parameters:**
+
+| Parameter | Type | Description |
+|---|---|---|
+| `filter[type]` | string | Filter by use type |
+| `filter[country]` | string | Filter by country (ISO 3166-1 alpha-2) |
+| `filter[data_quality_grade]` | string | Minimum data quality grade (e.g. `B`) |
+
+**Response:**
+
+```json
+{
+  "data": {
+    "building_count": 47,
+    "total_gfa_m2": 1250000,
+    "weighted_eui_kwh_m2": 192.6,
+    "weighted_carbon_intensity_kgco2e_m2": 65.8,
+    "weighted_sdx_score": 72,
+    "grade_distribution": {
+      "A": 12,
+      "B": 18,
+      "C": 11,
+      "D": 4,
+      "E": 2,
+      "F": 0
+    }
+  }
+}
+```
+
+## Required scopes
+
+| Action | Scope |
+|---|---|
+| All benchmark endpoints | `benchmarks:read` |
+
+## Next steps
+
+- [Reports endpoint](/docs/api/endpoints/reports)
+- [Meters endpoint](/docs/api/endpoints/meters)
+- [Benchmarking standards](/docs/benchmarking/benchmarking-standards)

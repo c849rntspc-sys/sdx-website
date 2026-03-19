@@ -1,0 +1,88 @@
+---
+title: "Reports & Exports"
+description: "Generate compliance reports, benchmark certificates, and data exports from SDX."
+category: "Benchmarking"
+order: 4
+audience:
+  - contributor
+---
+
+# Reports & Exports
+
+SDX provides a range of pre-built reports and flexible export options so you can share sustainability performance data with regulators, investors, tenants, and internal stakeholders.
+
+## Available reports
+
+### Benchmark Certificate
+
+A single-page summary of a building's benchmark scores across all applicable standards. Suitable for sharing with tenants, investors, or lenders.
+
+- **Contents** — Building name, address, use type, GFA, EUI, carbon intensity, scores for each applicable standard, data quality grade, and reporting period.
+- **Format** — PDF (A4 or Letter).
+- **Generation** — Click **Reports > Benchmark Certificate** on any building detail page.
+
+### Portfolio Summary
+
+An aggregate view of your entire portfolio's sustainability performance.
+
+- **Contents** — Number of buildings, total floor area, portfolio-weighted EUI and carbon intensity, benchmark distribution, data quality summary, and year-on-year trends.
+- **Format** — PDF or Excel (.xlsx).
+- **Generation** — Click **Reports > Portfolio Summary** from the portfolio dashboard.
+
+### Compliance Report
+
+A framework-specific report formatted to meet the requirements of a particular regulation or voluntary standard.
+
+- **Supported frameworks** — See [Compliance Frameworks](/docs/benchmarking/compliance-frameworks) for the full list.
+- **Contents** — Varies by framework. Typically includes energy consumption by fuel type, GHG emissions (Scope 1 and 2), building characteristics, and the relevant score or grade.
+- **Format** — PDF, Excel, or XML (where the framework specifies a schema).
+- **Generation** — Navigate to **Compliance > [Framework Name] > Generate Report**.
+
+### Custom Report Builder
+
+Build a report from scratch by selecting the metrics, buildings, time period, and grouping.
+
+- Drag and drop metrics into the report layout.
+- Add charts, tables, and commentary blocks.
+- Save templates for repeated use (e.g. quarterly board reports).
+- Schedule automatic generation and email delivery.
+
+## Export formats
+
+All data behind reports can also be exported in raw form.
+
+| Format | Use case |
+|---|---|
+| **CSV** | Spreadsheet analysis, import into other tools |
+| **Excel (.xlsx)** | Formatted workbooks with multiple sheets |
+| **JSON** | Programmatic consumption, API mirror |
+| **PDF** | Formal reports, printing, sharing |
+| **XML** | Regulatory submissions that require XML schemas |
+
+## Bulk export
+
+Export data for your entire portfolio in one step from **Data > Export**. Choose the time period, meter types, and output format. SDX generates the file in the background and sends a download link to your email when ready.
+
+## Scheduling
+
+Any report or export can be scheduled for recurring delivery:
+
+- **Frequency** — Daily, weekly, monthly, or quarterly.
+- **Recipients** — One or more email addresses.
+- **Format** — Choose the output format for each schedule.
+
+Scheduled reports are managed under **Reports > Schedules**.
+
+## Sharing via link
+
+Benchmark certificates can be shared via a unique, read-only URL. The link is valid for 90 days by default but can be extended or revoked at any time. No SDX account is required to view a shared certificate.
+
+## API access
+
+Every report available in the UI can also be generated programmatically via the [Reports endpoint](/docs/api/endpoints/reports). This is useful for embedding SDX data into external dashboards or investor portals.
+
+## Next steps
+
+- [Explore compliance frameworks](/docs/benchmarking/compliance-frameworks)
+- [Understand data quality scoring](/docs/benchmarking/data-quality-scoring)
+- [Access reports via API](/docs/api/endpoints/reports)

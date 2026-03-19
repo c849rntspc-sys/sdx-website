@@ -1,0 +1,68 @@
+---
+title: "Creating an Account"
+description: "Sign up for SDX, set up your organisation, and invite team members — all completely free."
+category: "Getting Started"
+order: 2
+audience:
+  - contributor
+---
+
+# Creating an Account
+
+Getting started on SDX takes less than five minutes. There are no subscription tiers, no credit-card gates, and no trial periods. The platform is free for every contributor.
+
+## Sign up
+
+1. Visit [sdx.dev/signup](https://sdx.dev/signup) and enter your work email address.
+2. Verify your email by clicking the confirmation link sent to your inbox.
+3. Set a password that meets the minimum requirements (12 characters, one uppercase, one number).
+4. Accept the SDX Terms of Service and Data Processing Agreement.
+
+You can also sign up with an existing identity provider via SSO (Google Workspace, Microsoft Entra ID, or Okta).
+
+## Set up your organisation
+
+After verifying your email you will be prompted to create or join an organisation.
+
+### Creating a new organisation
+
+| Field | Description |
+|---|---|
+| **Organisation name** | Your company or fund name as it should appear in reports |
+| **Country** | Primary country of operation — used for regulatory defaults |
+| **Industry** | Real estate sub-sector (office, retail, residential, industrial, mixed-use, other) |
+| **Timezone** | Default timezone applied to new properties |
+
+### Joining an existing organisation
+
+If a colleague has already registered your company, you can request to join their organisation. Search by name or enter an invite code. An organisation admin must approve your request before you gain access.
+
+## User roles
+
+Every organisation has three built-in roles:
+
+- **Owner** — Full control over the organisation, billing settings, and member management. At least one Owner must exist at all times.
+- **Admin** — Can manage properties, submit data, generate reports, and invite members. Cannot delete the organisation.
+- **Viewer** — Read-only access to dashboards and reports. Cannot submit or modify data.
+
+Roles are assigned at the organisation level. Property-level permissions can be configured separately under **Settings > Properties > Access**.
+
+## Invite team members
+
+Navigate to **Settings > Team** and click **Invite Member**. Enter the recipient's email, select a role, and optionally restrict their access to specific properties. The invitee will receive an email with a link to accept.
+
+There is no limit on the number of team members you can invite.
+
+## Enable single sign-on (SSO)
+
+Organisation Owners can connect an identity provider under **Settings > Authentication > SSO**. SDX supports SAML 2.0 and OIDC. Once SSO is enabled you can optionally enforce it so that all members must authenticate through your identity provider.
+
+## Multi-factor authentication
+
+MFA is available for all users and can be enforced at the organisation level. SDX supports TOTP-based authenticator apps (Google Authenticator, Authy, 1Password, etc.) and hardware security keys via WebAuthn.
+
+## Next steps
+
+- [Add your first property](/docs/getting-started/adding-your-first-property)
+- [Submit utility data](/docs/getting-started/submitting-data)
+- [Understand your dashboard](/docs/getting-started/understanding-your-dashboard)

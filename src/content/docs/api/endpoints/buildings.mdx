@@ -1,0 +1,181 @@
+---
+title: "Buildings Endpoint"
+description: "Create, read, and update buildings within properties via the SDX API."
+category: "API Endpoints"
+order: 2
+audience:
+  - integrator
+---
+
+# Buildings Endpoint
+
+Buildings represent individual structures within a [property](/docs/api/endpoints/properties). Each building has its own floor area, use type, meters, and benchmark scores.
+
+**Base path:** `/v1/properties/{property_id}/buildings`
+
+## List buildings
+
+Retrieve all buildings for a given property.
+
+```bash
+curl https://api.sdx.dev/v1/properties/prp_8xk2m9v4/buildings \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response:**
+
+```json
+{
+  "data": [
+    {
+      "id": "bld_3nf7p2q1",
+      "property_id": "prp_8xk2m9v4",
+      "name": "Tower A",
+      "primary_use_type": "office",
+      "gfa_m2": 50000,
+      "gfa_sqft": 538196,
+      "year_built": 2001,
+      "floors": 32,
+      "occupancy_pct": 92,
+      "operating_hours_week": 60,
+      "data_quality_grade": "A",
+      "status": "active",
+      "created_at": "2025-06-15T09:05:00Z",
+      "updated_at": "2026-01-10T14:22:00Z"
+    },
+    {
+      "id": "bld_9mk4r8w6",
+      "property_id": "prp_8xk2m9v4",
+      "name": "Tower B",
+      "primary_use_type": "office",
+      "gfa_m2": 35000,
+      "gfa_sqft": 376737,
+      "year_built": 2005,
+      "floors": 24,
+      "occupancy_pct": 88,
+      "operating_hours_week": 60,
+      "data_quality_grade": "B",
+      "status": "active",
+      "created_at": "2025-06-15T09:10:00Z",
+      "updated_at": "2026-01-08T11:15:00Z"
+    }
+  ],
+  "meta": {
+    "total": 2,
+    "page": 1,
+    "per_page": 50,
+    "total_pages": 1
+  }
+}
+```
+
+## Get a building
+
+```bash
+curl https://api.sdx.dev/v1/properties/prp_8xk2m9v4/buildings/bld_3nf7p2q1 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "id": "bld_3nf7p2q1",
+    "property_id": "prp_8xk2m9v4",
+    "name": "Tower A",
+    "primary_use_type": "office",
+    "use_types": [
+      { "type": "office", "gfa_m2": 45000 },
+      { "type": "retail", "gfa_m2": 5000 }
+    ],
+    "gfa_m2": 50000,
+    "gfa_sqft": 538196,
+    "nla_m2": 42000,
+    "year_built": 2001,
+    "floors": 32,
+    "occupancy_pct": 92,
+    "operating_hours_week": 60,
+    "renewable_capacity_kw": 150,
+    "car_park_area_m2": 8000,
+    "data_quality_grade": "A",
+    "meters": [
+      { "id": "mtr_e1f2g3h4", "type": "electricity", "status": "active" },
+      { "id": "mtr_i5j6k7l8", "type": "natural_gas", "status": "active" },
+      { "id": "mtr_m9n0o1p2", "type": "water", "status": "active" }
+    ],
+    "status": "active",
+    "created_at": "2025-06-15T09:05:00Z",
+    "updated_at": "2026-01-10T14:22:00Z"
+  }
+}
+```
+
+## Create a building
+
+```bash
+curl -X POST https://api.sdx.dev/v1/properties/prp_8xk2m9v4/buildings \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Annex C",
+    "primary_use_type": "office",
+    "gfa_m2": 12000,
+    "year_built": 2018,
+    "floors": 8,
+    "occupancy_pct": 75,
+    "operating_hours_week": 55
+  }'
+```
+
+**Response (201 Created):** Returns the full building object.
+
+**Required fields:** `name`, `primary_use_type`, `gfa_m2`, `year_built`, `floors`
+
+## Update a building
+
+```bash
+curl -X PATCH https://api.sdx.dev/v1/properties/prp_8xk2m9v4/buildings/bld_3nf7p2q1 \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "occupancy_pct": 95,
+    "operating_hours_week": 65
+  }'
+```
+
+**Response (200 OK):** Returns the full updated building object.
+
+## Multi-use type configuration
+
+To set multiple use types, include the `use_types` array in create or update:
+
+```json
+{
+  "name": "Mixed-Use Tower",
+  "primary_use_type": "office",
+  "gfa_m2": 30000,
+  "use_types": [
+    { "type": "office", "gfa_m2": 22000 },
+    { "type": "retail", "gfa_m2": 5000 },
+    { "type": "residential", "gfa_m2": 3000 }
+  ],
+  "year_built": 2020,
+  "floors": 18
+}
+```
+
+The sum of `use_types[].gfa_m2` must equal the top-level `gfa_m2`.
+
+## Required scopes
+
+| Action | Scope |
+|---|---|
+| List / Get | `properties:read` |
+| Create / Update | `properties:write` |
+
+## Next steps
+
+- [Meters endpoint](/docs/api/endpoints/meters)
+- [Benchmarks endpoint](/docs/api/endpoints/benchmarks)
+- [Properties endpoint](/docs/api/endpoints/properties)

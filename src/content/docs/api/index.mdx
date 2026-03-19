@@ -1,0 +1,117 @@
+---
+title: "API Overview"
+description: "Introduction to the SDX REST API — base URL, versioning, authentication, and core concepts."
+category: "API Reference"
+order: 1
+audience:
+  - integrator
+---
+
+# API Overview
+
+The SDX API is a RESTful interface for reading and writing real estate sustainability data. It is free to use for all integrators — no API fees, no per-call charges, and no tiered access.
+
+## Base URL
+
+All API requests are made to:
+
+```
+https://api.sdx.dev/v1
+```
+
+## Versioning
+
+The API is versioned via the URL path. The current version is `v1`. When breaking changes are introduced, a new version (e.g. `v2`) will be published. Previous versions remain available for at least 12 months after a new version is released.
+
+Non-breaking changes (new optional fields, new endpoints) are added to the current version without incrementing the version number. Subscribe to the [SDX Developer Changelog](https://sdx.dev/developers/changelog) for updates.
+
+## Authentication
+
+All requests require authentication via a Bearer token. See [Authentication](/docs/api/authentication) for details on obtaining and using API keys and OAuth2 tokens.
+
+```bash
+curl https://api.sdx.dev/v1/properties \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Request format
+
+- **Content type** — All request bodies must be JSON (`Content-Type: application/json`).
+- **Character encoding** — UTF-8.
+- **Date format** — ISO 8601 (`YYYY-MM-DD` for dates, `YYYY-MM-DDTHH:MM:SSZ` for timestamps).
+- **Units** — Energy in kWh, area in m², emissions in kgCO₂e unless otherwise specified. You can request imperial units via the `Accept-Units` header.
+
+## Response format
+
+All responses are JSON. Successful responses include a `data` key. List endpoints return paginated results.
+
+```json
+{
+  "data": { ... },
+  "meta": {
+    "request_id": "req_abc123",
+    "timestamp": "2026-01-15T10:30:00Z"
+  }
+}
+```
+
+List responses include pagination metadata:
+
+```json
+{
+  "data": [ ... ],
+  "meta": {
+    "total": 142,
+    "page": 1,
+    "per_page": 50,
+    "total_pages": 3
+  }
+}
+```
+
+## Pagination
+
+List endpoints support cursor-based pagination via `page` and `per_page` query parameters. The default page size is 50 and the maximum is 200.
+
+```
+GET /v1/properties?page=2&per_page=25
+```
+
+## Filtering and sorting
+
+Most list endpoints accept `sort` and `filter` query parameters:
+
+```
+GET /v1/properties?filter[type]=office&sort=-created_at
+```
+
+- Prefix a sort field with `-` for descending order.
+- Filters use bracket notation: `filter[field]=value`.
+
+## Rate limits
+
+The API enforces rate limits to ensure fair usage. See [Rate Limits](/docs/api/rate-limits) for thresholds and best practices.
+
+## Errors
+
+Errors follow a consistent format with an HTTP status code, error code, and human-readable message. See [Errors](/docs/api/errors) for the full catalogue.
+
+## SDKs and libraries
+
+SDX does not maintain official SDKs, but the API is designed to be straightforward to consume from any HTTP client. Community-maintained libraries are listed in the [developer portal](https://sdx.dev/developers).
+
+## Environments
+
+| Environment | Base URL | Purpose |
+|---|---|---|
+| **Production** | `https://api.sdx.dev/v1` | Live data |
+| **Sandbox** | `https://sandbox.api.sdx.dev/v1` | Testing with sample data |
+
+See [Sandbox Environment](/docs/integrations/sandbox-environment) for setup instructions.
+
+## Next steps
+
+- [Authentication](/docs/api/authentication)
+- [Rate limits](/docs/api/rate-limits)
+- [API endpoints](/docs/api/endpoints/properties)
+- [Integration quickstart](/docs/integrations/quickstart)

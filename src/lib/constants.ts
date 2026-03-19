@@ -6,7 +6,7 @@ export const PROBLEMS = [
   { icon: 'ArrowLeftRight', title: 'Incomparable', description: 'Inconsistent standards and normalization prevent reliable peer comparison.' },
   { icon: 'Shield', title: 'Unauditable', description: 'Fragmented data with no lineage makes audit-grade verification impossible.' },
   { icon: 'Settings', title: 'Innovation Drag', description: 'Resources wasted fixing inputs instead of making decisions.' },
-  { icon: 'DollarSign', title: 'Misaligned', description: 'Owners pay to submit data, then re-buy their own benchmarks.' },
+  { icon: 'DollarSign', title: 'Misaligned', description: 'Value created by contributor data is captured entirely by private platform operators.' },
 ];
 
 // ─── Market Stats ────────────────────────────────────────────
@@ -50,7 +50,7 @@ export const COMPARISON = {
     items: [
       'Owners pay to submit their own data',
       'Data siloed into proprietary databases',
-      'Benchmarks sold back to contributors',
+      'Benchmarks sold back to the contributors who provided them',
       'No owner governance or exit rights',
       'Incentive: maximize lock-in',
     ],
@@ -59,9 +59,9 @@ export const COMPARISON = {
     title: 'Shared Value Model',
     subtitle: 'SDX',
     items: [
-      'Participation is free for contributors',
-      'Unified comparability layer, open APIs',
-      'Revenue shared back as data dividends',
+      'Platform is completely free for all users — read and write',
+      'Licensed content free for contributors\u2019 own internal use',
+      'Revenue from third-party licensing shared back as dividends',
       'Owner governance sets all rules',
       'Incentive: maximize participation & trust',
     ],
@@ -146,7 +146,7 @@ export const GOVERNANCE = {
 // ─── Ecosystem Benefits ──────────────────────────────────────
 export const ECOSYSTEM_BENEFITS = [
   { title: 'Eliminate reconciliation friction', description: 'Stop rebuilding normalization logic. SDX handles definitions, weather normalization, and unit conversion so you can focus on value-add features.' },
-  { title: 'Access global benchmarks', description: 'Tap into the largest comparable benchmark dataset globally. Usage-based API pricing means you pay only for what you consume.' },
+  { title: 'Access global benchmarks', description: 'Tap into the largest comparable benchmark dataset globally. Free to read and write for all ecosystem participants contributing data on behalf of owners.' },
   { title: 'Better data, better outcomes', description: 'Your customers get higher-quality, audit-ready inputs. Better data quality means better outcomes from your analytics and advisory tools.' },
   { title: 'Expand your addressable market', description: 'SDX drives adoption across the industry. More buildings on the substrate means more potential customers for your value-layer products.' },
 ];
@@ -155,10 +155,10 @@ export const ECOSYSTEM_BENEFITS = [
 export const FAQ = [
   { question: 'Does sharing data help my competitors?', answer: 'SDX only publishes aggregated, anonymized benchmarks. Your building-level data is never shared. Suppression thresholds prevent reverse-engineering.' },
   { question: 'Why not just use my existing vendor?', answer: 'Vendors optimize for lock-in. SDX provides the neutral substrate with open APIs and full portability. Your existing tools plug in \u2014 they don\'t get replaced.' },
-  { question: 'What if I invest and others free-ride?', answer: 'The dividend formula rewards quality and completeness. Early movers earn the largest dividends. Non-contributors pay market rates for benchmark access.' },
+  { question: 'What if I invest and others free-ride?', answer: 'The dividend formula rewards quality and completeness. Early movers earn the largest dividends. The platform is free for everyone, but only contributors receive dividends from licensed content revenue.' },
   { question: 'How is this different from GRESB?', answer: 'GRESB is a rating framework. SDX is the measurement substrate beneath it \u2014 standardizing definitions so GRESB, CRREM, and regulators get comparable inputs.' },
-  { question: 'What are the revenue sources?', answer: 'Benchmark subscriptions, regulator-grade data packs, index partnerships, and optional certification programs. All derived from aggregated data \u2014 never raw inputs.' },
-  { question: 'How is the dividend calculated?', answer: 'The formula is objective and auditable \u2014 weighted by eligible buildings, floor area, data completeness, and freshness. Paid as cash, credits, or fee offsets.' },
+  { question: 'What are the revenue sources?', answer: 'Board-approved licensed content only \u2014 aggregate benchmark products, regulator-grade data packs, index partnerships, and certification programs. The platform itself is free. Contributors receive all licensed content free for their own internal use.' },
+  { question: 'How is the dividend calculated?', answer: 'The formula is objective and auditable \u2014 weighted by eligible buildings, floor area, data completeness, and freshness. One dividend per building per underlying owner, regardless of how many software platforms submit that building\u2019s data.' },
 ];
 
 // ─── Early Adopter Steps ─────────────────────────────────────
@@ -174,19 +174,18 @@ export const APP_URL = 'https://balanced-light-production-ce6f.up.railway.app';
 
 // ─── Navigation ──────────────────────────────────────────────
 export const NAV_LINKS = [
-  { label: 'How It Works', href: '/how-it-works' },
-  { label: 'Data Dividend', href: '/data-dividend' },
-  { label: 'Ecosystem', href: '/ecosystem' },
-  { label: 'Governance', href: '/governance' },
   { label: 'Platform', href: '/platform' },
-  { label: 'About', href: '/about' },
+  { label: 'Ecosystem', href: '/ecosystem' },
+  { label: 'Data Dividend', href: '/data-dividend' },
+  { label: 'Docs', href: '/docs' },
+  { label: 'About Us', href: '/governance' },
 ];
 
 // ─── Founder ─────────────────────────────────────────────────
 export const FOUNDER = {
   name: 'Matt Ellis',
-  title: 'Co-Founder & Executive Chairman, Measurabl',
-  previousRole: 'Formerly Director of Sustainability Solutions, CBRE',
+  title: 'Co-Founder & Chairman, SDX',
+  previousRole: 'Co-Founder & Executive Chairman, Measurabl · Formerly Director of Sustainability Solutions, CBRE',
   quote: 'The measurement layer itself needs to be neutral. No single company should own the substrate the entire industry depends on.',
   stats: [
     { value: '$190M', label: 'Venture Capital Raised' },

@@ -1,0 +1,69 @@
+---
+title: "Adding Your First Property"
+description: "Learn how to add a property to SDX, define buildings, and configure floor area and use types."
+category: "Getting Started"
+order: 3
+audience:
+  - contributor
+---
+
+# Adding Your First Property
+
+A **property** in SDX represents a single real-estate asset at a physical address. Each property contains one or more **buildings**, and each building has its own meters, benchmarks, and reports.
+
+## Property vs. building
+
+| Concept | Description |
+|---|---|
+| **Property** | A site at a single address — may contain one building or a campus of several |
+| **Building** | A distinct structure within a property, each with its own gross floor area and use type |
+
+Most contributors have a 1 : 1 relationship between property and building. Multi-building campuses, mixed-use developments, and retail parks will typically have one property with several buildings.
+
+## Create a property
+
+1. From the sidebar, click **Properties > Add Property**.
+2. Enter the street address. SDX will geocode it and display a map pin — drag it to adjust if needed.
+3. Select the **property type**: Office, Retail, Residential, Industrial, Hotel, Healthcare, Education, Data Centre, Mixed-Use, or Other.
+4. Provide an optional **internal reference** (your own asset ID, fund code, etc.).
+
+## Add buildings
+
+After the property is created you will be prompted to add at least one building.
+
+### Required fields
+
+- **Building name** — A label you will recognise (e.g. "Tower A", "Main Building").
+- **Primary use type** — The dominant function of the building. This determines which benchmarking standards apply.
+- **Gross floor area (GFA)** — Total enclosed floor space in square metres or square feet. SDX stores both and converts automatically.
+- **Year built** — Original construction year.
+- **Number of floors** — Above-grade floor count.
+
+### Optional fields
+
+- Net lettable area (NLA)
+- Conditioned floor area
+- Occupancy rate (%)
+- Operating hours per week
+- Car park area (covered / uncovered)
+- On-site renewable capacity (kW)
+
+## Multi-use buildings
+
+If a building has more than one use type (e.g. ground-floor retail with office above), click **Add Use Type** to split the GFA across categories. Each use type receives its own benchmark score where the standard supports it.
+
+## Bulk import
+
+For portfolios with many properties, use the bulk import feature under **Properties > Import**. Download the CSV template, fill in your data, and upload it. SDX will validate the file and flag any errors before committing.
+
+The CSV template includes columns for property address, building name, use type, GFA, year built, and all optional fields listed above.
+
+## Editing and archiving
+
+You can edit any property or building field at any time from the property detail page. If a property is sold or demolished, use **Archive** rather than deleting it. Archived properties are excluded from active dashboards but their historical data is preserved and continues to participate in aggregate benchmarks.
+
+## Next steps
+
+- [Submit utility data](/docs/getting-started/submitting-data) for your new building
+- [Understand your dashboard](/docs/getting-started/understanding-your-dashboard)
+- [Learn how benchmarking works](/docs/benchmarking)

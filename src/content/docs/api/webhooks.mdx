@@ -1,0 +1,121 @@
+---
+title: "Webhooks"
+description: "Receive real-time event notifications from SDX via webhooks — event types, payloads, and verification."
+category: "API Reference"
+order: 4
+audience:
+  - integrator
+---
+
+# Webhooks
+
+Webhooks allow your application to receive real-time HTTP callbacks when events occur in SDX. Instead of polling the API for changes, SDX pushes data to your endpoint as it happens.
+
+## Setting up a webhook
+
+### Via the API
+
+```bash
+curl -X POST https://api.sdx.dev/v1/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://yourapp.com/webhooks/sdx",
+    "events": ["meter.reading.created", "benchmark.updated"],
+    "secret": "whsec_your_signing_secret"
+  }'
+```
+
+### Via the UI
+
+Navigate to **Settings > API > Webhooks > Add Endpoint**. Enter the URL, select the events you want to receive, and save.
+
+## Event types
+
+| Event | Description |
+|---|---|
+| `property.created` | A new property was created |
+| `property.updated` | A property's details were modified |
+| `property.archived` | A property was archived |
+| `building.created` | A new building was added to a property |
+| `building.updated` | A building's details were modified |
+| `meter.reading.created` | A new meter reading was submitted |
+| `meter.reading.updated` | An existing meter reading was modified |
+| `meter.reading.deleted` | A meter reading was removed |
+| `benchmark.updated` | A building's benchmark scores were recalculated |
+| `report.generated` | A compliance or custom report was generated |
+| `data_quality.changed` | A building's data quality grade changed |
+| `dividend.statement.available` | A new Data Dividend statement is ready |
+
+Use `*` to subscribe to all event types.
+
+## Payload format
+
+Every webhook delivery is an HTTP POST with a JSON body:
+
+```json
+{
+  "id": "evt_a1b2c3d4e5",
+  "type": "meter.reading.created",
+  "created_at": "2026-01-15T10:30:00Z",
+  "data": {
+    "building_id": "bld_123",
+    "meter_id": "mtr_456",
+    "reading": {
+      "id": "rdg_789",
+      "start_date": "2026-01-01",
+      "end_date": "2026-01-31",
+      "consumption": 42350,
+      "unit": "kWh"
+    }
+  }
+}
+```
+
+## Verifying signatures
+
+Every webhook request includes a signature header that you should verify to confirm the request came from SDX.
+
+**Header:** `X-SDX-Signature`
+
+The signature is an HMAC-SHA256 hex digest of the raw request body using your webhook secret:
+
+```python
+import hmac
+import hashlib
+
+def verify_webhook(payload_body, signature, secret):
+    expected = hmac.new(
+        secret.encode("utf-8"),
+        payload_body,
+        hashlib.sha256
+    ).hexdigest()
+    return hmac.compare_digest(f"sha256={expected}", signature)
+```
+
+Always use constant-time comparison to prevent timing attacks.
+
+## Delivery behaviour
+
+- **Timeout** — SDX waits up to 10 seconds for your endpoint to respond with a `2xx` status code.
+- **Retries** — Failed deliveries are retried up to 5 times with exponential backoff (1 min, 5 min, 30 min, 2 hours, 12 hours).
+- **Ordering** — Events are delivered in approximate chronological order but strict ordering is not guaranteed. Use the `created_at` timestamp for sequencing.
+- **Idempotency** — Your endpoint may receive the same event more than once. Use the `id` field to deduplicate.
+
+## Monitoring
+
+View delivery history and status under **Settings > API > Webhooks > [Endpoint] > Deliveries**. Each delivery shows the HTTP status code, response body (first 1 KB), and latency.
+
+Failed deliveries are highlighted with the error reason (timeout, connection refused, non-2xx status).
+
+## Disabling and deleting
+
+Webhooks can be paused (temporarily stops deliveries) or deleted (permanently removes the subscription and purges delivery history). Both actions are available in the UI and via the API.
+
+If an endpoint fails for 7 consecutive days, SDX automatically disables it and sends a notification to the API key owner.
+
+## Next steps
+
+- [Error codes](/docs/api/errors)
+- [Rate limits](/docs/api/rate-limits)
+- [Integration quickstart](/docs/integrations/quickstart)

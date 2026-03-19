@@ -1,0 +1,103 @@
+---
+title: "How the Data Dividend Is Calculated"
+description: "The formula behind the SDX Data Dividend — buildings, floor area, data quality, and whole-building completeness."
+category: "Data Dividend"
+order: 2
+audience:
+  - contributor
+---
+
+# How the Data Dividend Is Calculated
+
+The Data Dividend distributes a share of SDX's licensed content revenue to data contributors. This page explains the formula, the inputs, and how to maximise your payout.
+
+## The dividend pool
+
+Each quarter, the SDX board allocates a percentage of net licensed content revenue to the Data Dividend pool. The board sets this percentage annually. The remaining revenue funds platform operations, development, and reserves.
+
+**Dividend Pool = Net Licensed Content Revenue x Board-Approved Allocation Rate**
+
+## Per-building calculation
+
+Each eligible building earns a share of the pool. The share is determined by three factors:
+
+### 1. Floor area weight
+
+Larger buildings contribute more data to aggregate products and therefore receive a proportionally larger share.
+
+**Floor Area Weight = Building GFA / Total GFA of All Eligible Buildings**
+
+### 2. Data quality multiplier
+
+Buildings with higher [Data Quality Grades](/docs/benchmarking/data-quality-scoring) receive a multiplier that rewards complete, current data.
+
+| Data Quality Grade | Multiplier |
+|---|---|
+| A | 1.00 |
+| B | 0.80 |
+| C | 0.60 |
+| D | 0.40 |
+| E | 0.20 |
+| F | 0.00 |
+
+Buildings with a grade of F are excluded from the dividend entirely.
+
+### 3. Whole-building completeness bonus
+
+Buildings that submit data for all applicable utility types (whole-building metering) receive a 25% bonus. This is because whole-building data is significantly more valuable for aggregate benchmarks and indices.
+
+| Metering status | Bonus |
+|---|---|
+| Whole-building (all utility types) | 1.25x |
+| Partial (some utility types) | 1.00x |
+
+## The formula
+
+For each eligible building:
+
+**Building Score = Floor Area Weight x Data Quality Multiplier x Whole-Building Bonus**
+
+The scores across all eligible buildings are summed:
+
+**Total Score = Sum of All Building Scores**
+
+Each building's dividend is:
+
+**Building Dividend = (Building Score / Total Score) x Dividend Pool**
+
+## Worked example
+
+Suppose the quarterly dividend pool is $500,000 and there are three eligible buildings:
+
+| Building | GFA (m²) | Quality Grade | Multiplier | Whole-building? | Bonus | Score |
+|---|---|---|---|---|---|---|
+| Office Tower A | 50,000 | A | 1.00 | Yes | 1.25 | 50,000 x 1.00 x 1.25 = 62,500 |
+| Retail Centre B | 30,000 | B | 0.80 | Yes | 1.25 | 30,000 x 0.80 x 1.25 = 30,000 |
+| Warehouse C | 20,000 | C | 0.60 | No | 1.00 | 20,000 x 0.60 x 1.00 = 12,000 |
+
+**Total Score = 62,500 + 30,000 + 12,000 = 104,500**
+
+| Building | Share of pool | Dividend |
+|---|---|---|
+| Office Tower A | 62,500 / 104,500 = 59.8% | $299,043 |
+| Retail Centre B | 30,000 / 104,500 = 28.7% | $143,541 |
+| Warehouse C | 12,000 / 104,500 = 11.5% | $57,416 |
+
+*Note: This example uses simplified numbers for illustration. In practice, the pool is distributed across thousands of buildings.*
+
+## Maximising your dividend
+
+1. **Improve data quality** — Fill gaps and add missing meter types to raise your grade from C to A and double your multiplier.
+2. **Submit whole-building data** — Adding gas and water meters on top of electricity unlocks the 25% bonus.
+3. **Keep data fresh** — Automate utility feeds so your freshness score stays high. See [Submitting Data](/docs/getting-started/submitting-data).
+4. **Add more buildings** — Every eligible building earns its own dividend.
+
+## Important: one dividend per building
+
+If multiple software platforms submit data for the same building (e.g. the owner's energy manager and a third-party ESG platform both push data via the API), the dividend is paid once to the underlying building owner. It is not duplicated across platforms. SDX deduplicates buildings by address and owner identity.
+
+## Next steps
+
+- [Eligibility and rules](/docs/data-dividend/eligibility-and-rules)
+- [Payment schedule](/docs/data-dividend/payment-schedule)
+- [Understand data quality scoring](/docs/benchmarking/data-quality-scoring)

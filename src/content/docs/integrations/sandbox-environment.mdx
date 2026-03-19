@@ -1,0 +1,110 @@
+---
+title: "Sandbox Environment"
+description: "Test your SDX integration with sample data in the sandbox environment — no risk to production data."
+category: "Integration Guide"
+order: 5
+audience:
+  - integrator
+---
+
+# Sandbox Environment
+
+The SDX sandbox is a fully functional replica of the production API pre-loaded with sample data. Use it to develop and test your integration without affecting real buildings or owner accounts.
+
+## Sandbox base URL
+
+```
+https://sandbox.api.sdx.dev/v1
+```
+
+## Getting a sandbox API key
+
+1. Log into your SDX account at [sdx.dev](https://sdx.dev).
+2. Navigate to **Settings > API > Keys**.
+3. Click **Create Key** and select **Sandbox** as the environment.
+4. The key will be prefixed with `sdx_test_`.
+
+Sandbox keys cannot access production data, and production keys cannot access the sandbox.
+
+## Pre-loaded sample data
+
+The sandbox comes with a portfolio of sample properties so you can test read operations immediately:
+
+| Property | Buildings | Use type | Location |
+|---|---|---|---|
+| Sandbox Tower | 1 | Office | New York, US |
+| Demo Retail Park | 3 | Retail | London, UK |
+| Test Apartments | 1 | Residential | Sydney, AU |
+| Sample Warehouse | 1 | Industrial | Frankfurt, DE |
+| Example Hotel | 1 | Hotel | Singapore, SG |
+
+Each building has 24 months of historical meter data (electricity, gas, water) and fully calculated benchmark scores.
+
+## What you can do in sandbox
+
+Everything available in production is available in sandbox:
+
+- Create properties and buildings
+- Submit meter readings (manual and batch)
+- Retrieve benchmark scores
+- Generate reports
+- Configure webhooks (delivered to your endpoint with sandbox event payloads)
+- Test OAuth2 flows
+
+## Sandbox reset
+
+Sandbox data is isolated per organisation. Any data you create in sandbox persists until you manually delete it or request a reset.
+
+To reset your sandbox data to the default sample portfolio, go to **Settings > API > Sandbox > Reset Data**, or call:
+
+```bash
+curl -X POST https://sandbox.api.sdx.dev/v1/sandbox/reset \
+  -H "Authorization: Bearer sdx_test_YOUR_KEY"
+```
+
+This deletes all custom data you created and restores the default sample portfolio.
+
+## Differences from production
+
+| Aspect | Sandbox | Production |
+|---|---|---|
+| Data | Sample + your test data | Real building data |
+| API key prefix | `sdx_test_` | `sdx_live_` |
+| Webhooks | Delivered with `"environment": "sandbox"` header | No environment header |
+| Rate limits | Same as production | Same as sandbox |
+| Benchmark peer groups | Static sample peer groups | Live peer groups |
+| Reports | Generated with "SAMPLE" watermark | No watermark |
+| Automated feeds | Simulated — no real utility connections | Real utility provider connections |
+
+## Webhook testing
+
+Sandbox webhook deliveries include an `X-SDX-Environment: sandbox` header so your application can distinguish test events from production events.
+
+You can trigger webhook events manually for testing:
+
+```bash
+curl -X POST https://sandbox.api.sdx.dev/v1/sandbox/trigger-event \
+  -H "Authorization: Bearer sdx_test_YOUR_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "event_type": "benchmark.updated",
+    "building_id": "bld_sandbox_001"
+  }'
+```
+
+## Going to production
+
+When your integration is working in sandbox:
+
+1. Create a production API key (prefixed `sdx_live_`).
+2. Update your base URL from `sandbox.api.sdx.dev` to `api.sdx.dev`.
+3. Update your API key in your application configuration.
+4. Test with a real building to confirm end-to-end functionality.
+
+No application review or approval process is required to move to production. The API is free and open.
+
+## Next steps
+
+- [Code examples](/docs/integrations/code-examples)
+- [Integration quickstart](/docs/integrations/quickstart)
+- [API overview](/docs/api)

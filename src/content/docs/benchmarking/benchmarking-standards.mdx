@@ -1,0 +1,94 @@
+---
+title: "Benchmarking Standards"
+description: "Detailed methodology for each benchmarking standard available on SDX — SDX, ENERGY STAR, NABERS, EU EPC, CRREM, and GRESB."
+category: "Benchmarking"
+order: 2
+audience:
+  - contributor
+---
+
+# Benchmarking Standards
+
+SDX calculates scores against six international standards from a single data set. This page explains the methodology, applicability, and output of each standard.
+
+## SDX Benchmark
+
+The SDX benchmark is a proprietary, global percentile ranking developed and maintained by the SDX platform.
+
+- **Scope** — All countries, all use types.
+- **Score range** — 1 to 100, where 100 represents the most efficient building in the peer group.
+- **Peer groups** — Buildings are grouped by use type, climate zone (ASHRAE classification), and gross floor area band.
+- **Normalisation** — Energy data is weather-normalised using heating and cooling degree days from the nearest weather station. Occupancy adjustments are applied where occupancy data is provided.
+- **Update frequency** — Scores recalculate within minutes of new data arriving. Peer group compositions refresh quarterly.
+
+The SDX benchmark is available for every building on the platform regardless of location or use type.
+
+## ENERGY STAR
+
+ENERGY STAR scores are calculated using the US EPA's Portfolio Manager methodology.
+
+- **Scope** — United States and Canada only. Eligible use types include office, retail, K-12 school, hotel, hospital, data centre, warehouse, courthouse, and several others defined by the EPA.
+- **Score range** — 1 to 100, representing the percentile rank against the national building stock.
+- **Methodology** — Regression models derived from the Commercial Buildings Energy Consumption Survey (CBECS). Models account for climate, operating hours, number of occupants, and use-type-specific variables.
+- **Data requirements** — 12 consecutive months of whole-building energy data, gross floor area, and relevant operating characteristics.
+- **Certification** — Buildings scoring 75 or above are eligible for ENERGY STAR certification (submitted separately to the EPA).
+
+SDX submits data to the ENERGY STAR API on your behalf and returns the official score.
+
+## NABERS
+
+The National Australian Built Environment Rating System is administered by the NSW Government.
+
+- **Scope** — Australia. Office, shopping centre, hotel, and data centre use types.
+- **Score range** — 1 to 6 stars (in half-star increments).
+- **Methodology** — Compares a building's actual energy or water consumption to a benchmark derived from a statistical model of the Australian building stock. Separate ratings are available for energy, water, waste, and indoor environment.
+- **Normalisation** — Weather-normalised using Bureau of Meteorology data. Hours of operation and occupancy adjustments apply.
+- **Data requirements** — 12 months of energy data, tenancy and HVAC details.
+
+SDX calculates a NABERS-equivalent rating. Official NABERS certification requires a separate assessment by an accredited assessor, but the SDX estimate closely approximates the formal result.
+
+## EU Energy Performance Certificate (EPC)
+
+- **Scope** — European Union member states. All use types.
+- **Score range** — Letter grade A to G (A being most efficient).
+- **Methodology** — Based on the Energy Performance of Buildings Directive (EPBD). Thresholds vary by member state. SDX applies the relevant national methodology based on the building's country.
+- **Data requirements** — Whole-building energy consumption, floor area, building envelope characteristics (where available).
+- **Limitations** — Some member states use asset-based (design) ratings rather than operational ratings. SDX produces an operational rating where the national methodology permits.
+
+## CRREM
+
+The Carbon Risk Real Estate Monitor provides decarbonisation pathway analysis.
+
+- **Scope** — Global. All use types.
+- **Output** — Stranding year (the year a building's carbon intensity exceeds the Paris-aligned pathway) and annual carbon intensity trajectory.
+- **Methodology** — Compares a building's current and projected carbon intensity (kgCO₂e/m²/year) against science-based 1.5 °C and 2 °C pathways. Pathways are differentiated by country and use type.
+- **Data requirements** — Whole-building energy data, floor area, fuel mix, and grid emission factors.
+- **Scenarios** — SDX calculates both the 1.5 °C and 2 °C aligned pathways and shows the gap in absolute terms.
+
+## GRESB
+
+The Global Real Estate Sustainability Benchmark evaluates ESG performance for real estate portfolios.
+
+- **Scope** — Global. All use types.
+- **Output** — SDX generates the performance component data needed for GRESB submission, including energy intensity, GHG intensity, water intensity, and waste diversion.
+- **Methodology** — GRESB scoring combines management and performance indicators. SDX focuses on the performance (quantitative) component.
+- **Integration** — SDX can export data in the GRESB-compatible format for direct upload to the GRESB portal.
+
+## Standard applicability matrix
+
+| Use type | SDX | ENERGY STAR | NABERS | EU EPC | CRREM | GRESB |
+|---|---|---|---|---|---|---|
+| Office | Yes | Yes | Yes | Yes | Yes | Yes |
+| Retail | Yes | Yes | Yes | Yes | Yes | Yes |
+| Hotel | Yes | Yes | Yes | No | Yes | Yes |
+| Residential | Yes | No | No | Yes | Yes | Yes |
+| Industrial | Yes | Yes | No | Yes | Yes | Yes |
+| Data Centre | Yes | Yes | Yes | Yes | Yes | Yes |
+| Healthcare | Yes | Yes | No | Yes | Yes | Yes |
+| Education | Yes | Yes | No | Yes | Yes | Yes |
+
+## Next steps
+
+- [Understand data quality scoring](/docs/benchmarking/data-quality-scoring)
+- [Generate reports and exports](/docs/benchmarking/reports-and-exports)
+- [View compliance frameworks](/docs/benchmarking/compliance-frameworks)

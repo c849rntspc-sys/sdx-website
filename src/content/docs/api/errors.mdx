@@ -1,0 +1,131 @@
+---
+title: "Error Handling"
+description: "SDX API error codes, response format, and troubleshooting guidance."
+category: "API Reference"
+order: 5
+audience:
+  - integrator
+---
+
+# Error Handling
+
+The SDX API uses standard HTTP status codes and returns structured error responses to help you diagnose and resolve issues quickly.
+
+## Error response format
+
+All errors follow a consistent JSON structure:
+
+```json
+{
+  "error": {
+    "code": "validation_error",
+    "message": "The 'start_date' field must be a valid ISO 8601 date.",
+    "details": [
+      {
+        "field": "start_date",
+        "issue": "Invalid date format: '2026/01/15'. Expected 'YYYY-MM-DD'."
+      }
+    ],
+    "request_id": "req_abc123def456"
+  }
+}
+```
+
+| Field | Description |
+|---|---|
+| `code` | Machine-readable error code (see table below) |
+| `message` | Human-readable description of the error |
+| `details` | Optional array of field-level errors (for validation failures) |
+| `request_id` | Unique identifier for the request — include this in support tickets |
+
+## HTTP status codes
+
+| Status | Meaning |
+|---|---|
+| `200` | Success |
+| `201` | Resource created |
+| `204` | Success with no body (e.g. DELETE) |
+| `304` | Not modified (ETag match) |
+| `400` | Bad request — invalid syntax or parameters |
+| `401` | Unauthorized — missing or invalid authentication |
+| `403` | Forbidden — valid credentials but insufficient permissions |
+| `404` | Not found — resource does not exist |
+| `409` | Conflict — resource already exists or state conflict |
+| `422` | Unprocessable entity — validation failed |
+| `429` | Too many requests — rate limit exceeded |
+| `500` | Internal server error |
+| `502` | Bad gateway |
+| `503` | Service unavailable — maintenance or temporary outage |
+
+## Error codes
+
+| Code | HTTP Status | Description |
+|---|---|---|
+| `authentication_required` | 401 | No Authorization header provided |
+| `invalid_token` | 401 | API key or OAuth token is invalid or expired |
+| `insufficient_scope` | 403 | Token does not have the required scope |
+| `resource_not_found` | 404 | The requested resource does not exist |
+| `validation_error` | 422 | One or more fields failed validation |
+| `duplicate_resource` | 409 | A resource with the same unique key already exists |
+| `rate_limit_exceeded` | 429 | Request rate limit exceeded |
+| `meter_overlap` | 422 | Meter reading date range overlaps an existing reading |
+| `building_locked` | 403 | Building is locked for editing (e.g. during an audit) |
+| `report_not_ready` | 422 | Insufficient data to generate the requested report |
+| `file_too_large` | 400 | Uploaded file exceeds the 50 MB limit |
+| `unsupported_format` | 400 | File format is not supported |
+| `internal_error` | 500 | Unexpected server error |
+| `service_unavailable` | 503 | Planned maintenance or temporary outage |
+
+## Validation errors
+
+For `422` responses, the `details` array lists every field that failed validation:
+
+```json
+{
+  "error": {
+    "code": "validation_error",
+    "message": "Request body contains 2 validation errors.",
+    "details": [
+      {
+        "field": "consumption",
+        "issue": "Must be a positive number."
+      },
+      {
+        "field": "unit",
+        "issue": "Must be one of: kWh, MJ, therms, GJ, kBtu."
+      }
+    ],
+    "request_id": "req_xyz789"
+  }
+}
+```
+
+## Troubleshooting common errors
+
+### 401 — Authentication required
+
+- Verify the `Authorization` header is present and formatted as `Bearer YOUR_TOKEN`.
+- Confirm the API key or OAuth token has not been revoked.
+- Check that you are using a production key for `api.sdx.dev` and a sandbox key for `sandbox.api.sdx.dev`.
+
+### 403 — Insufficient scope
+
+- The API key or OAuth token does not include the required scope. Check the [Authentication](/docs/api/authentication) page for the scope needed by each endpoint.
+
+### 422 — Meter overlap
+
+- A reading already exists for the same meter and overlapping date range. Either adjust the dates or delete the existing reading first.
+
+### 429 — Rate limit exceeded
+
+- Wait for the duration specified in the `Retry-After` header. See [Rate Limits](/docs/api/rate-limits) for retry strategies.
+
+### 500 — Internal error
+
+- This is a server-side issue. Retry the request after a short delay. If the error persists, contact [api-support@sdx.dev](mailto:api-support@sdx.dev) with the `request_id`.
+
+## Next steps
+
+- [OpenAPI specification](/docs/api/openapi-spec)
+- [Rate limits](/docs/api/rate-limits)
+- [Authentication](/docs/api/authentication)

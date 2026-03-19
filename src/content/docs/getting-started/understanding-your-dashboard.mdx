@@ -1,0 +1,97 @@
+---
+title: "Understanding Your Dashboard"
+description: "Navigate the SDX dashboard — portfolio metrics, building performance, data quality indicators, and compliance status."
+category: "Getting Started"
+order: 5
+audience:
+  - contributor
+---
+
+# Understanding Your Dashboard
+
+Once you have added properties and submitted data, the SDX dashboard gives you a single view of your portfolio's sustainability performance.
+
+## Dashboard layout
+
+The dashboard is divided into four sections accessible from the top navigation:
+
+1. **Portfolio Overview** — High-level KPIs across all your buildings
+2. **Building Detail** — Deep dive into a single building's performance
+3. **Data Quality** — Completeness, coverage, and freshness scores
+4. **Compliance** — Status of regulatory and voluntary reporting frameworks
+
+## Portfolio Overview
+
+The portfolio view shows aggregate metrics for every active building in your organisation.
+
+### Key performance indicators
+
+| Metric | Description |
+|---|---|
+| **Total floor area** | Sum of gross floor area across all buildings |
+| **Energy Use Intensity (EUI)** | Portfolio-weighted average in kWh/m²/year |
+| **Carbon Intensity** | Portfolio-weighted average in kgCO₂e/m²/year |
+| **Water Use Intensity** | Portfolio-weighted average in litres/m²/year |
+| **Data Quality Grade** | Aggregate letter grade from A to F |
+| **Data Dividend Estimate** | Projected quarterly dividend based on current data |
+
+You can filter the portfolio view by property type, region, fund, or custom tags.
+
+### Charts and trends
+
+- **EUI trend** — Rolling 12-month energy use intensity with year-on-year comparison
+- **Carbon breakdown** — Scope 1 vs. Scope 2 emissions by fuel type
+- **Benchmark distribution** — Histogram showing how your buildings rank within SDX peer groups
+- **Top movers** — Buildings with the largest improvement or deterioration over the last quarter
+
+## Building Detail
+
+Click any building to open its detail page. Here you will find:
+
+- **Benchmark scores** across all applicable standards (SDX, ENERGY STAR, NABERS, EU EPC, CRREM, GRESB). See [Benchmarking Standards](/docs/benchmarking/benchmarking-standards) for details.
+- **Meter data** — Time-series charts for each utility meter, with anomaly flags.
+- **Year-on-year comparison** — Side-by-side performance for the current and previous reporting year.
+- **Targets** — Custom reduction targets with progress tracking.
+
+## Data Quality panel
+
+The Data Quality panel provides a letter grade (A through F) for each building and the portfolio overall. It evaluates three dimensions:
+
+- **Completeness** — What percentage of expected meter readings have been received?
+- **Coverage** — Do submitted meters account for whole-building consumption?
+- **Freshness** — How recently was the last reading received?
+
+A higher data quality grade increases your [Data Dividend](/docs/data-dividend) and improves benchmark reliability. See [Data Quality Scoring](/docs/benchmarking/data-quality-scoring) for the full methodology.
+
+## Compliance tracker
+
+The compliance tracker shows the status of each regulatory or voluntary framework you have opted into:
+
+- **Green** — Submission complete and accepted
+- **Amber** — Submission in progress or data gaps identified
+- **Red** — Deadline approaching with incomplete data
+
+Supported frameworks include GRESB, NYC LL97, Boston BERDO, EU EPBD, UK MEES, and more. See [Compliance Frameworks](/docs/benchmarking/compliance-frameworks) for the full list.
+
+## Customising the dashboard
+
+- **Pin buildings** to the top of the portfolio view for quick access.
+- **Create custom views** with saved filter and sort combinations.
+- **Set alert thresholds** to receive email or webhook notifications when a metric exceeds a limit.
+- **Export any view** to PDF or CSV from the top-right menu.
+
+## Navigation shortcuts
+
+| Shortcut | Action |
+|---|---|
+| `G` then `P` | Go to Portfolio Overview |
+| `G` then `B` | Go to Building Detail (last viewed) |
+| `G` then `D` | Go to Data Quality |
+| `G` then `C` | Go to Compliance |
+| `/` | Open global search |
+
+## Next steps
+
+- [Learn how benchmarking works](/docs/benchmarking)
+- [Understand your Data Dividend](/docs/data-dividend)
+- [Generate compliance reports](/docs/benchmarking/reports-and-exports)
