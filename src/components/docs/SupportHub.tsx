@@ -71,15 +71,15 @@ const RECOMMENDED: Record<Persona, { title: string; description: string; href: s
     { title: 'Authentication', description: 'API keys, OAuth2, and bearer token setup', href: '/docs/api/authentication', icon: Key },
     { title: 'Writing Data on Behalf of Owners', description: 'How to push building and meter data through the API', href: '/docs/integrations/writing-data', icon: Code },
     { title: 'Reading Data on Behalf of Owners', description: 'Retrieve benchmarks, scores, and reports via API', href: '/docs/integrations/reading-data', icon: Layers },
-    { title: 'Free to Integrate', description: 'No API fees — read and write at zero cost', href: '/docs/pricing/integrator-pricing', icon: DollarSign },
+    { title: 'Scoped API Keys', description: '11 permission scopes, bcrypt-hashed, rate-limited, instantly revocable', href: '/docs/api/authentication', icon: Key },
     { title: 'Code Examples', description: 'Python, JavaScript, cURL, and Ruby samples', href: '/docs/integrations/code-examples', icon: Globe },
   ],
   consultant: [
-    { title: 'Getting Started', description: 'Set up your organization and start managing client portfolios', href: '/docs/getting-started', icon: BookOpen },
-    { title: 'Submitting Data', description: 'Manual entry, CSV upload, and automated utility feeds', href: '/docs/getting-started/submitting-data', icon: Building2 },
-    { title: 'Licensed Content Overview', description: 'Aggregate benchmarks, indices, and data products available', href: '/docs/licensed-content', icon: Shield },
-    { title: 'Reports & Exports', description: 'Generate compliance reports and portfolio analytics', href: '/docs/benchmarking/reports-and-exports', icon: FileCheck },
-    { title: 'Licensing Terms', description: 'Understand usage rights, restrictions, and redistribution rules', href: '/docs/licensed-content/licensing-terms', icon: LinkIcon },
+    { title: 'Representative Onboarding', description: 'Register once, accept client invitations, and manage multiple organizations', href: '/docs/getting-started/creating-an-account', icon: BookOpen },
+    { title: 'Managing Client Portfolios', description: 'Switch between client organizations with the in-app org switcher', href: '/docs/getting-started/understanding-your-dashboard', icon: Building2 },
+    { title: 'Access Levels & Permissions', description: 'Read-only, Operate, or Full access — controlled by each owner', href: '/docs/getting-started/submitting-data', icon: Shield },
+    { title: 'Reports & Exports', description: 'Generate compliance reports and portfolio analytics for clients', href: '/docs/benchmarking/reports-and-exports', icon: FileCheck },
+    { title: 'Licensed Content', description: 'Aggregate benchmarks, indices, and data products for advisory work', href: '/docs/licensed-content', icon: LinkIcon },
     { title: 'Pricing & Licensing', description: 'Free platform, licensed content model, and how payments work', href: '/docs/pricing', icon: DollarSign },
   ],
 };
@@ -101,11 +101,11 @@ const GETTING_STARTED: Record<Persona, { title: string; href: string }[]> = {
     { title: 'Explore the sandbox', href: '/docs/integrations/sandbox-environment' },
   ],
   consultant: [
-    { title: 'Create an account', href: '/docs/getting-started/creating-an-account' },
-    { title: 'Add client properties', href: '/docs/getting-started/adding-your-first-property' },
-    { title: 'Submit data for clients', href: '/docs/getting-started/submitting-data' },
-    { title: 'Access licensed content', href: '/docs/licensed-content' },
-    { title: 'Understand pricing', href: '/docs/pricing' },
+    { title: 'Register as a representative', href: '/docs/getting-started/creating-an-account' },
+    { title: 'Accept a client invitation', href: '/docs/getting-started/understanding-your-dashboard' },
+    { title: 'Switch between client organizations', href: '/docs/getting-started/understanding-your-dashboard' },
+    { title: 'Submit data on behalf of clients', href: '/docs/getting-started/submitting-data' },
+    { title: 'Understand access levels and permissions', href: '/docs/pricing' },
   ],
 };
 

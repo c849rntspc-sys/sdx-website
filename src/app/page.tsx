@@ -10,6 +10,7 @@ import { ProvenModel } from '@/components/marketing/ProvenModel';
 import { TestimonialBar } from '@/components/marketing/TestimonialBar';
 import { WhatSdxIsNot } from '@/components/marketing/WhatSdxIsNot';
 import { FeatureGrid } from '@/components/marketing/FeatureGrid';
+import { MultiActorModel } from '@/components/marketing/MultiActorModel';
 
 const substrateLayers = [
   {
@@ -76,6 +77,8 @@ export default function HomePage() {
         features={substrateLayers}
         columns={3}
       />
+
+      <MultiActorModel />
 
       <ProvenModel />
 

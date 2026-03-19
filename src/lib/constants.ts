@@ -73,9 +73,11 @@ export const PLATFORM_FEATURES = [
   { icon: 'Globe', title: 'Global Benchmarking', description: '60+ property types across 30+ countries with country-specific emission factors, climate data, and unit systems.' },
   { icon: 'BarChart3', title: 'Multi-Standard Scoring', description: 'Benchmark against SDX, ENERGY STAR, NABERS, EU EPC, CRREM, and GRESB simultaneously.' },
   { icon: 'FileCheck', title: 'Automated Compliance', description: '16+ regulatory and voluntary report frameworks including GRESB, NYC LL97, Boston BERDO, TCFD, and CDP.' },
+  { icon: 'Users', title: 'Multi-Actor Access', description: 'Support for owners, authorized representatives, and API integration partners — each with granular permissions and a complete audit trail.' },
   { icon: 'Bot', title: 'AI-Powered Insights', description: 'Claude-powered analytics for portfolio performance, retrofit recommendations, and cost savings identification.' },
   { icon: 'Search', title: 'Data Quality Audit', description: 'Completeness, coverage, and freshness scoring with limited assurance readiness and meter gap detection.' },
   { icon: 'Zap', title: 'Utility Auto-Feeds', description: '35+ global utility provider connections plus Green Button compatibility for automated meter data ingestion.' },
+  { icon: 'Key', title: 'Scoped API Keys', description: '11 granular permission scopes for machine-to-machine integration. Keys shown once, stored as bcrypt hashes, rate-limited, and instantly revocable.' },
   { icon: 'Link', title: 'Enterprise Integrations', description: 'Connect with Yardi, RealPage, Measurabl, Deepki, Scaler, Cambio, Arc, and more.' },
   { icon: 'ShieldCheck', title: 'Scope 1 & 2 GHG', description: 'Country-specific grid emission factors for 30+ countries with fuel-type breakdowns and renewable energy tracking.' },
 ];
