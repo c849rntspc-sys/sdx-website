@@ -13,10 +13,10 @@ type Props = {
 };
 
 export function CTABanner({
-  title = 'Ready to shape a new standard?',
-  subtitle = 'First-movers write the rules, earn the largest dividends, and build the infrastructure our industry deserves.',
-  cta = 'Join the Working Group',
-  href = '/join',
+  title = 'Ready to get started?',
+  subtitle = 'SDX is free for every owner — from a single building to a global portfolio. Start benchmarking today.',
+  cta = 'Create a Free Account',
+  href = '/platform',
 }: Props) {
   return (
     <section className="bg-gradient-to-r from-primary-500 to-primary-400 py-20">

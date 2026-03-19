@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
   title: 'Join',
-  description: 'Join the SDX working group. First-movers write the rules, earn the largest dividends, and shape a new standard.',
+  description: 'Get started with SDX. Create a free account, onboard your first building, and start earning data dividends.',
 };
 
 export default function JoinPage() {
@@ -48,7 +48,7 @@ export default function JoinPage() {
                 Let&apos;s build the infrastructure our industry deserves.
               </h2>
               <p className="text-text-secondary mb-8">
-                Reach out to join the working group, commit pilot assets, or learn more about the data dividend model.
+                Reach out to learn more about SDX, commit pilot assets, or explore the data dividend model.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a

@@ -165,7 +165,7 @@ export const FAQ = [
 
 // ─── Early Adopter Steps ─────────────────────────────────────
 export const EARLY_ADOPTER_STEPS = [
-  { step: 1, title: 'Join the Working Group', description: 'Shape the charter, governance rules, and comparability standard alongside other leading owners.', icon: 'Users' },
+  { step: 1, title: 'Create a Free Account', description: 'Sign up in minutes. Add your first building and start receiving benchmarks — at zero cost.', icon: 'Users' },
   { step: 2, title: 'Commit Pilot Assets', description: '2\u20133 jurisdictions, 1\u20132 asset classes. Define success metrics and integration priorities together.', icon: 'Building2' },
   { step: 3, title: 'Lend Your Credibility', description: 'Your name signals to the market that this is serious. Early movers set the rules and earn the largest dividends.', icon: 'ShieldCheck' },
   { step: 4, title: 'Co-Fund the MVP', description: 'Help fund the initial build. Your investment is returned through dividends as the platform scales.', icon: 'Zap' },

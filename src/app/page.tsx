@@ -57,8 +57,8 @@ export default function HomePage() {
         pillars={['Neutral', 'Shared Value', 'Owner-governed']}
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href="/join" size="lg">
-            Join the Working Group
+          <Button href="/data-dividend" size="lg">
+            Learn About the Data Dividend
           </Button>
           <Button href="/platform" variant="outline-light" size="lg">
             Explore the Platform

@@ -80,7 +80,9 @@ export default function AboutPage() {
 
       <CTABanner
         title="Ready to shape the future of sustainability data?"
-        subtitle="Join the working group alongside leading real estate owners."
+        subtitle="SDX is free for every owner. Start benchmarking your portfolio today."
+        cta="Create a Free Account"
+        href="/platform"
       />
     </>
   );

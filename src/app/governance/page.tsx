@@ -236,8 +236,10 @@ export default function GovernancePage() {
       </section>
 
       <CTABanner
-        title="Help shape the governance"
-        subtitle="Join the working group to define the charter, conduct rules, and comparability standard."
+        title="Get started with SDX"
+        subtitle="SDX is free for every owner. Start benchmarking your portfolio today."
+        cta="Create a Free Account"
+        href="/platform"
       />
     </>
   );

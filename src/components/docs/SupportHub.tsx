@@ -21,6 +21,7 @@ import {
   Layers,
 } from 'lucide-react';
 import type { DocMeta } from '@/lib/docs';
+import { NewsletterSignup } from '@/components/marketing/NewsletterSignup';
 
 // ---------------------------------------------------------------------------
 // Persona definitions
@@ -142,6 +143,11 @@ export function SupportHub({ allDocs }: { allDocs: DocMeta[] }) {
   if (!persona) {
     return (
       <div className="py-16">
+        {/* Newsletter CTA */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <NewsletterSignup variant="banner" dark />
+        </div>
+
         <div className="text-center mb-12">
           <p className="text-xs font-semibold tracking-widest text-primary-400 uppercase mb-3">Support Center</p>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">How can we help?</h1>
@@ -170,6 +176,18 @@ export function SupportHub({ allDocs }: { allDocs: DocMeta[] }) {
               </button>
             );
           })}
+        </div>
+
+        {/* Newsletter archive link */}
+        <div className="max-w-4xl mx-auto mt-10 text-center">
+          <Link
+            href="/news"
+            className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-primary-400 transition-colors"
+          >
+            <BookOpen className="w-4 h-4" />
+            Browse the newsletter archive
+            <ArrowRight className="w-3 h-3" />
+          </Link>
         </div>
       </div>
     );

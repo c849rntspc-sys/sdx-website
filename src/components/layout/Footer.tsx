@@ -1,23 +1,19 @@
 import Link from 'next/link';
 import { Leaf } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
+import { NewsletterSignup } from '@/components/marketing/NewsletterSignup';
 
 const footerLinks = {
   Platform: [
-    { label: 'How It Works', href: '/how-it-works' },
+    { label: 'Platform Features', href: '/platform' },
     { label: 'Data Dividend', href: '/data-dividend' },
     { label: 'Ecosystem', href: '/ecosystem' },
-    { label: 'Governance', href: '/governance' },
-  ],
-  Product: [
-    { label: 'Platform Features', href: '/platform' },
     { label: 'Benchmarking Standards', href: '/platform#standards' },
-    { label: 'Compliance', href: '/platform#compliance' },
-    { label: 'Integrations', href: '/platform#integrations' },
   ],
-  Company: [
-    { label: 'About', href: '/about' },
-    { label: 'Join Working Group', href: '/join' },
+  Resources: [
+    { label: 'Support', href: '/docs' },
+    { label: 'Newsletter Archive', href: '/news' },
+    { label: 'About Us', href: '/governance' },
     { label: 'Contact', href: '/about#contact' },
   ],
 };
@@ -60,6 +56,9 @@ export function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Newsletter */}
+          <NewsletterSignup variant="card" />
         </div>
       </Container>
 
@@ -69,7 +68,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Sustainability Data Exchange. All rights reserved.
           </p>
           <p className="text-xs text-gray-600">
-            Neutral. Comparable. Owner-governed.
+            Neutral. Shared Value. Owner-governed.
           </p>
         </Container>
       </div>
