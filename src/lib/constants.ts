@@ -177,7 +177,7 @@ export const NAV_LINKS = [
   { label: 'Platform', href: '/platform' },
   { label: 'Ecosystem', href: '/ecosystem' },
   { label: 'Data Dividend', href: '/data-dividend' },
-  { label: 'Docs', href: '/docs' },
+  { label: 'Support', href: '/docs' },
   { label: 'About Us', href: '/governance' },
 ];
 
