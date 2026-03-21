@@ -74,12 +74,12 @@ export const PLATFORM_FEATURES = [
   { icon: 'BarChart3', title: 'Multi-Standard Scoring', description: 'Benchmark against SDX, ENERGY STAR, NABERS, EU EPC, CRREM, and GRESB simultaneously.' },
   { icon: 'FileCheck', title: 'Automated Compliance', description: '16+ regulatory and voluntary report frameworks including GRESB, NYC LL97, Boston BERDO, TCFD, and CDP.' },
   { icon: 'Users', title: 'Multi-Actor Access', description: 'Support for owners, authorized representatives, and API integration partners — each with granular permissions and a complete audit trail.' },
-  { icon: 'Bot', title: 'AI Assistant (Claude)', description: 'A real AI assistant with live access to your portfolio data — not canned responses. Ask about building performance, energy costs, carbon trends, and get specific, data-driven recommendations.' },
+  { icon: 'Bot', title: 'AI Assistant (Claude)', description: 'Powered by Claude (Anthropic) with live access to your portfolio context — property count, GHG totals, ENERGY STAR scores, energy costs. Data-driven answers, not canned responses.' },
   { icon: 'Search', title: 'Data Quality Audit', description: 'Completeness, coverage, and freshness scoring with limited assurance readiness and meter gap detection.' },
   { icon: 'Zap', title: 'Direct Utility Connections', description: 'Live integrations with PG&E, Con Edison, National Grid, ComEd, SCE, and Ameren via Green Button Connect My Data (OAuth 2.0). Your credentials never touch SDX.' },
   { icon: 'Key', title: 'Scoped API Keys', description: '11 granular permission scopes for machine-to-machine integration. Keys shown once, stored as bcrypt hashes, rate-limited, and instantly revocable.' },
   { icon: 'Link', title: 'Enterprise Integrations', description: 'Connect with Yardi, RealPage, Measurabl, Deepki, Scaler, Cambio, Arc, and more.' },
-  { icon: 'ShieldCheck', title: 'Scope 1 & 2 GHG', description: 'Country-specific grid emission factors for 30+ countries with fuel-type breakdowns and renewable energy tracking.' },
+  { icon: 'ShieldCheck', title: 'Scope 1 & 2 GHG', description: '6 published emission factor databases (EPA GHG Hub, eGRID, UK DEFRA, IEA, IPCC, EDGAR) with organization-level overrides feeding real GHG calculations.' },
 ];
 
 // ─── Benchmarking Standards ──────────────────────────────────

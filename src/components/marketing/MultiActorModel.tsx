@@ -15,7 +15,7 @@ const actors = [
       'Manage your portfolio directly — add properties, submit data, track benchmarks',
       'Delegate management to trusted consultants with granular access control',
       'Generate API keys for automated integration with your property management software',
-      'Full audit trail — know who changed what, when, and on whose behalf',
+      'Full change tracking — know who changed what, when, and on whose behalf',
     ],
   },
   {
@@ -101,7 +101,7 @@ export function MultiActorModel() {
             <div className="bg-white/5 border border-white/10 rounded-xl p-5 flex flex-wrap gap-6 justify-center">
               {[
                 { icon: Key, text: 'Scoped API keys with bcrypt-hashed storage' },
-                { icon: Eye, text: 'Complete audit log of all data modifications' },
+                { icon: Eye, text: 'Complete change log of all data modifications' },
                 { icon: Settings, text: '11 API scopes · 3 access levels · 4 user roles' },
                 { icon: ArrowRightLeft, text: '"Performed by [rep] on behalf of [owner]" tracking' },
               ].map((item, i) => {
