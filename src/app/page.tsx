@@ -38,6 +38,16 @@ const substrateLayers = [
     title: 'Data Quality Standard',
     description: 'Completeness, coverage, and freshness scoring with letter grades. Limited assurance readiness tracking and meter gap detection.',
   },
+  {
+    icon: 'Wifi',
+    title: 'Direct Utility Connections',
+    description: 'Live integrations with ENERGY STAR Portfolio Manager (EPA) and 6+ utilities via Green Button Connect My Data. Automated meter data import at the infrastructure layer.',
+  },
+  {
+    icon: 'Bot',
+    title: 'AI Assistant (Claude)',
+    description: 'A real AI with live access to your portfolio data — ask about building performance, energy costs, and carbon trends and get specific, data-driven answers.',
+  },
 ];
 
 export default function HomePage() {

@@ -7,7 +7,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { FadeInView } from '@/components/marketing/FadeInView';
-import { PLATFORM_FEATURES, BENCHMARK_STANDARDS, COMPLIANCE_FRAMEWORKS, INTEGRATIONS } from '@/lib/constants';
+import { PLATFORM_FEATURES, BENCHMARK_STANDARDS, COMPLIANCE_FRAMEWORKS, INTEGRATIONS, LIVE_CONNECTIONS } from '@/lib/constants';
+import { Wifi, Bot, ShieldCheck, Check } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Platform',
@@ -31,6 +32,98 @@ export default function PlatformPage() {
         features={PLATFORM_FEATURES}
         columns={4}
       />
+
+      {/* Live Data Connections */}
+      <section className="py-24 bg-navy-800">
+        <Container>
+          <SectionHeading
+            eyebrow="Live Data Connections"
+            title="Connected to the infrastructure layer"
+            subtitle="SDX pulls data directly from utilities and the EPA — not through intermediaries. Your credentials never touch SDX."
+            dark
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <FadeInView>
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Wifi className="w-5 h-5 text-primary-400" />
+                  <h3 className="text-lg font-bold text-white">ENERGY STAR Portfolio Manager</h3>
+                  <Badge color="green">Live</Badge>
+                </div>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  Full integration with EPA&apos;s official Web Services API. Connect your Portfolio Manager account,
+                  share properties with SDX, and automatically sync ENERGY STAR scores, meters, and consumption data.
+                </p>
+                <div className="border-t border-navy-700 pt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Wifi className="w-5 h-5 text-primary-400" />
+                    <h3 className="text-lg font-bold text-white">Green Button Connect My Data</h3>
+                    <Badge color="green">Live</Badge>
+                  </div>
+                  <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                    OAuth 2.0 utility connections using the NAESB ESPI standard. Users authorize directly on the
+                    utility&apos;s website — SDX receives interval data (15-min/hourly), billing summaries, and costs automatically.
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {LIVE_CONNECTIONS.utility.map((u, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <div className={`w-2 h-2 rounded-full ${u.status === 'Live' ? 'bg-green-400' : 'bg-amber-400'}`} />
+                        <span className="text-sm text-gray-300">{u.name}</span>
+                        <span className="text-xs text-gray-500">{u.status}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </FadeInView>
+            <FadeInView>
+              <div className="space-y-4">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-primary-400 mb-4">Architecture</h3>
+                {LIVE_CONNECTIONS.architecture.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <Check className="w-4 h-4 text-primary-400 shrink-0 mt-1" />
+                    <p className="text-sm text-gray-300">{item}</p>
+                  </div>
+                ))}
+                <div className="mt-6 p-4 rounded-lg bg-navy-700/50 border border-navy-600">
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    <span className="text-primary-400 font-semibold">Infrastructure-layer integration.</span>{' '}
+                    Any Green Button-compliant utility can be added with configuration only. SDX connects to the
+                    same data sources that sit beneath every sustainability platform — reinforcing its role as
+                    neutral substrate, not a competing application.
+                  </p>
+                </div>
+              </div>
+            </FadeInView>
+          </div>
+        </Container>
+      </section>
+
+      {/* AI Assistant */}
+      <section className="py-24 bg-surface-bg">
+        <Container>
+          <div className="max-w-3xl mx-auto text-center">
+            <SectionHeading
+              eyebrow="AI-Powered Analysis"
+              title="Ask your portfolio anything"
+              subtitle="The SDX AI assistant — powered by Claude (Anthropic) — has real-time access to your portfolio data. It gives specific, data-driven answers, not generic suggestions."
+            />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {[
+                { icon: Bot, title: 'Portfolio Context', description: 'Every response is grounded in your actual buildings, meters, scores, and costs — not hypotheticals.' },
+                { icon: ShieldCheck, title: 'Data-Driven Recommendations', description: 'Identifies retrofit candidates, cost savings opportunities, and carbon reduction priorities from real performance data.' },
+                { icon: Wifi, title: 'Connected to Live Data', description: 'Draws on utility feeds, ENERGY STAR scores, and benchmark comparisons as they update — always current.' },
+              ].map((f, i) => (
+                <Card key={i}>
+                  <f.icon className="w-8 h-8 text-primary-500 mb-3" />
+                  <h3 className="font-semibold text-text-primary mb-2">{f.title}</h3>
+                  <p className="text-sm text-text-secondary">{f.description}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <section id="standards" className="py-24 bg-navy-800">
         <Container>

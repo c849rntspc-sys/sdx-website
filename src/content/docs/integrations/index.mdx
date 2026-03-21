@@ -55,6 +55,31 @@ See [Reading Data](/docs/integrations/reading-data) for implementation details.
 
 Most integrators implement both patterns: write data in, read scores out.
 
+### 3. Utility data via Green Button Connect My Data
+
+SDX connects directly to utilities using the NAESB ESPI standard and OAuth 2.0 authorization. Currently live or ready:
+
+| Utility | Protocol | Status |
+|---------|----------|--------|
+| PG&E | Green Button Connect My Data (OAuth 2.0) | Live |
+| Con Edison | Green Button Connect My Data (OAuth 2.0) | Ready |
+| National Grid | Green Button Connect My Data (OAuth 2.0) | Ready |
+| ComEd (Exelon) | Green Button Connect My Data (OAuth 2.0) | Ready |
+| SCE | Green Button Connect My Data (OAuth 2.0) | Ready |
+| Ameren | Green Button Connect My Data (OAuth 2.0) | Ready |
+
+Users authorize on the utility's own website — credentials never touch SDX. SDX pulls interval data (15-min/hourly), billing summaries, and costs automatically. Any Green Button-compliant utility can be added with configuration only.
+
+### 4. ENERGY STAR Portfolio Manager sync
+
+SDX has a live integration with EPA's official Web Services API. Users share properties with SDX from within Portfolio Manager, and SDX automatically syncs:
+
+- ENERGY STAR 1–100 scores
+- Meter definitions and consumption data
+- Property metadata and building characteristics
+
+This data flows through the substrate and is available to any authorized ecosystem partner.
+
 ## Technical requirements
 
 - **Authentication** — API keys for server-to-server, OAuth2 for user-facing apps. See [Authentication](/docs/api/authentication).

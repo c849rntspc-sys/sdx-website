@@ -8,7 +8,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
 import { FadeInView } from '@/components/marketing/FadeInView';
 import { ECOSYSTEM_BENEFITS, INTEGRATIONS } from '@/lib/constants';
-import { Minus, Check } from 'lucide-react';
+import { Minus, Check, Wifi } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Ecosystem',
@@ -120,6 +120,43 @@ export default function EcosystemPage() {
         features={apiFeatures}
         columns={3}
       />
+
+      {/* Infrastructure-layer connections */}
+      <section className="py-24 bg-surface-bg">
+        <Container>
+          <SectionHeading
+            eyebrow="Infrastructure Layer"
+            title="Connected directly to data sources"
+            subtitle="SDX integrates with the utilities and standards bodies that sit beneath the entire sustainability ecosystem — not competing with the platforms that build on top."
+          />
+          <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <Card>
+              <div className="flex items-center gap-3 mb-3">
+                <Wifi className="w-5 h-5 text-primary-500" />
+                <h3 className="font-semibold text-text-primary">ENERGY STAR Portfolio Manager</h3>
+              </div>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Live integration with EPA&apos;s official Web Services API. Score sync, meter import, and consumption data — pulled directly from the source.
+              </p>
+            </Card>
+            <Card>
+              <div className="flex items-center gap-3 mb-3">
+                <Wifi className="w-5 h-5 text-primary-500" />
+                <h3 className="font-semibold text-text-primary">Green Button Connect My Data</h3>
+              </div>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                OAuth 2.0 utility connections (PG&E, Con Edison, National Grid, ComEd, SCE, Ameren). Raw meter data flows through SDX and is available to any ecosystem partner.
+              </p>
+            </Card>
+          </div>
+          <div className="max-w-3xl mx-auto p-4 rounded-lg bg-primary-50 border border-primary-200 text-center">
+            <p className="text-sm text-text-secondary">
+              <span className="font-semibold text-primary-600">Neutral substrate, not a competing SaaS.</span>{' '}
+              SDX pulls the raw utility and EPA data that sits beneath every sustainability platform. Like DTCC for securities or SWIFT for payments — the infrastructure layer that makes everything above it work.
+            </p>
+          </div>
+        </Container>
+      </section>
 
       <section className="py-24 bg-white">
         <Container>
