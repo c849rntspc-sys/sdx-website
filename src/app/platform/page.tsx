@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { FadeInView } from '@/components/marketing/FadeInView';
 import { PLATFORM_FEATURES, BENCHMARK_STANDARDS, COMPLIANCE_FRAMEWORKS, INTEGRATIONS, LIVE_CONNECTIONS } from '@/lib/constants';
-import { Wifi, Bot, ShieldCheck, Check } from 'lucide-react';
+import { Wifi, Bot, ShieldCheck, Check, Pencil, Upload, MapPin, Table } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Platform',
@@ -121,6 +121,32 @@ export default function PlatformPage() {
                 </Card>
               ))}
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Day-to-Day Portfolio Management */}
+      <section className="py-24 bg-white">
+        <Container>
+          <SectionHeading
+            eyebrow="Portfolio Management"
+            title="Built for real-world workflows"
+            subtitle="SDX isn't just a benchmarking engine — it's a working portfolio management tool designed for how sustainability teams actually operate."
+            dark
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Pencil, title: 'Inline Editing', description: 'Edit property details directly from the portfolio view. Per-field editing with instant save and visual confirmation.' },
+              { icon: Upload, title: 'CSV Upload Wizard', description: 'Drag-and-drop meter data import with intelligent column mapping, per-row validation, and a guided 4-step flow.' },
+              { icon: MapPin, title: 'Auto-Geocoding', description: 'Properties automatically geocoded on create or update. Batch geocoding for existing portfolios. Map view included.' },
+              { icon: Table, title: 'Smart Portfolio Table', description: 'Year Built, Annual Energy Spend with actual/estimated badges, and performance Score — designed for quick portfolio scanning.' },
+            ].map((f, i) => (
+              <Card key={i}>
+                <f.icon className="w-6 h-6 text-primary-500 mb-3" />
+                <h3 className="font-semibold text-text-primary mb-2">{f.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">{f.description}</p>
+              </Card>
+            ))}
           </div>
         </Container>
       </section>

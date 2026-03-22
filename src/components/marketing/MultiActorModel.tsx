@@ -25,8 +25,8 @@ const actors = [
     color: 'cyan' as const,
     features: [
       'Register once, get invited by owner organizations to act on their behalf',
-      'Consolidated dashboard showing all clients\u2019 performance at a glance',
-      'Switch between client organizations instantly with the in-app org switcher',
+      'Consolidated overview showing all clients\u2019 KPIs at a glance — or switch into a specific client org',
+      'Tailored UI — org profiles and emission factors scoped to each client, not shown in overview mode',
       'Each client controls your access level — view-only, operate, or full management',
     ],
   },

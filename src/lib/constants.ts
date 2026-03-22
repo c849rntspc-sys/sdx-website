@@ -73,13 +73,17 @@ export const PLATFORM_FEATURES = [
   { icon: 'Globe', title: 'Global Benchmarking', description: '60+ property types across 30+ countries with country-specific emission factors, climate data, and unit systems.' },
   { icon: 'BarChart3', title: 'Multi-Standard Scoring', description: 'Benchmark against SDX, ENERGY STAR, NABERS, EU EPC, CRREM, and GRESB simultaneously.' },
   { icon: 'FileCheck', title: 'Automated Compliance', description: '16+ regulatory and voluntary report frameworks including GRESB, NYC LL97, Boston BERDO, TCFD, and CDP.' },
-  { icon: 'Users', title: 'Multi-Actor Access', description: 'Support for owners, authorized representatives, and API integration partners — each with granular permissions and a complete audit trail.' },
+  { icon: 'Users', title: 'Multi-Actor Access', description: 'Owners get full access to org profiles, emission factors, and settings. Consultants see a tailored experience scoped to each client organization. API partners integrate via scoped keys.' },
   { icon: 'Bot', title: 'AI Assistant (Claude)', description: 'Powered by Claude (Anthropic) with live access to your portfolio context — property count, GHG totals, ENERGY STAR scores, energy costs. Data-driven answers, not canned responses.' },
-  { icon: 'Search', title: 'Data Quality Audit', description: 'Completeness, coverage, and freshness scoring with limited assurance readiness and meter gap detection.' },
+  { icon: 'Search', title: 'Audit Readiness', description: 'Real-time data quality scoring per property across timeliness, accuracy (actual vs. estimated), and completeness. Letter grades, meter gap detection, and limited assurance readiness tracking.' },
   { icon: 'Zap', title: 'Direct Utility Connections', description: 'Live integrations with PG&E, Con Edison, National Grid, ComEd, SCE, and Ameren via Green Button Connect My Data (OAuth 2.0). Your credentials never touch SDX.' },
   { icon: 'Key', title: 'Scoped API Keys', description: '11 granular permission scopes for machine-to-machine integration. Keys shown once, stored as bcrypt hashes, rate-limited, and instantly revocable.' },
   { icon: 'Link', title: 'Enterprise Integrations', description: 'Connect with Yardi, RealPage, Measurabl, Deepki, Scaler, Cambio, Arc, and more.' },
   { icon: 'ShieldCheck', title: 'Scope 1 & 2 GHG', description: '6 published emission factor databases (EPA GHG Hub, eGRID, UK DEFRA, IEA, IPCC, EDGAR) with organization-level overrides feeding real GHG calculations.' },
+  { icon: 'Pencil', title: 'Inline Property Editing', description: 'Edit property details directly from the portfolio view with per-field inline editing. Changes save instantly with visual confirmation — no separate edit pages.' },
+  { icon: 'Upload', title: 'CSV Meter Upload Wizard', description: 'Drag-and-drop CSV import with intelligent column mapping, per-row validation, and a guided 4-step flow. Compatible with any utility bill export format.' },
+  { icon: 'MapPin', title: 'Auto-Geocoding', description: 'Properties are automatically geocoded when created or updated. Batch geocoding available for existing portfolios. Powered by OpenStreetMap.' },
+  { icon: 'Table', title: 'Smart Portfolio Table', description: 'Redesigned table view with Year Built, Annual Energy Spend with actual/estimated indicators, and performance Score for quick scanning. Table-first by default.' },
 ];
 
 // ─── Benchmarking Standards ──────────────────────────────────
