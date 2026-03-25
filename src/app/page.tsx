@@ -58,10 +58,10 @@ export default function HomePage() {
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button href="/data-dividend" size="lg">
-            See How the Economics Work
+            See How Shared Value Works
           </Button>
           <Button href="/platform" variant="outline-light" size="lg">
-            Explore the Methodology
+            Explore the Open Platform
           </Button>
         </div>
       </Hero>
