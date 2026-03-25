@@ -100,16 +100,16 @@ export default function GovernancePage() {
     <>
       <Hero
         compact
-        eyebrow="Governance & Leadership"
+        eyebrow="About SDX"
         title={
           <>
-            Industry{' '}
+            Who governs SDX — and{' '}
             <span className="bg-gradient-to-r from-primary-400 to-cyan bg-clip-text text-transparent">
-              owned and operated.
+              why it matters.
             </span>
           </>
         }
-        subtitle="SDX is a not-for-profit organization governed by the real estate industry it serves. A permanent board of leading owners and global trade associations holds ultimate authority. A neutral operator builds and runs the platform under SLA."
+        subtitle="SDX is a not-for-profit governed by the real estate industry it serves. This isn't a startup with outside investors or a platform optimizing for shareholder returns. The people who use the data make the rules. This page explains the structure, the people involved, and how decisions get made."
       />
 
       {/* Not-for-profit explainer */}
@@ -117,8 +117,8 @@ export default function GovernancePage() {
         <Container>
           <SectionHeading
             eyebrow="Not-for-Profit"
-            title="Built for the industry, not for extraction"
-            subtitle="SDX operates as a not-for-profit. There are no shareholders extracting value. Every dollar of surplus is reinvested in the platform or returned to contributors."
+            title="No outside investors. No shareholder returns."
+            subtitle="SDX operates as a not-for-profit. There is no venture capital, no private equity, and no incentive to maximize extraction. Surplus revenue is reinvested in the platform or distributed to contributors as dividends. The board — not management — decides how."
           />
           <div className="max-w-3xl mx-auto">
             <FadeInView>
@@ -197,8 +197,8 @@ export default function GovernancePage() {
         <Container>
           <SectionHeading
             eyebrow="Charter Commitments"
-            title="Rights enshrined at the charter level"
-            subtitle="These commitments are not policies \u2014 they are structural. Changing them requires owner supermajority."
+            title="Structural commitments, not policies"
+            subtitle="These are not guidelines that management can override. They are embedded in the charter and can only be changed by owner supermajority on the board. If you see something missing, tell us."
           />
           <div className="max-w-2xl mx-auto space-y-4">
             {charterCommitments.map((c, i) => (
@@ -236,10 +236,10 @@ export default function GovernancePage() {
       </section>
 
       <CTABanner
-        title="Get started with SDX"
-        subtitle="SDX is free for every owner. Start benchmarking your portfolio today."
-        cta="Create a Free Account"
-        href="/platform"
+        title="This is an open process."
+        subtitle="SDX is being built with the industry, not delivered to it. If you see something that should be different — a governance gap, a missing safeguard, a better precedent — we want to hear it."
+        cta="Talk to Someone on the Team"
+        href="/docs"
       />
     </>
   );

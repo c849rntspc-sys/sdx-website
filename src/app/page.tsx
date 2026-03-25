@@ -16,37 +16,27 @@ const substrateLayers = [
   {
     icon: 'BookOpen',
     title: 'Definitions',
-    description: 'Standardized property types, meter types, boundary definitions, and unit conventions. A shared vocabulary so data means the same thing everywhere.',
+    description: 'Property types, meter types, boundary definitions, and unit conventions — standardized so that "office" means the same thing in Tokyo, London, and New York.',
   },
   {
     icon: 'Thermometer',
     title: 'Normalization',
-    description: 'Weather normalization, area and occupancy intensity adjustments, source-to-site energy conversion. Apples-to-apples comparison across climates and use patterns.',
+    description: 'Weather normalization, area and occupancy intensity adjustments, source-to-site energy conversion. The same building in two climates can be compared fairly.',
   },
   {
     icon: 'BarChart3',
     title: 'Benchmarking',
-    description: 'Six global standards computed simultaneously — SDX, ENERGY STAR, NABERS, EU EPC, CRREM, and GRESB. One submission, every benchmark.',
+    description: 'SDX, ENERGY STAR, NABERS, EU EPC, CRREM, and GRESB — six standards computed from a single data submission.',
   },
   {
     icon: 'FileCheck',
-    title: 'Evidence Pack',
-    description: 'Metric dictionary, normalization rules, source-to-KPI lineage, completeness scoring, and standardized exception reporting. Audit-ready from day one.',
+    title: 'Evidence & Lineage',
+    description: 'Metric dictionary, normalization rules, source-to-KPI lineage, and completeness scoring. Every number has a documented path from raw input to published output.',
   },
   {
     icon: 'ShieldCheck',
-    title: 'Data Quality Standard',
-    description: 'Completeness, coverage, and freshness scoring with letter grades. Limited assurance readiness tracking and meter gap detection.',
-  },
-  {
-    icon: 'Wifi',
-    title: 'Direct Utility Connections',
-    description: 'Live integrations with ENERGY STAR Portfolio Manager (EPA) and 6+ utilities via Green Button Connect My Data. Automated meter data import at the infrastructure layer.',
-  },
-  {
-    icon: 'Bot',
-    title: 'AI Assistant (Claude)',
-    description: 'A real AI with live access to your portfolio data — ask about building performance, energy costs, and carbon trends and get specific, data-driven answers.',
+    title: 'Data Quality',
+    description: 'Completeness, coverage, and freshness scoring with letter grades. Meter gap detection and limited assurance readiness tracking.',
   },
 ];
 
@@ -57,21 +47,21 @@ export default function HomePage() {
         eyebrow="Sustainability Data Exchange"
         title={
           <>
-            A new model for shared,{' '}
+            Real estate sustainability data is fragmented, incomparable, and{' '}
             <span className="bg-gradient-to-r from-primary-400 to-cyan bg-clip-text text-transparent">
-              sustainable value
+              locked in silos.
             </span>
           </>
         }
-        subtitle="The neutral, owner-governed measurement substrate for comparable, audit-ready real estate sustainability data."
+        subtitle="SDX is a free, owner-governed measurement substrate that standardizes building performance data globally — so it can be compared, audited, and shared. Data contributors earn a share of the value their data creates."
         pillars={['Neutral', 'Shared Value', 'Owner-governed']}
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button href="/data-dividend" size="lg">
-            Learn About the Data Dividend
+            See How the Economics Work
           </Button>
           <Button href="/platform" variant="outline-light" size="lg">
-            Explore the Platform
+            Explore the Methodology
           </Button>
         </div>
       </Hero>
@@ -83,7 +73,7 @@ export default function HomePage() {
       <FeatureGrid
         eyebrow="The Substrate"
         title="What SDX rationalizes"
-        subtitle="Five layers of data infrastructure that make comparable, audit-ready sustainability measurement possible."
+        subtitle="Five layers of data infrastructure that make comparable, audit-ready sustainability measurement possible. These are the structural problems SDX solves — not features, but foundations."
         features={substrateLayers}
         columns={3}
       />

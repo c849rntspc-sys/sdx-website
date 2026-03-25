@@ -43,11 +43,11 @@ export default function EcosystemPage() {
           <>
             SDX is not your competitor.{' '}
             <span className="bg-gradient-to-r from-primary-400 to-cyan bg-clip-text text-transparent">
-              It&apos;s your substrate.
+              It&apos;s your enabler.
             </span>
           </>
         }
-        subtitle="SDX handles measurement. You handle analytics, advisory, CRREM pathways, assurance, and everything else your clients need. Better data in means better outcomes from your products."
+        subtitle="If you build sustainability software, provide advisory services, or manage data on behalf of real estate owners — this page explains how SDX relates to your work. The short version: SDX handles measurement infrastructure so you can focus on the value you add."
       />
 
       <StackDiagram />
@@ -56,7 +56,7 @@ export default function EcosystemPage() {
         <Container>
           <SectionHeading
             eyebrow="For Software Providers"
-            title="Why build on SDX?"
+            title="What changes for you"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {ECOSYSTEM_BENEFITS.map((b, i) => (
@@ -196,10 +196,10 @@ export default function EcosystemPage() {
       </section>
 
       <CTABanner
-        title="Build on SDX"
-        subtitle="Join the ecosystem. Integrate with SDX for free. Access standardized benchmark data via open APIs."
-        cta="Partner with SDX"
-        href="/join"
+        title="Questions about integration?"
+        subtitle="If you're evaluating how SDX fits into your product or service offering, we'd like to hear from you. There's no sales process — just a conversation about whether this is useful."
+        cta="Talk to Someone on the Team"
+        href="/docs"
       />
     </>
   );

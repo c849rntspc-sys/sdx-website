@@ -14,25 +14,25 @@ export type Testimonial = {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: 'The industry needs a neutral measurement layer that no single vendor controls. SDX is exactly that infrastructure.',
+    quote: 'We manage pension assets across dozens of countries. When every market normalizes building data differently, cross-border comparison becomes an exercise in reconciliation rather than analysis. A neutral measurement layer would change that.',
     name: 'Derk Welling',
     title: 'Senior Responsible Investment & Governance Advisor',
     org: 'APG Asset Management',
   },
   {
-    quote: 'Comparable, audit-ready data across jurisdictions is the single biggest gap in real estate sustainability. This fills it.',
+    quote: 'As one of the world\'s largest asset owners, we need consistent, auditable sustainability data across jurisdictions. The current approach — different platforms, different methodologies, different outputs — creates gaps that are difficult to close at scale.',
     name: 'Nina Jensen Galbiati',
     title: 'Senior Analyst, Real Assets',
     org: 'Norges Bank Investment Management',
   },
   {
-    quote: 'We spend too much time reconciling data across systems. A shared substrate would let us focus on actual decarbonization.',
+    quote: 'Our sustainability team spends a significant portion of its time on data collection and reconciliation. If the measurement infrastructure were standardized, we could redirect that effort toward the actual work of decarbonizing our portfolio.',
     name: 'Ben Myers',
     title: 'VP, Sustainability',
     org: 'BXP (formerly Boston Properties)',
   },
   {
-    quote: 'Aligning incentives between data contributors and data consumers is the breakthrough. The dividend model makes participation rational.',
+    quote: 'The economics of sustainability data have always been one-directional — owners pay to submit, platforms monetize the aggregate. A model where contributors share in the value their data creates changes the participation calculus entirely.',
     name: 'Elena Alschuler',
     title: 'Head of Sustainability, Americas',
     org: 'LaSalle Investment Management',
@@ -49,7 +49,7 @@ export function TestimonialBar() {
           viewport={{ once: true }}
           className="text-center text-xs font-semibold tracking-widest text-primary-500 uppercase mb-12"
         >
-          What industry leaders are saying
+          Perspectives from the market
         </motion.p>
         <motion.div
           initial="hidden"

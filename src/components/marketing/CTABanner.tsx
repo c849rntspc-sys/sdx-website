@@ -13,9 +13,9 @@ type Props = {
 };
 
 export function CTABanner({
-  title = 'Ready to get started?',
-  subtitle = 'SDX is free for every owner — from a single building to a global portfolio. Start benchmarking today.',
-  cta = 'Create a Free Account',
+  title = 'See how it works.',
+  subtitle = 'SDX is free for every owner — from a single building to a global portfolio. Explore the platform, or talk to someone on the team.',
+  cta = 'Explore the Platform',
   href = '/platform',
 }: Props) {
   return (

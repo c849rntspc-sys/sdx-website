@@ -3,10 +3,10 @@
 
 // ─── Problem Cards (from pitch deck) ─────────────────────────
 export const PROBLEMS = [
-  { icon: 'ArrowLeftRight', title: 'Incomparable', description: 'Inconsistent standards and normalization prevent reliable peer comparison.' },
-  { icon: 'Shield', title: 'Unauditable', description: 'Fragmented data with no lineage makes audit-grade verification impossible.' },
-  { icon: 'Settings', title: 'Innovation Drag', description: 'Resources wasted fixing inputs instead of making decisions.' },
-  { icon: 'DollarSign', title: 'Misaligned', description: 'Value created by contributor data is captured entirely by private platform operators.' },
+  { icon: 'ArrowLeftRight', title: 'Not Comparable', description: 'Every platform normalizes differently. A building scored in one system can\'t be meaningfully compared to a building scored in another. This makes cross-portfolio and cross-border analysis unreliable.' },
+  { icon: 'Shield', title: 'Not Auditable', description: 'Data moves through multiple systems with no shared lineage. When an investor or regulator asks "where did this number come from?" — the answer is often incomplete.' },
+  { icon: 'Settings', title: 'Resources Spent on Inputs, Not Decisions', description: 'Sustainability teams spend a disproportionate share of their time collecting, cleaning, and reconciling data. The analysis and decision-making that data should enable gets squeezed.' },
+  { icon: 'DollarSign', title: 'Value Extracted, Not Shared', description: 'Owners submit their data to platforms that aggregate it into benchmarks and sell those benchmarks back — often to the same owners who provided the inputs. The economics flow one way.' },
 ];
 
 // ─── Market Stats ────────────────────────────────────────────
@@ -45,45 +45,45 @@ export const FLYWHEEL_STEPS = ['More Participation', 'Better Benchmarks', 'More 
 // ─── Extraction vs. Shared Value ─────────────────────────────
 export const COMPARISON = {
   extraction: {
-    title: 'Extraction Model',
-    subtitle: 'Today',
+    title: 'How it works today',
+    subtitle: 'Current model',
     items: [
-      'Owners pay to submit their own data',
-      'Data siloed into proprietary databases',
-      'Benchmarks sold back to the contributors who provided them',
-      'No owner governance or exit rights',
-      'Incentive: maximize lock-in',
+      'Owners pay subscription fees to submit their own building data',
+      'That data is aggregated into proprietary benchmark databases the owner doesn\u2019t control',
+      'Benchmarks derived from contributed data are sold — sometimes back to the same contributors',
+      'No governance rights, no data portability guarantees, no exit provisions',
+      'The platform\u2019s incentive is to maximize lock-in and switching costs',
     ],
   },
   shared: {
-    title: 'Shared Value Model',
-    subtitle: 'SDX',
+    title: 'How SDX works',
+    subtitle: 'Shared value model',
     items: [
-      'Platform is completely free for all users — read and write',
-      'Licensed content free for contributors\u2019 own internal use',
-      'Revenue from third-party licensing shared back as dividends',
-      'Owner governance sets all rules',
-      'Incentive: maximize participation & trust',
+      'The platform is free for everyone — owners, consultants, and software partners read and write at zero cost',
+      'Contributors receive all licensed content free for their own internal use',
+      'Revenue from third-party licensing of anonymized benchmarks is shared back as dividends',
+      'An owner-led board sets the rules: data boundaries, product approvals, pricing, and surplus allocation',
+      'The incentive structure rewards participation and data quality, not lock-in',
     ],
   },
 };
 
 // ─── Features (Platform page) ────────────────────────────────
 export const PLATFORM_FEATURES = [
-  { icon: 'Globe', title: 'Global Benchmarking', description: '60+ property types across 30+ countries with country-specific emission factors, climate data, and unit systems.' },
-  { icon: 'BarChart3', title: 'Multi-Standard Scoring', description: 'Benchmark against SDX, ENERGY STAR, NABERS, EU EPC, CRREM, and GRESB simultaneously.' },
-  { icon: 'FileCheck', title: 'Automated Compliance', description: '16+ regulatory and voluntary report frameworks including GRESB, NYC LL97, Boston BERDO, TCFD, and CDP.' },
-  { icon: 'Users', title: 'Multi-Actor Access', description: 'Owners get full access to org profiles, emission factors, and settings. Consultants see a tailored experience scoped to each client organization. API partners integrate via scoped keys.' },
-  { icon: 'Bot', title: 'AI Assistant (Claude)', description: 'Powered by Claude (Anthropic) with live access to your portfolio context — property count, GHG totals, ENERGY STAR scores, energy costs. Data-driven answers, not canned responses.' },
-  { icon: 'Search', title: 'Audit Readiness', description: 'Real-time data quality scoring per property across timeliness, accuracy (actual vs. estimated), and completeness. Letter grades, meter gap detection, and limited assurance readiness tracking.' },
-  { icon: 'Zap', title: 'Direct Utility Connections', description: 'Live integrations with PG&E, Con Edison, National Grid, ComEd, SCE, and Ameren via Green Button Connect My Data (OAuth 2.0). Your credentials never touch SDX.' },
-  { icon: 'Key', title: 'Scoped API Keys', description: '11 granular permission scopes for machine-to-machine integration. Keys shown once, stored as bcrypt hashes, rate-limited, and instantly revocable.' },
-  { icon: 'Link', title: 'Enterprise Integrations', description: 'Connect with Yardi, RealPage, Measurabl, Deepki, Scaler, Cambio, Arc, and more.' },
-  { icon: 'ShieldCheck', title: 'Scope 1 & 2 GHG', description: '6 published emission factor databases (EPA GHG Hub, eGRID, UK DEFRA, IEA, IPCC, EDGAR) with organization-level overrides feeding real GHG calculations.' },
-  { icon: 'Pencil', title: 'Inline Property Editing', description: 'Edit property details directly from the portfolio view with per-field inline editing. Changes save instantly with visual confirmation — no separate edit pages.' },
-  { icon: 'Upload', title: 'CSV Meter Upload Wizard', description: 'Drag-and-drop CSV import with intelligent column mapping, per-row validation, and a guided 4-step flow. Compatible with any utility bill export format.' },
-  { icon: 'MapPin', title: 'Auto-Geocoding', description: 'Properties are automatically geocoded when created or updated. Batch geocoding available for existing portfolios. Powered by OpenStreetMap.' },
-  { icon: 'Table', title: 'Smart Portfolio Table', description: 'Redesigned table view with Year Built, Annual Energy Spend with actual/estimated indicators, and performance Score for quick scanning. Table-first by default.' },
+  { icon: 'Globe', title: 'Global coverage', description: '60+ property types across 30+ countries. Country-specific emission factors, climate data, and unit systems are built in — you don\u2019t configure them.' },
+  { icon: 'BarChart3', title: 'Six benchmarks from one submission', description: 'SDX, ENERGY STAR, NABERS, EU EPC, CRREM, and GRESB scores computed simultaneously from the same underlying data.' },
+  { icon: 'FileCheck', title: 'Compliance reporting', description: 'Maps to 16+ regulatory and voluntary frameworks: GRESB, NYC LL97, Boston BERDO, TCFD, CDP, and others. Select the frameworks relevant to your portfolio.' },
+  { icon: 'Users', title: 'Owner, consultant, and API access', description: 'Owners manage their portfolios directly. Consultants switch between client organizations. Software platforms integrate via scoped API keys. Each access model is tailored.' },
+  { icon: 'Bot', title: 'AI assistant (Claude)', description: 'Powered by Claude (Anthropic). The assistant has access to your actual portfolio data — property count, GHG totals, scores, costs — and answers questions with specific references to your buildings.' },
+  { icon: 'Search', title: 'Data quality scoring', description: 'Per-property scoring across timeliness, accuracy (actual vs. estimated readings), and completeness. Letter grades, meter gap detection, and limited assurance readiness tracking.' },
+  { icon: 'Zap', title: 'Utility connections', description: 'PG&E, Con Edison, National Grid, ComEd, SCE, and Ameren via Green Button Connect My Data (OAuth 2.0). Users authorize on the utility\u2019s site — credentials never touch SDX.' },
+  { icon: 'Key', title: 'Scoped API keys', description: '11 permission scopes for machine-to-machine integration. Keys are shown once at creation, stored as bcrypt hashes, rate-limited, and can be revoked instantly.' },
+  { icon: 'Link', title: 'Platform integrations', description: 'Yardi, RealPage, Measurabl, Deepki, Scaler, Cambio, Arc, and others. SDX connects to the systems your portfolio already uses.' },
+  { icon: 'ShieldCheck', title: 'GHG calculations (Scope 1 & 2)', description: '6 published emission factor databases: EPA GHG Hub, eGRID, UK DEFRA, IEA, IPCC, and EDGAR. Organizations can override individual factors.' },
+  { icon: 'Pencil', title: 'Inline property editing', description: 'Edit property details directly in the portfolio table. Per-field editing with instant save — no separate edit pages or modal dialogs.' },
+  { icon: 'Upload', title: 'CSV meter upload', description: 'Drag-and-drop CSV import with column mapping, per-row validation, and a 4-step guided flow. Works with utility bill exports from any format.' },
+  { icon: 'MapPin', title: 'Auto-geocoding', description: 'Properties are geocoded when created or updated. Batch geocoding available for existing portfolios.' },
+  { icon: 'Table', title: 'Portfolio table view', description: 'Year Built, Annual Energy Spend (with actual/estimated indicators), and performance Score columns for quick portfolio scanning.' },
 ];
 
 // ─── Benchmarking Standards ──────────────────────────────────
@@ -151,28 +151,28 @@ export const GOVERNANCE = {
 
 // ─── Ecosystem Benefits ──────────────────────────────────────
 export const ECOSYSTEM_BENEFITS = [
-  { title: 'Eliminate reconciliation friction', description: 'Stop rebuilding normalization logic. SDX handles definitions, weather normalization, and unit conversion so you can focus on value-add features.' },
-  { title: 'Access global benchmarks', description: 'Tap into the largest comparable benchmark dataset globally. Free to read and write for all ecosystem participants contributing data on behalf of owners.' },
-  { title: 'Better data, better outcomes', description: 'Your customers get higher-quality, audit-ready inputs. Better data quality means better outcomes from your analytics and advisory tools.' },
-  { title: 'Expand your addressable market', description: 'SDX drives adoption across the industry. More buildings on the substrate means more potential customers for your value-layer products.' },
+  { title: 'Stop rebuilding normalization logic', description: 'Every sustainability platform writes its own code for weather normalization, unit conversion, and property type classification. SDX handles this at the substrate layer — so you don\'t have to maintain it per client.' },
+  { title: 'Consistent, comparable inputs', description: 'When your customers\' data is standardized before it reaches your platform, your analytics, advisory, and compliance outputs improve. The quality of your work depends on the quality of the inputs.' },
+  { title: 'Free to read, free to write', description: 'There are no API fees, no per-call charges, and no licensing costs for contributing or consuming data on behalf of owners. The platform is free for all ecosystem participants.' },
+  { title: 'More buildings on the substrate means more potential customers for you', description: 'As SDX adoption grows, more buildings produce standardized data that your products can work with. The substrate expanding is your addressable market expanding.' },
 ];
 
 // ─── FAQ ─────────────────────────────────────────────────────
 export const FAQ = [
-  { question: 'Does sharing data help my competitors?', answer: 'SDX only publishes aggregated, anonymized benchmarks. Your building-level data is never shared. Suppression thresholds prevent reverse-engineering.' },
-  { question: 'Why not just use my existing vendor?', answer: 'Vendors optimize for lock-in. SDX provides the neutral substrate with open APIs and full portability. Your existing tools plug in \u2014 they don\'t get replaced.' },
-  { question: 'What if I invest and others free-ride?', answer: 'The dividend formula rewards quality and completeness. Early movers earn the largest dividends. The platform is free for everyone, but only contributors receive dividends from licensed content revenue.' },
-  { question: 'How is this different from GRESB?', answer: 'GRESB is a rating framework. SDX is the measurement substrate beneath it \u2014 standardizing definitions so GRESB, CRREM, and regulators get comparable inputs.' },
-  { question: 'What are the revenue sources?', answer: 'Board-approved licensed content only \u2014 aggregate benchmark products, regulator-grade data packs, index partnerships, and certification programs. The platform itself is free. Contributors receive all licensed content free for their own internal use.' },
-  { question: 'How is the dividend calculated?', answer: 'The formula is objective and auditable \u2014 weighted by eligible buildings, floor area, data completeness, and freshness. One dividend per building per underlying owner, regardless of how many software platforms submit that building\u2019s data.' },
+  { question: 'If I contribute data, does that help my competitors?', answer: 'No. SDX only publishes aggregated, anonymized benchmarks — never building-level data. Suppression thresholds ensure that individual properties cannot be reverse-engineered from published outputs. Your data contributes to better market benchmarks without exposing your portfolio.' },
+  { question: 'I already have a sustainability platform. Why would I use SDX?', answer: 'You probably wouldn\'t replace your existing tools. SDX sits beneath them as measurement infrastructure — standardizing definitions and normalization so the data flowing into your existing systems is consistent and comparable. Your current platforms can integrate with SDX\'s open API, or you can use SDX directly alongside them.' },
+  { question: 'What prevents free-riders from benefiting without contributing?', answer: 'The platform is free for everyone — that\'s by design. But only data contributors receive dividends from licensed content revenue, and the dividend formula weights quality and completeness. Early movers with thorough data earn the largest share. The incentive is to participate, not to wait.' },
+  { question: 'How is SDX different from GRESB?', answer: 'GRESB is a rating and assessment framework. SDX is the measurement substrate beneath it — standardizing the property types, normalization methods, and emission factors so that GRESB, CRREM, regulators, and every other framework receives comparable inputs. They address different layers of the same problem.' },
+  { question: 'Where does the money come from?', answer: 'Board-approved licensed content only: aggregate benchmark datasets, regulator-grade data packs, index partnerships, and certification programs. The platform itself is free. No subscription fees, no per-call API charges. Contributors receive all licensed content free for their own internal use.' },
+  { question: 'How is the dividend calculated?', answer: 'The formula weights four variables: number of eligible buildings, total floor area, data quality score, and whole-building data completeness. It is objective, auditable, and published. One dividend per building per underlying owner — regardless of how many software platforms submit that building\'s data. Formula changes require owner supermajority on the board.' },
 ];
 
 // ─── Early Adopter Steps ─────────────────────────────────────
 export const EARLY_ADOPTER_STEPS = [
-  { step: 1, title: 'Create a Free Account', description: 'Sign up in minutes. Add your first building and start receiving benchmarks — at zero cost.', icon: 'Users' },
-  { step: 2, title: 'Commit Pilot Assets', description: '2\u20133 jurisdictions, 1\u20132 asset classes. Define success metrics and integration priorities together.', icon: 'Building2' },
-  { step: 3, title: 'Lend Your Credibility', description: 'Your name signals to the market that this is serious. Early movers set the rules and earn the largest dividends.', icon: 'ShieldCheck' },
-  { step: 4, title: 'Co-Fund the MVP', description: 'Help fund the initial build. Your investment is returned through dividends as the platform scales.', icon: 'Zap' },
+  { step: 1, title: 'Create a free account', description: 'Add your first building and start receiving benchmarks. No credit card, no sales call, no trial period.', icon: 'Users' },
+  { step: 2, title: 'Start with a pilot', description: 'Pick 2\u20133 jurisdictions and 1\u20132 asset classes. See how SDX handles your data before making any broader commitment.', icon: 'Building2' },
+  { step: 3, title: 'Shape the governance', description: 'Early participants help define the charter, data standards, and product roadmap. The rules are being written now.', icon: 'ShieldCheck' },
+  { step: 4, title: 'Earn the first dividends', description: 'As licensed content revenue begins, contributors with the earliest and highest-quality data receive the largest share.', icon: 'Zap' },
 ];
 
 // ─── Live Data Connections (go-live capabilities) ───────────
@@ -213,11 +213,11 @@ export const FOUNDER = {
   name: 'Matt Ellis',
   title: 'Co-Founder & Chairman, SDX',
   previousRole: 'Co-Founder & Executive Chairman, Measurabl · Formerly Director of Sustainability Solutions, CBRE',
-  quote: 'The measurement layer itself needs to be neutral. No single company should own the substrate the entire industry depends on.',
+  quote: 'I spent a decade building a sustainability data company. The thing I learned is that the measurement layer itself needs to be neutral — no single company should own the substrate the entire industry depends on. That\u2019s why SDX is structured as a not-for-profit.',
   stats: [
-    { value: '$190M', label: 'Venture Capital Raised' },
-    { value: '23B', label: 'Sq Ft on Platform' },
-    { value: '90+', label: 'Countries Covered' },
+    { value: '$190M', label: 'Venture Capital Raised at Measurabl' },
+    { value: '23B', label: 'Sq Ft Benchmarked' },
+    { value: '90+', label: 'Countries' },
     { value: '6x', label: 'ENERGY STAR Partner of Year' },
   ],
 };

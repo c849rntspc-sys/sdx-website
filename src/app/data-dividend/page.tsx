@@ -44,13 +44,13 @@ export default function DataDividendPage() {
         eyebrow="The Data Dividend"
         title={
           <>
-            A breakthrough in{' '}
+            The economics of sustainability data are{' '}
             <span className="bg-gradient-to-r from-primary-400 to-cyan bg-clip-text text-transparent">
-              shared value.
+              upside down.
             </span>
           </>
         }
-        subtitle="The SDX platform is completely free — for everyone. The only monetization comes from board-approved licensed content sold to third parties. Contributors receive that content free for their own internal use, plus a share of the revenue. The more you contribute, the larger your dividend."
+        subtitle="Today, owners pay to submit their data to platforms that aggregate it and sell benchmarks back. The value flows one way. SDX inverts this: the platform is free, and contributors receive a share of the revenue their data generates. This page explains how."
       />
 
       {/* Breakthrough explainer */}
@@ -249,8 +249,10 @@ export default function DataDividendPage() {
       </section>
 
       <CTABanner
-        title="Turn sustainability data from a cost center into a profit center"
-        subtitle="The dividend formula rewards quality and completeness. Early movers earn the largest dividends."
+        title="Want to understand the economics in more detail?"
+        subtitle="The dividend formula, licensed content catalog, and financial methodology are documented in the Support center. If something is unclear, tell us."
+        cta="Read the Documentation"
+        href="/docs"
       />
     </>
   );

@@ -39,7 +39,7 @@ const actors = [
       'RESTful API with scoped API keys for secure machine-to-machine integration',
       '11 granular permission scopes — request only the access you need',
       'Push and pull data on behalf of owners without logging into the platform',
-      'Rate-limited, auditable, and instantly revocable — enterprise-grade security',
+      'Rate-limited, auditable, and instantly revocable',
     ],
   },
 ];
@@ -56,13 +56,13 @@ export function MultiActorModel() {
         >
           <motion.div variants={fadeInUp} className="text-center mb-14">
             <p className="text-xs font-semibold tracking-widest text-primary-400 uppercase mb-4">
-              Built for owners of all sizes
+              Three ways to participate
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              From a single building to global portfolios
+              Owners, consultants, and technology partners
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Whether you own one building or ten thousand, SDX scales with you. The same free tools, benchmarks, and data dividends are available to every owner — plus tailored access for the consultants and technology partners who support them.
+              Most sustainability platforms serve one user type. In practice, building data moves through owners, the consultants who advise them, and the software systems that manage their portfolios. SDX is designed for all three — with the same free access, tailored to how each group actually works.
             </p>
           </motion.div>
 

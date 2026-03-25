@@ -21,8 +21,8 @@ export default function PlatformPage() {
       <Hero
         compact
         eyebrow="Platform"
-        title="Everything you need for sustainability benchmarking"
-        subtitle="60+ property types, 30+ countries, 6 benchmarking standards, 16+ compliance frameworks, and AI-powered insights — on a neutral, owner-governed substrate."
+        title="What SDX does — and how it works"
+        subtitle="SDX standardizes building performance data across 60+ property types and 30+ countries, computes 6 benchmarking standards simultaneously, and maps to 16+ compliance frameworks. The platform is free for every user. Here is what that looks like in practice."
       />
 
       <FeatureGrid
@@ -105,8 +105,8 @@ export default function PlatformPage() {
           <div className="max-w-3xl mx-auto text-center">
             <SectionHeading
               eyebrow="AI-Powered Analysis"
-              title="Ask your portfolio anything"
-              subtitle="The SDX AI assistant — powered by Claude (Anthropic) — has real-time access to your portfolio data. It gives specific, data-driven answers, not generic suggestions."
+              title="Ask questions. Get answers grounded in your actual data."
+              subtitle="The SDX AI assistant is powered by Claude (Anthropic) and has access to your portfolio context — property count, GHG totals, ENERGY STAR scores, energy costs. Responses reference your specific buildings and metrics, not generic advice."
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
               {[
@@ -130,8 +130,8 @@ export default function PlatformPage() {
         <Container>
           <SectionHeading
             eyebrow="Portfolio Management"
-            title="Built for real-world workflows"
-            subtitle="SDX isn't just a benchmarking engine — it's a working portfolio management tool designed for how sustainability teams actually operate."
+            title="Day-to-day tools for sustainability teams"
+            subtitle="Benchmarking is only useful if the data behind it stays current. SDX includes the portfolio management tools that sustainability teams need to maintain data quality over time — not as an add-on, but as part of the free platform."
             dark
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

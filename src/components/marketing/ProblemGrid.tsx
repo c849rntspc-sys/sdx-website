@@ -13,7 +13,7 @@ export function ProblemGrid() {
       <Container>
         <SectionHeading
           eyebrow="The Problem"
-          title="Real estate sustainability data is broken."
+          title="Four structural problems with how sustainability data works today."
           dark
         />
         <motion.div

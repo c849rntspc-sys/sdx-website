@@ -8,19 +8,19 @@ import { XCircle, CheckCircle } from 'lucide-react';
 const NOT_ITEMS = [
   {
     text: 'A replacement for ENERGY STAR',
-    detail: 'SDX extends the ENERGY STAR model globally — it doesn\u2019t compete with it.',
+    detail: 'ENERGY STAR created the model SDX builds on. SDX extends that model to the 75% of global commercial real estate that ENERGY STAR doesn\u2019t cover. The two are complementary.',
   },
   {
     text: 'A competitor to benchmarking standards',
-    detail: 'GRESB, NABERS, CRREM, and EU EPC all plug into SDX as scoring frameworks.',
+    detail: 'GRESB, NABERS, CRREM, and EU EPC are scoring frameworks. SDX is the measurement layer beneath them — standardizing the inputs they all depend on so their outputs become comparable.',
   },
   {
-    text: 'A competitor to private software',
-    detail: 'Measurabl, Deepki, Scaler, and others build value on top of the substrate — not against it.',
+    text: 'A competitor to private sustainability software',
+    detail: 'Measurabl, Deepki, Scaler, and others do valuable work in analytics, advisory, and compliance. SDX handles the measurement substrate so those platforms can focus on the value they add, not on reconciling data.',
   },
   {
     text: 'A new standard',
-    detail: 'SDX implements existing standards consistently. It doesn\u2019t invent new ones.',
+    detail: 'SDX does not invent methodology. It implements existing standards consistently — using published methods, open calculations, and auditable data lineage.',
   },
 ];
 
@@ -37,12 +37,15 @@ export function WhatSdxIsNot() {
           {/* Header */}
           <motion.div variants={fadeInUp} className="text-center mb-16">
             <p className="text-xs font-semibold tracking-widest text-primary-400 uppercase mb-4">
-              Positioning
+              Addressing common questions
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               What SDX is{' '}
               <span className="text-red-400">not</span>.
             </h2>
+            <p className="text-gray-400 mt-4 max-w-xl mx-auto text-sm">
+              If your first reaction is "isn&apos;t this just another sustainability platform?" — that&apos;s a reasonable question. Here&apos;s where the distinction matters.
+            </p>
           </motion.div>
 
           {/* NOT grid */}
