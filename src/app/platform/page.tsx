@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { FadeInView } from '@/components/marketing/FadeInView';
 import { PLATFORM_FEATURES, BENCHMARK_STANDARDS, COMPLIANCE_FRAMEWORKS, INTEGRATIONS, LIVE_CONNECTIONS } from '@/lib/constants';
-import { Wifi, Bot, ShieldCheck, Check, Pencil, Upload, MapPin, Table } from 'lucide-react';
+import { Wifi, Bot, ShieldCheck, Check, Pencil, Upload, MapPin, Table, Layers, Building2, Target, UserPlus, Camera } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Platform',
@@ -136,10 +136,14 @@ export default function PlatformPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
+              { icon: Layers, title: 'Fund-Based Hierarchy', description: 'Organize properties into funds — Core, Value-Add, Opportunistic. Entity type drives structure: REITs see a flat view, investment managers see fund groupings with aggregated benchmarks.' },
+              { icon: Building2, title: 'Interactive Stacking Plan', description: 'Visual 2D floor plans per building showing tenant spaces and meter assignments. Add spaces with tenant names (logos auto-fetched), assign meters, and track occupancy and data quality.' },
+              { icon: Target, title: 'Framework-Aligned Goals', description: 'Set targets aligned to CRREM, SBTi, LL97/BEPS, or GRESB. Each framework auto-configures scope, metric type, and methodology. Milestone tracking with auto-progress from meter data.' },
+              { icon: UserPlus, title: 'Tenant & PM Delegation', description: 'Invite tenants and property managers directly from building profiles. Delegated users get a mobile-first dashboard with data quality scores, action items, and meter submission tools.' },
               { icon: Pencil, title: 'Inline Editing', description: 'Edit property details directly from the portfolio view. Per-field editing with instant save and visual confirmation.' },
               { icon: Upload, title: 'CSV Upload Wizard', description: 'Drag-and-drop meter data import with intelligent column mapping, per-row validation, and a guided 4-step flow.' },
-              { icon: MapPin, title: 'Auto-Geocoding', description: 'Properties automatically geocoded on create or update. Batch geocoding for existing portfolios. Map view included.' },
-              { icon: Table, title: 'Smart Portfolio Table', description: 'Year Built, Annual Energy Spend with actual/estimated badges, and performance Score — designed for quick portfolio scanning.' },
+              { icon: Camera, title: 'Building Photos', description: 'Upload photos for each property. Photos replace the default map view on building pages, creating a visual portfolio that stakeholders can browse.' },
+              { icon: Table, title: 'Customizable Table', description: 'Show or hide any column via an Edit Columns dropdown. Defaults to Property, Type, Fund, Location, Floor Area, Score, Users. Optional: Year Built, Site EUI, GHG, Energy Spend.' },
             ].map((f, i) => (
               <Card key={i}>
                 <f.icon className="w-6 h-6 text-primary-500 mb-3" />

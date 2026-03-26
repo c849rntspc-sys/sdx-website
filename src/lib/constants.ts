@@ -83,7 +83,12 @@ export const PLATFORM_FEATURES = [
   { icon: 'Pencil', title: 'Inline property editing', description: 'Edit property details directly in the portfolio table. Per-field editing with instant save — no separate edit pages or modal dialogs.' },
   { icon: 'Upload', title: 'CSV meter upload', description: 'Drag-and-drop CSV import with column mapping, per-row validation, and a 4-step guided flow. Works with utility bill exports from any format.' },
   { icon: 'MapPin', title: 'Auto-geocoding', description: 'Properties are geocoded when created or updated. Batch geocoding available for existing portfolios.' },
-  { icon: 'Table', title: 'Portfolio table view', description: 'Year Built, Annual Energy Spend (with actual/estimated indicators), and performance Score columns for quick portfolio scanning.' },
+  { icon: 'Table', title: 'Customizable portfolio table', description: 'Show or hide any column — Property, Type, Fund, Location, Floor Area, Score, Users, Year Built, Site EUI, GHG, Annual Energy Spend. Designed for how different teams prioritize data.' },
+  { icon: 'Layers', title: 'Fund-based hierarchy', description: 'Organize properties into funds (Core, Value-Add, Opportunistic) with entity type-driven structure. REITs see a flat portfolio; investment managers see fund groupings. Explorer benchmarks aggregate by fund.' },
+  { icon: 'Building2', title: 'Interactive stacking plan', description: 'Visual 2D floor plans showing tenant spaces and meter assignments per building. Add spaces with tenant names, assign meters, and see occupancy and data quality at a glance.' },
+  { icon: 'Target', title: 'Framework-aligned goals', description: 'Set targets aligned to CRREM (Paris pathways), SBTi (science-based targets), LL97/BEPS (regulatory limits with penalty rates), or GRESB (ESG performance). Auto-progress tracking from meter data.' },
+  { icon: 'UserPlus', title: 'Tenant & PM delegation', description: 'Invite tenants and property managers from building profiles. Delegated users get a mobile-first dashboard with data quality scores, action items, and meter submission tools.' },
+  { icon: 'Camera', title: 'Building photos', description: 'Upload photos for each property (up to 5MB). Photos replace the default map view on building detail pages, creating a visual portfolio.' },
 ];
 
 // ─── Benchmarking Standards ──────────────────────────────────
