@@ -53,7 +53,7 @@ export default function HomePage() {
             </span>
           </>
         }
-        subtitle="SDX unifies today's patchwork of incompatible sustainability data into a single, neutral platform — free to join and built on the principle of shared value."
+        subtitle="SDX unifies today's patchwork of incompatible real estate sustainability data into a single, neutral platform — free to use and built on the principle of shared value."
         pillars={['Neutral', 'Shared Value', 'Owner-governed']}
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
