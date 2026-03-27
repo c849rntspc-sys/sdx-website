@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { FadeInView } from '@/components/marketing/FadeInView';
 import { PLATFORM_FEATURES, BENCHMARK_STANDARDS, COMPLIANCE_FRAMEWORKS, INTEGRATIONS, LIVE_CONNECTIONS } from '@/lib/constants';
-import { Wifi, Bot, ShieldCheck, Check, Pencil, Upload, MapPin, Table, Layers, Building2, Target, UserPlus, Camera } from 'lucide-react';
+import { Wifi, Bot, ShieldCheck, Check, Pencil, Upload, MapPin, Table, Layers, Building2, Target, UserPlus, UserCheck, Camera, Languages, RefreshCw, PanelLeftClose, Globe, Smartphone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Platform',
@@ -125,25 +125,51 @@ export default function PlatformPage() {
         </Container>
       </section>
 
-      {/* Day-to-Day Portfolio Management */}
+      {/* Global-First Design */}
       <section className="py-24 bg-white">
+        <Container>
+          <SectionHeading
+            eyebrow="Global-First Design"
+            title="Built for international portfolios from day one"
+            subtitle="Multi-language support, dynamic unit conversion, and localized currency formatting — so teams in Tokyo, London, and São Paulo see the same platform in their own terms."
+            dark
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              { icon: Languages, title: '14 Languages', description: 'Full UI translation across English, Spanish, French, German, Japanese, Chinese, Korean, Portuguese, Italian, Arabic, Hindi, Swedish, Norwegian, and Danish. Language selector on login for immediate localization.' },
+              { icon: RefreshCw, title: 'Dynamic Units & Currency', description: 'Metric or imperial, any of 15 currencies — applied globally across every page, chart, and report. Automatic conversion between m²↔ft², kWh/m²↔kBTU/ft², kg↔lb with no manual recalculation.' },
+              { icon: Globe, title: '60+ Property Types, 30+ Countries', description: 'Country-specific emission factors, climate data, and regulatory frameworks built in. From office towers in Frankfurt to logistics parks in Osaka — the platform adapts.' },
+            ].map((f, i) => (
+              <Card key={i}>
+                <f.icon className="w-8 h-8 text-primary-500 mb-3" />
+                <h3 className="font-semibold text-text-primary mb-2">{f.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">{f.description}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Day-to-Day Portfolio Management */}
+      <section className="py-24 bg-surface-bg">
         <Container>
           <SectionHeading
             eyebrow="Portfolio Management"
             title="Day-to-day tools for sustainability teams"
             subtitle="Benchmarking is only useful if the data behind it stays current. SDX includes the portfolio management tools that sustainability teams need to maintain data quality over time — not as an add-on, but as part of the free platform."
-            dark
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Layers, title: 'Fund-Based Hierarchy', description: 'Organize properties into funds — Core, Value-Add, Opportunistic. Entity type drives structure: REITs see a flat view, investment managers see fund groupings with aggregated benchmarks.' },
+              { icon: Layers, title: 'Fund Organization', description: 'Organize properties into investment funds — Core, Value-Add, Opportunistic. Filter portfolio and benchmarks by fund. Fund-level analytics in Data Explorer with weighted-average performance metrics.' },
               { icon: Building2, title: 'Interactive Stacking Plan', description: 'Visual 2D floor plans per building showing tenant spaces and meter assignments. Add spaces with tenant names (logos auto-fetched), assign meters, and track occupancy and data quality.' },
-              { icon: Target, title: 'Framework-Aligned Goals', description: 'Set targets aligned to CRREM, SBTi, LL97/BEPS, or GRESB. Each framework auto-configures scope, metric type, and methodology. Milestone tracking with auto-progress from meter data.' },
-              { icon: UserPlus, title: 'Tenant & PM Delegation', description: 'Invite tenants and property managers directly from building profiles. Delegated users get a mobile-first dashboard with data quality scores, action items, and meter submission tools.' },
+              { icon: Target, title: 'Goal & Pathway Tracking', description: 'Set decarbonization targets aligned to CRREM 1.5°C pathways, SBTi, LL97/BEPS/MEES, or GRESB. Real-time progress with on-track/at-risk/off-track status badges. Goals cascade from entity to fund to building.' },
+              { icon: UserPlus, title: 'Tenant & PM Portal', description: 'Mobile-first PWA with data quality dashboard, action items with severity badges, property cards with meter health indicators, and direct data contribution. Installable on mobile home screens.' },
+              { icon: UserCheck, title: 'Building-Level Delegation', description: 'Invite tenants and property managers to specific buildings with read-only or edit access. Track invitation status, assigned properties, and last login from Settings and Building Profile.' },
               { icon: Pencil, title: 'Inline Editing', description: 'Edit property details directly from the portfolio view. Per-field editing with instant save and visual confirmation.' },
               { icon: Upload, title: 'CSV Upload Wizard', description: 'Drag-and-drop meter data import with intelligent column mapping, per-row validation, and a guided 4-step flow.' },
               { icon: Camera, title: 'Building Photos', description: 'Upload photos for each property. Photos replace the default map view on building pages, creating a visual portfolio that stakeholders can browse.' },
               { icon: Table, title: 'Customizable Table', description: 'Show or hide any column via an Edit Columns dropdown. Defaults to Property, Type, Fund, Location, Floor Area, Score, Users. Optional: Year Built, Site EUI, GHG, Energy Spend.' },
+              { icon: PanelLeftClose, title: 'Collapsible Sidebar', description: 'Clean, space-efficient navigation with a vertical toggle. Collapsed state shows icon-only nav — maximizing workspace for data-heavy portfolio views.' },
             ].map((f, i) => (
               <Card key={i}>
                 <f.icon className="w-6 h-6 text-primary-500 mb-3" />
