@@ -47,13 +47,13 @@ export default function HomePage() {
         eyebrow="Sustainability Data Exchange"
         title={
           <>
-            Real estate sustainability data is fragmented, incomparable, and{' '}
+            Sustainability data for{' '}
             <span className="bg-gradient-to-r from-primary-400 to-cyan bg-clip-text text-transparent">
-              locked in silos.
+              everyone, everywhere.
             </span>
           </>
         }
-        subtitle="SDX is a free, owner-governed measurement substrate that standardizes building performance data globally — so it can be compared, audited, and shared. Data contributors earn a share of the value their data creates."
+        subtitle="SDX unifies today's patchwork of incompatible sustainability data into a single, neutral platform — free to join and built on the principle of shared value."
         pillars={['Neutral', 'Shared Value', 'Owner-governed']}
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -61,7 +61,7 @@ export default function HomePage() {
             See How Shared Value Works
           </Button>
           <Button href="/platform" variant="outline-light" size="lg">
-            Explore the Open Platform
+            Explore the Platform
           </Button>
         </div>
       </Hero>

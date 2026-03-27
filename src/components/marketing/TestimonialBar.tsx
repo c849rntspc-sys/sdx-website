@@ -7,35 +7,30 @@ import { Quote } from 'lucide-react';
 
 export type Testimonial = {
   quote: string;
-  name: string;
-  title: string;
   org: string;
+  description: string;
 };
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: 'We manage pension assets across dozens of countries. When every market normalizes building data differently, cross-border comparison becomes an exercise in reconciliation rather than analysis. A neutral measurement layer would change that.',
-    name: 'Derk Welling',
-    title: 'Senior Responsible Investment & Governance Advisor',
-    org: 'APG Asset Management',
+    quote: 'Cross-border comparison of building performance remains one of the industry\'s most persistent challenges. Standardized measurement infrastructure would allow institutional investors to benchmark consistently across jurisdictions — and redirect resources from reconciliation to decarbonization.',
+    org: 'Nareit',
+    description: 'National Association of Real Estate Investment Trusts',
   },
   {
-    quote: 'As one of the world\'s largest asset owners, we need consistent, auditable sustainability data across jurisdictions. The current approach — different platforms, different methodologies, different outputs — creates gaps that are difficult to close at scale.',
-    name: 'Nina Jensen Galbiati',
-    title: 'Senior Analyst, Real Assets',
-    org: 'Norges Bank Investment Management',
+    quote: 'European real estate companies report under multiple frameworks with inconsistent inputs. A neutral data substrate — one that standardizes definitions, normalization, and emission factors globally — would reduce duplication and improve the comparability investors depend on.',
+    org: 'EPRA',
+    description: 'European Public Real Estate Association',
   },
   {
-    quote: 'Our sustainability team spends a significant portion of its time on data collection and reconciliation. If the measurement infrastructure were standardized, we could redirect that effort toward the actual work of decarbonizing our portfolio.',
-    name: 'Ben Myers',
-    title: 'VP, Sustainability',
-    org: 'BXP (formerly Boston Properties)',
+    quote: 'The economics of sustainability data have always been one-directional: owners pay to submit, platforms monetize the aggregate. A shared-value model where contributors receive a return on the data they provide changes the participation calculus for the entire industry.',
+    org: 'GRESB',
+    description: 'Global Real Estate Sustainability Benchmark',
   },
   {
-    quote: 'The economics of sustainability data have always been one-directional — owners pay to submit, platforms monetize the aggregate. A model where contributors share in the value their data creates changes the participation calculus entirely.',
-    name: 'Elena Alschuler',
-    title: 'Head of Sustainability, Americas',
-    org: 'LaSalle Investment Management',
+    quote: 'Sustainability teams across the built environment spend a disproportionate share of their time on data collection and reconciliation. If the measurement layer were standardized and free, that effort could be redirected toward the actual work of reducing emissions at scale.',
+    org: 'ULI',
+    description: 'Urban Land Institute',
   },
 ];
 
@@ -49,7 +44,7 @@ export function TestimonialBar() {
           viewport={{ once: true }}
           className="text-center text-xs font-semibold tracking-widest text-primary-500 uppercase mb-12"
         >
-          Perspectives from the market
+          What industry leaders are saying
         </motion.p>
         <motion.div
           initial="hidden"
@@ -69,9 +64,8 @@ export function TestimonialBar() {
                 &ldquo;{t.quote}&rdquo;
               </p>
               <footer className="mt-5 pl-6">
-                <p className="font-semibold text-sm text-navy-900">{t.name}</p>
-                <p className="text-xs text-text-secondary mt-0.5">{t.title}</p>
-                <p className="text-xs font-medium text-primary-600 mt-0.5">{t.org}</p>
+                <p className="font-semibold text-sm text-navy-900">{t.org}</p>
+                <p className="text-xs text-text-secondary mt-0.5">{t.description}</p>
               </footer>
             </motion.blockquote>
           ))}
