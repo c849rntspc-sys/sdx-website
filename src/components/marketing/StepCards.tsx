@@ -11,8 +11,8 @@ export function StepCards() {
         <Card key={i}>
           <div className="flex items-center gap-3 mb-4">
             <span className="text-2xl font-bold text-primary-400">{step.step}</span>
-            <div className="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center">
-              <Icon name={step.icon} className="w-5 h-5 text-primary-500" />
+            <div className="w-10 h-10 rounded-lg bg-primary-500/15 flex items-center justify-center">
+              <Icon name={step.icon} className="w-5 h-5 text-primary-400" />
             </div>
           </div>
           <h3 className="text-lg font-bold text-text-primary mb-2">{step.title}</h3>

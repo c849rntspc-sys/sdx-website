@@ -41,13 +41,13 @@ export default async function NewsletterPage({ params }: PageProps) {
   const { meta, content } = newsletter;
 
   return (
-    <section className="bg-white min-h-screen">
+    <section className="bg-[#0A0A0A] min-h-screen">
       <Container className="py-24 md:py-32">
         <div className="max-w-3xl mx-auto">
           {/* Back link */}
           <Link
             href="/news"
-            className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-primary-600 transition-colors mb-8"
+            className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-primary-400 transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             All newsletters
@@ -65,7 +65,7 @@ export default async function NewsletterPage({ params }: PageProps) {
                 })}
               </time>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-navy-900 tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#EBEBEB] tracking-tight">
               {meta.title}
             </h1>
             <p className="text-lg text-text-secondary mt-3">
@@ -74,7 +74,7 @@ export default async function NewsletterPage({ params }: PageProps) {
           </div>
 
           {/* Content */}
-          <article className="prose prose-lg max-w-none prose-headings:text-navy-900 prose-headings:font-bold prose-p:text-text-secondary prose-p:leading-relaxed prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-navy-900 prose-li:text-text-secondary prose-hr:border-gray-200">
+          <article className="prose prose-lg max-w-none prose-headings:text-[#EBEBEB] prose-headings:font-bold prose-p:text-text-secondary prose-p:leading-relaxed prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-[#EBEBEB] prose-li:text-text-secondary prose-hr:border-[#2A2A2A]">
             <MDXRemote
               source={content}
               options={{
@@ -87,7 +87,7 @@ export default async function NewsletterPage({ params }: PageProps) {
           </article>
 
           {/* Subscribe CTA */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="mt-12 pt-8 border-t border-[#2A2A2A]">
             <NewsletterSignup variant="banner" />
           </div>
         </div>

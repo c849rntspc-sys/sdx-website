@@ -14,11 +14,11 @@ const variants = {
   primary:
     'bg-gradient-to-r from-primary-500 to-primary-400 text-white shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:brightness-110',
   secondary:
-    'bg-white text-text-primary border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300',
+    'bg-[#111111] text-text-primary border border-[#2A2A2A] hover:border-[#3D3D3D]',
   'outline-light':
     'bg-transparent text-white border border-white/30 hover:bg-white/10 hover:border-white/50',
   ghost:
-    'bg-transparent text-text-secondary hover:text-text-primary hover:bg-gray-100',
+    'bg-transparent text-text-secondary hover:text-text-primary hover:bg-[#1F1F1F]',
 };
 
 const sizes = {

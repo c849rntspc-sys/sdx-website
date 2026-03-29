@@ -85,7 +85,7 @@ export default function PlatformPage() {
                     <p className="text-sm text-gray-300">{item}</p>
                   </div>
                 ))}
-                <div className="mt-6 p-4 rounded-lg bg-navy-700/50 border border-navy-600">
+                <div className="mt-6 p-4 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A]">
                   <p className="text-xs text-gray-400 leading-relaxed">
                     <span className="text-primary-400 font-semibold">Infrastructure-layer integration.</span>{' '}
                     Any Green Button-compliant utility can be added with configuration only. SDX connects to the
@@ -126,13 +126,12 @@ export default function PlatformPage() {
       </section>
 
       {/* Global-First Design */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#0A0A0A]">
         <Container>
           <SectionHeading
             eyebrow="Global-First Design"
             title="Built for international portfolios from day one"
             subtitle="Multi-language support, dynamic unit conversion, and localized currency formatting — so teams in Tokyo, London, and São Paulo see the same platform in their own terms."
-            dark
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
@@ -246,7 +245,7 @@ export default function PlatformPage() {
         </Container>
       </section>
 
-      <section id="integrations" className="py-24 bg-white">
+      <section id="integrations" className="py-24 bg-[#0A0A0A]">
         <Container>
           <SectionHeading
             eyebrow="Integrations"

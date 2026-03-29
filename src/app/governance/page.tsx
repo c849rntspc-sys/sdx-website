@@ -60,18 +60,18 @@ function PersonCard({ name, role, org, initials, tag }: {
 }) {
   const isFounder = tag === 'Founder';
   return (
-    <div className={`${isFounder ? 'bg-gradient-to-br from-navy-800 to-navy-900 border-primary-500/30' : 'bg-white border-gray-100'} border rounded-xl p-5 flex flex-col items-center text-center`}>
-      <div className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold mb-3 ${isFounder ? 'bg-gradient-to-br from-primary-500 to-primary-400 text-white' : 'bg-primary-50 text-primary-600'}`}>
+    <div className={`${isFounder ? 'bg-gradient-to-br from-navy-800 to-navy-900 border-primary-500/30' : 'bg-[#111111] border-[#2A2A2A]'} border rounded-xl p-5 flex flex-col items-center text-center`}>
+      <div className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold mb-3 ${isFounder ? 'bg-gradient-to-br from-primary-500 to-primary-400 text-white' : 'bg-primary-500/15 text-primary-400'}`}>
         {initials}
       </div>
-      <h3 className={`font-semibold text-sm ${isFounder ? 'text-white' : 'text-navy-900'}`}>{name}</h3>
+      <h3 className={`font-semibold text-sm ${isFounder ? 'text-white' : 'text-[#EBEBEB]'}`}>{name}</h3>
       <p className={`text-xs mt-1 ${isFounder ? 'text-gray-400' : 'text-text-secondary'}`}>{role}</p>
-      <p className={`text-xs font-medium mt-0.5 ${isFounder ? 'text-primary-400' : 'text-primary-600'}`}>{org}</p>
+      <p className={`text-xs font-medium mt-0.5 ${isFounder ? 'text-primary-400' : 'text-primary-400'}`}>{org}</p>
       {tag && (
         <span className={`mt-2 inline-block text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full ${
           isFounder ? 'bg-primary-500/20 text-primary-400' :
           tag === 'Trade Association' ? 'bg-cyan/10 text-cyan' :
-          'bg-primary-50 text-primary-600'
+          'bg-primary-500/15 text-primary-400'
         }`}>
           {tag}
         </span>
@@ -113,7 +113,7 @@ export default function GovernancePage() {
       />
 
       {/* Not-for-profit explainer */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#0A0A0A]">
         <Container>
           <SectionHeading
             eyebrow="Not-for-Profit"
@@ -122,7 +122,7 @@ export default function GovernancePage() {
           />
           <div className="max-w-3xl mx-auto">
             <FadeInView>
-              <div className="bg-surface-bg border border-gray-100 rounded-2xl p-8 md:p-10 space-y-5 text-sm text-text-secondary leading-relaxed">
+              <div className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-8 md:p-10 space-y-5 text-sm text-text-secondary leading-relaxed">
                 <p>
                   SDX exists to serve as neutral infrastructure — not to maximize profit. The platform is completely free to use for everyone: owners, service providers, and third-party software platforms can all read from and write to SDX at zero cost.
                 </p>
@@ -193,7 +193,7 @@ export default function GovernancePage() {
       </section>
 
       {/* Charter Commitments */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#0A0A0A]">
         <Container>
           <SectionHeading
             eyebrow="Charter Commitments"
@@ -203,8 +203,8 @@ export default function GovernancePage() {
           <div className="max-w-2xl mx-auto space-y-4">
             {charterCommitments.map((c, i) => (
               <FadeInView key={i}>
-                <div className="flex items-start gap-4 bg-surface-bg border border-gray-100 rounded-xl p-5">
-                  <Check className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-4 bg-[#111111] border border-[#2A2A2A] rounded-xl p-5">
+                  <Check className="w-5 h-5 text-primary-400 shrink-0 mt-0.5" />
                   <p className="text-sm text-text-secondary leading-relaxed">{c}</p>
                 </div>
               </FadeInView>

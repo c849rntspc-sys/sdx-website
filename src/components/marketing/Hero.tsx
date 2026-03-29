@@ -19,8 +19,10 @@ export function Hero({ eyebrow, title, subtitle, pillars, children, compact = fa
     <section className="relative bg-gradient-to-b from-navy-800 via-navy-900 to-navy-900 overflow-hidden">
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      {/* Ambient amber glow */}
+      <div className="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse,rgba(243,159,65,0.06)_0%,transparent_70%)] pointer-events-none animate-[pulse-glow_4s_ease-in-out_infinite_alternate]" />
       {/* Gradient orb */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary-500/8 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary-500/6 rounded-full blur-3xl" />
 
       <Container className={`relative ${compact ? 'pt-32 pb-16' : 'pt-32 pb-24 md:pt-40 md:pb-32'}`}>
         <motion.div

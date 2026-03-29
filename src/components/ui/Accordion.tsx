@@ -14,11 +14,11 @@ export function Accordion({ items }: { items: Item[] }) {
       {items.map((item, i) => (
         <div
           key={i}
-          className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm"
+          className="bg-[#111111] border border-[#2A2A2A] rounded-2xl overflow-hidden"
         >
           <button
             onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between p-6 text-left font-semibold text-text-primary hover:bg-gray-50 transition-colors"
+            className="w-full flex items-center justify-between p-6 text-left font-semibold text-text-primary hover:bg-[#1A1A1A] transition-colors"
           >
             {item.question}
             <ChevronDown

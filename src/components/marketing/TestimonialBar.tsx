@@ -36,13 +36,13 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export function TestimonialBar() {
   return (
-    <section className="bg-white py-20 border-y border-gray-100">
+    <section className="bg-[#0A0A0A] py-20 border-y border-[#2A2A2A]">
       <Container>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-xs font-semibold tracking-widest text-primary-500 uppercase mb-12"
+          className="text-center text-xs font-semibold tracking-widest text-primary-400 uppercase mb-12"
         >
           What industry leaders are saying
         </motion.p>
@@ -57,14 +57,14 @@ export function TestimonialBar() {
             <motion.blockquote
               key={i}
               variants={fadeInUp}
-              className="relative bg-gray-50 rounded-2xl px-8 py-8 border border-gray-100"
+              className="relative bg-[#111111] rounded-2xl px-8 py-8 border border-[#2A2A2A]"
             >
-              <Quote className="absolute top-6 left-6 w-6 h-6 text-primary-200" />
-              <p className="text-text-primary text-base leading-relaxed pl-6 italic">
+              <Quote className="absolute top-6 left-6 w-6 h-6 text-primary-500/30" />
+              <p className="text-[#EBEBEB] text-base leading-relaxed pl-6 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <footer className="mt-5 pl-6">
-                <p className="font-semibold text-sm text-navy-900">{t.org}</p>
+                <p className="font-semibold text-sm text-[#EBEBEB]">{t.org}</p>
                 <p className="text-xs text-text-secondary mt-0.5">{t.description}</p>
               </footer>
             </motion.blockquote>

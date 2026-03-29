@@ -19,7 +19,7 @@ export function CTABanner({
   href = '/platform',
 }: Props) {
   return (
-    <section className="bg-gradient-to-r from-primary-500 to-primary-400 py-20">
+    <section className="bg-[#111111] border-y border-[#2A2A2A] py-20">
       <Container>
         <motion.div
           initial="hidden"
@@ -28,14 +28,14 @@ export function CTABanner({
           variants={fadeInUp}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#EBEBEB] tracking-tight">
             {title}
           </h2>
-          <p className="mt-4 text-lg text-white/80">
+          <p className="mt-4 text-lg text-[#9A9A9A]">
             {subtitle}
           </p>
           <div className="mt-8">
-            <Button href={href} variant="secondary" size="lg">
+            <Button href={href} variant="primary" size="lg">
               {cta}
             </Button>
           </div>

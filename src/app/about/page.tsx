@@ -59,7 +59,7 @@ export default function AboutPage() {
 
       <StatsBar stats={FOUNDER.stats} dark />
 
-      <section id="contact" className="py-24 bg-white">
+      <section id="contact" className="py-24 bg-[#0A0A0A]">
         <Container>
           <div className="max-w-lg mx-auto text-center">
             <FadeInView>

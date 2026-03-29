@@ -25,11 +25,11 @@ export function StepFlow() {
         >
           {DIVIDEND_STEPS.map((step, i) => (
             <motion.div key={i} variants={fadeInUp} className="relative">
-              <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm h-full">
+              <div className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-6 h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-2xl font-bold text-primary-400">{step.step}</span>
-                  <div className="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center">
-                    <Icon name={step.icon} className="w-5 h-5 text-primary-500" />
+                  <div className="w-10 h-10 rounded-lg bg-primary-500/15 flex items-center justify-center">
+                    <Icon name={step.icon} className="w-5 h-5 text-primary-400" />
                   </div>
                 </div>
                 <h3 className="text-lg font-bold text-text-primary mb-2">{step.title}</h3>
@@ -49,9 +49,9 @@ export function StepFlow() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="mt-12 max-w-xl mx-auto text-center bg-gradient-to-r from-primary-500/10 to-primary-400/10 border border-primary-200 rounded-2xl p-6"
+          className="mt-12 max-w-xl mx-auto text-center bg-primary-500/10 border border-primary-500/20 rounded-2xl p-6"
         >
-          <p className="text-lg font-bold text-primary-500">Cost Center &rarr; Profit Center</p>
+          <p className="text-lg font-bold text-primary-400">Cost Center &rarr; Profit Center</p>
           <p className="text-sm text-text-secondary mt-2">
             Dividend formula is objective and auditable &mdash; weighted by eligible buildings, floor area, completeness, and data freshness.
           </p>

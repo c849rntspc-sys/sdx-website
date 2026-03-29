@@ -24,7 +24,7 @@ export default function NewsPage() {
         subtitle="Monthly updates on the SDX platform, governance decisions, partnerships, and product roadmap. Published the last Thursday of each month."
       />
 
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0A0A0A]">
         <Container>
           <div className="max-w-3xl mx-auto">
             {/* Subscribe banner */}
@@ -41,7 +41,7 @@ export default function NewsPage() {
                 <FadeInView key={nl.slug}>
                   <Link
                     href={`/news/${nl.slug}`}
-                    className="group block bg-surface-bg border border-gray-100 rounded-xl p-6 hover:border-primary-200 hover:shadow-md transition-all"
+                    className="group block bg-[#111111] border border-[#2A2A2A] rounded-xl p-6 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(243,159,65,0.08)] transition-all"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
@@ -55,19 +55,19 @@ export default function NewsPage() {
                             })}
                           </time>
                           {i === 0 && (
-                            <span className="text-[10px] font-semibold uppercase tracking-wide text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">
+                            <span className="text-[10px] font-semibold uppercase tracking-wide text-primary-400 bg-primary-500/15 px-2 py-0.5 rounded-full">
                               Latest
                             </span>
                           )}
                         </div>
-                        <h3 className="text-lg font-semibold text-navy-900 group-hover:text-primary-600 transition-colors">
+                        <h3 className="text-lg font-semibold text-[#EBEBEB] group-hover:text-primary-400 transition-colors">
                           {nl.title}
                         </h3>
                         <p className="text-sm text-text-secondary mt-1 leading-relaxed">
                           {nl.summary}
                         </p>
                       </div>
-                      <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors shrink-0 mt-1" />
+                      <ArrowRight className="w-5 h-5 text-[#777777] group-hover:text-primary-400 transition-colors shrink-0 mt-1" />
                     </div>
                   </Link>
                 </FadeInView>

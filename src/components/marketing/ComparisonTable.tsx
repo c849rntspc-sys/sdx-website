@@ -18,9 +18,9 @@ export function ComparisonTable() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
         >
           {/* Extraction */}
-          <motion.div variants={fadeInUp} className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
-            <div className="bg-red-500/10 border-b border-red-200 px-6 py-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-red-500 mb-1">{COMPARISON.extraction.subtitle}</p>
+          <motion.div variants={fadeInUp} className="bg-[#111111] border border-[#2A2A2A] rounded-2xl overflow-hidden">
+            <div className="bg-[#FF433D]/10 border-b border-[#FF433D]/20 px-6 py-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#FF433D] mb-1">{COMPARISON.extraction.subtitle}</p>
               <h3 className="text-xl font-bold text-text-primary">{COMPARISON.extraction.title}</h3>
             </div>
             <ul className="p-6 space-y-4">
@@ -34,8 +34,8 @@ export function ComparisonTable() {
           </motion.div>
 
           {/* Shared Value */}
-          <motion.div variants={fadeInUp} className="bg-white border-2 border-primary-200 rounded-2xl overflow-hidden shadow-lg shadow-primary-500/5">
-            <div className="bg-primary-50 border-b border-primary-200 px-6 py-4">
+          <motion.div variants={fadeInUp} className="bg-[#111111] border-2 border-primary-500/30 rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(243,159,65,0.08)]">
+            <div className="bg-primary-500/10 border-b border-primary-500/20 px-6 py-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-primary-500 mb-1">{COMPARISON.shared.subtitle}</p>
               <h3 className="text-xl font-bold text-text-primary">{COMPARISON.shared.title}</h3>
             </div>

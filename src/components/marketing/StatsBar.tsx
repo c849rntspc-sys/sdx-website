@@ -9,7 +9,7 @@ type Stat = { value: string; label: string };
 
 export function StatsBar({ stats, dark = false }: { stats: Stat[]; dark?: boolean }) {
   return (
-    <section className={dark ? 'bg-navy-800 py-16' : 'bg-white py-16 border-y border-gray-100'}>
+    <section className={dark ? 'bg-navy-800 py-16' : 'bg-[#0A0A0A] py-16 border-y border-[#2A2A2A]'}>
       <Container>
         <motion.div
           initial="hidden"

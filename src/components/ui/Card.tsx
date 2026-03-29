@@ -16,13 +16,13 @@ export function Card({ children, className = '', hover = true, glass = false, da
   const base = dark
     ? 'bg-white/5 border border-white/10 backdrop-blur-sm'
     : glass
-    ? 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm'
-    : 'bg-white border border-gray-100 shadow-sm';
+    ? 'bg-[#1A1A1A]/70 backdrop-blur-xl border border-[#2A2A2A]'
+    : 'bg-[#111111] border border-[#2A2A2A]';
 
   const hoverClass = hover
     ? dark
       ? 'hover:bg-white/8 hover:border-white/20'
-      : 'hover:shadow-md hover:-translate-y-0.5'
+      : 'hover:border-[#3D3D3D] hover:shadow-[0_0_20px_rgba(243,159,65,0.08)] hover:-translate-y-0.5'
     : '';
 
   return (

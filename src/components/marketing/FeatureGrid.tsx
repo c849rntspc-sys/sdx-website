@@ -45,13 +45,13 @@ export function FeatureGrid({ eyebrow, title, subtitle, features, columns = 3, d
                 className={`rounded-2xl p-6 transition-all duration-200 ${
                   dark
                     ? 'bg-white/5 border border-white/10 hover:bg-white/8'
-                    : 'bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5'
+                    : 'bg-[#111111] border border-[#2A2A2A] hover:border-[#3D3D3D] hover:shadow-[0_0_20px_rgba(243,159,65,0.08)] hover:-translate-y-0.5'
                 }`}
               >
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${
-                  dark ? 'bg-primary-500/20' : 'bg-primary-50'
+                  dark ? 'bg-primary-500/20' : 'bg-primary-500/15'
                 }`}>
-                  <Icon className={`w-5 h-5 ${dark ? 'text-primary-400' : 'text-primary-500'}`} />
+                  <Icon className={`w-5 h-5 ${dark ? 'text-primary-400' : 'text-primary-400'}`} />
                 </div>
                 <h3 className={`text-lg font-semibold mb-2 ${dark ? 'text-white' : 'text-text-primary'}`}>
                   {f.title}

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Leaf } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { NewsletterSignup } from '@/components/marketing/NewsletterSignup';
 
@@ -20,14 +19,14 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-navy-900 border-t border-white/5 text-gray-400">
+    <footer className="bg-navy-900 border-t border-[#2A2A2A] text-gray-400">
       <Container className="py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-                <Leaf className="w-4 h-4 text-white" />
+                <span className="text-sm font-bold text-[#0A0A0A]">S</span>
               </div>
               <span className="text-lg font-bold text-white tracking-tight">SDX</span>
             </Link>
@@ -39,7 +38,7 @@ export function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-[#777777] mb-4">
                 {title}
               </h4>
               <ul className="space-y-3">
@@ -62,12 +61,12 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="border-t border-white/5">
+      <div className="border-t border-[#2A2A2A]">
         <Container className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-[#777777]">
             &copy; {new Date().getFullYear()} Sustainability Data Exchange. All rights reserved.
           </p>
-          <p className="text-xs text-gray-600">
+          <p className="text-xs text-[#777777]">
             Neutral. Shared Value. Owner-governed.
           </p>
         </Container>

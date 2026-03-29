@@ -149,16 +149,16 @@ export default function EcosystemPage() {
               </p>
             </Card>
           </div>
-          <div className="max-w-3xl mx-auto p-4 rounded-lg bg-primary-50 border border-primary-200 text-center">
+          <div className="max-w-3xl mx-auto p-4 rounded-lg bg-primary-500/10 border border-primary-500/20 text-center">
             <p className="text-sm text-text-secondary">
-              <span className="font-semibold text-primary-600">Neutral substrate, not a competing SaaS.</span>{' '}
+              <span className="font-semibold text-primary-400">Neutral substrate, not a competing SaaS.</span>{' '}
               SDX pulls the raw utility and EPA data that sits beneath every sustainability platform. Like DTCC for securities or SWIFT for payments — the infrastructure layer that makes everything above it work.
             </p>
           </div>
         </Container>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#0A0A0A]">
         <Container>
           <SectionHeading
             eyebrow="Existing Integrations"

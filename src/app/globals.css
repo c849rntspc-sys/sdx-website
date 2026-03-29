@@ -1,32 +1,46 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary-50: #ECFDF3;
-  --color-primary-100: #D1FAE5;
-  --color-primary-200: #A7F3D0;
-  --color-primary-300: #6EE7B7;
-  --color-primary-400: #34D399;
-  --color-primary-500: #0D7C3D;
-  --color-primary-600: #059669;
-  --color-primary-700: #047857;
-  --color-primary-800: #065F46;
-  --color-primary-900: #064E3B;
+  /* ── Amber Primary (Bloomberg-inspired) ─────────────────── */
+  --color-primary-50: #1C1510;
+  --color-primary-100: #2D2210;
+  --color-primary-200: #5C4520;
+  --color-primary-300: #C88630;
+  --color-primary-400: #F39F41;
+  --color-primary-500: #F39F41;
+  --color-primary-600: #E8890C;
+  --color-primary-700: #E8890C;
+  --color-primary-800: #C47009;
+  --color-primary-900: #7A4510;
 
-  --color-navy-900: #0f172a;
-  --color-navy-800: #1a1f36;
-  --color-navy-700: #1e293b;
-  --color-navy-600: #334155;
+  /* ── Dark Backgrounds ───────────────────────────────────── */
+  --color-navy-900: #0A0A0A;
+  --color-navy-800: #111111;
+  --color-navy-700: #1A1A1A;
+  --color-navy-600: #262626;
 
-  --color-cyan: #38E8F6;
+  /* ── Accent Colors ──────────────────────────────────────── */
+  --color-cyan: #4AF6C3;
+  --color-info: #5B9BF6;
+  --color-error: #FF433D;
 
-  --color-surface-bg: #F8FAFB;
-  --color-surface-card: #FFFFFF;
+  /* ── Surfaces ───────────────────────────────────────────── */
+  --color-surface-bg: #0A0A0A;
+  --color-surface-card: #111111;
 
-  --color-text-primary: #1a1a2e;
-  --color-text-secondary: #64748B;
-  --color-text-muted: #94A3B8;
+  /* ── Text ────────────────────────────────────────────────── */
+  --color-text-primary: #EBEBEB;
+  --color-text-secondary: #9A9A9A;
+  --color-text-muted: #777777;
 
+  /* ── Borders ─────────────────────────────────────────────── */
+  --color-border: #2A2A2A;
+  --color-border-hover: #3D3D3D;
+  --color-divider: #262626;
+
+  /* ── Font ─────────────────────────────────────────────────── */
   --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 }
 
 :root {
@@ -49,8 +63,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-primary-200);
-  color: var(--color-primary-900);
+  background: rgba(243, 159, 65, 0.3);
+  color: #EBEBEB;
 }
 
 /* Smooth scrolling */
@@ -66,4 +80,29 @@ html {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ── Hero Animations ────────────────────────────────────────── */
+@keyframes heroIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  from { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
+  to   { opacity: 1;   transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* ── Prose styling for dark mode ────────────────────────────── */
+.prose {
+  --tw-prose-body: #9A9A9A;
+  --tw-prose-headings: #EBEBEB;
+  --tw-prose-links: #F39F41;
+  --tw-prose-bold: #EBEBEB;
+  --tw-prose-bullets: #777777;
+  --tw-prose-counters: #777777;
+  --tw-prose-hr: #2A2A2A;
 }

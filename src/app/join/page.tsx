@@ -40,7 +40,7 @@ export default function JoinPage() {
         </Container>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#0A0A0A]">
         <Container>
           <div className="max-w-lg mx-auto text-center">
             <FadeInView>

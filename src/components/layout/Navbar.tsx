@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Leaf } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { NAV_LINKS, APP_URL } from '@/lib/constants';
@@ -28,7 +28,7 @@ export function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
           scrolled
-            ? 'bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-sm'
+            ? 'bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-[#2A2A2A]/60'
             : 'bg-transparent'
         }`}
       >
@@ -37,7 +37,7 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center shadow-lg shadow-primary-500/25">
-                <Leaf className="w-4 h-4 text-white" />
+                <span className="text-sm font-bold text-[#0A0A0A]">S</span>
               </div>
               <span className={`text-lg font-bold tracking-tight ${scrolled ? 'text-text-primary' : 'text-white'}`}>
                 SDX
@@ -53,7 +53,7 @@ export function Navbar() {
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                     (pathname === link.href || pathname.startsWith(link.href + '/'))
                       ? scrolled ? 'text-primary-500 bg-primary-50' : 'text-white bg-white/10'
-                      : scrolled ? 'text-text-secondary hover:text-text-primary hover:bg-gray-100' : 'text-gray-300 hover:text-white hover:bg-white/10'
+                      : scrolled ? 'text-text-secondary hover:text-text-primary hover:bg-[#1F1F1F]' : 'text-[#9A9A9A] hover:text-[#EBEBEB] hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -67,8 +67,8 @@ export function Navbar() {
                 href={`${APP_URL}/login`}
                 className={`hidden md:inline-flex px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                   scrolled
-                    ? 'text-text-secondary hover:text-text-primary hover:bg-gray-100'
-                    : 'text-gray-300 hover:text-white hover:bg-white/10'
+                    ? 'text-text-secondary hover:text-text-primary hover:bg-[#1F1F1F]'
+                    : 'text-[#9A9A9A] hover:text-[#EBEBEB] hover:bg-white/10'
                 }`}
               >
                 Log In
@@ -82,7 +82,7 @@ export function Navbar() {
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className={`md:hidden p-2 rounded-lg transition-colors ${
-                  scrolled ? 'text-text-primary hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                  scrolled ? 'text-text-primary hover:bg-[#1F1F1F]' : 'text-white hover:bg-white/10'
                 }`}
               >
                 {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -96,7 +96,7 @@ export function Navbar() {
       {mobileOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
           <div className="absolute inset-0 bg-black/50" onClick={() => setMobileOpen(false)} />
-          <div className="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl p-6 pt-20">
+          <div className="absolute right-0 top-0 bottom-0 w-72 bg-[#111111] shadow-2xl border-l border-[#2A2A2A] p-6 pt-20">
             <nav className="space-y-1">
               {NAV_LINKS.map((link) => (
                 <Link
@@ -105,17 +105,17 @@ export function Navbar() {
                   className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                     (pathname === link.href || pathname.startsWith(link.href + '/'))
                       ? 'text-primary-500 bg-primary-50'
-                      : 'text-text-secondary hover:text-text-primary hover:bg-gray-50'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-[#1A1A1A]'
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
-            <div className="mt-6 pt-6 border-t border-gray-100 space-y-3">
+            <div className="mt-6 pt-6 border-t border-[#2A2A2A] space-y-3">
               <a
                 href={`${APP_URL}/login`}
-                className="block w-full px-4 py-3 text-center text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-gray-50 rounded-xl transition-colors"
+                className="block w-full px-4 py-3 text-center text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-[#1A1A1A] rounded-xl transition-colors"
               >
                 Log In
               </a>

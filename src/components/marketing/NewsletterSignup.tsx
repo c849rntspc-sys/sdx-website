@@ -24,7 +24,7 @@ export function NewsletterSignup({ variant = 'inline', dark = false }: Props) {
   // ─── Success state ───────────────────────────────────────────
   if (submitted) {
     return (
-      <div className={`flex items-center gap-2 text-sm font-medium ${dark ? 'text-primary-400' : 'text-primary-600'}`}>
+      <div className={`flex items-center gap-2 text-sm font-medium ${dark ? 'text-primary-400' : 'text-primary-400'}`}>
         <Check className="w-4 h-4" />
         You&apos;re subscribed. Check your inbox for a welcome email.
       </div>
@@ -34,12 +34,12 @@ export function NewsletterSignup({ variant = 'inline', dark = false }: Props) {
   // ─── Banner variant (for Support page / homepage) ────────────
   if (variant === 'banner') {
     return (
-      <div className={`rounded-2xl border p-6 md:p-8 ${dark ? 'bg-white/5 border-white/10' : 'bg-primary-50 border-primary-100'}`}>
+      <div className={`rounded-2xl border p-6 md:p-8 ${dark ? 'bg-white/5 border-white/10' : 'bg-primary-500/10 border-primary-500/20'}`}>
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
               <Mail className={`w-5 h-5 ${dark ? 'text-primary-400' : 'text-primary-500'}`} />
-              <h3 className={`text-lg font-semibold ${dark ? 'text-white' : 'text-navy-900'}`}>
+              <h3 className={`text-lg font-semibold ${dark ? 'text-white' : 'text-[#EBEBEB]'}`}>
                 Stay informed
               </h3>
             </div>
@@ -57,7 +57,7 @@ export function NewsletterSignup({ variant = 'inline', dark = false }: Props) {
               className={`flex-1 md:w-64 px-4 py-2.5 text-sm rounded-xl border focus:outline-none focus:ring-2 focus:ring-primary-500/30 ${
                 dark
                   ? 'bg-white/5 border-white/10 text-gray-200 placeholder:text-gray-500'
-                  : 'bg-white border-gray-200 text-navy-900 placeholder:text-gray-400'
+                  : 'bg-[#141414] border-[#333333] text-[#EBEBEB] placeholder:text-[#555555]'
               }`}
             />
             <button
@@ -114,7 +114,7 @@ export function NewsletterSignup({ variant = 'inline', dark = false }: Props) {
         className={`flex-1 px-4 py-2.5 text-sm rounded-xl border focus:outline-none focus:ring-2 focus:ring-primary-500/30 ${
           dark
             ? 'bg-white/5 border-white/10 text-gray-200 placeholder:text-gray-500'
-            : 'bg-white border-gray-200 text-navy-900 placeholder:text-gray-400'
+            : 'bg-[#141414] border-[#333333] text-[#EBEBEB] placeholder:text-[#555555]'
         }`}
       />
       <button

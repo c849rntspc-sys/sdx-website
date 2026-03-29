@@ -54,12 +54,12 @@ export default function DataDividendPage() {
       />
 
       {/* Breakthrough explainer */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#0A0A0A]">
         <Container>
           <div className="max-w-3xl mx-auto">
             <FadeInView>
-              <div className="bg-surface-bg border border-gray-100 rounded-2xl p-8 md:p-10">
-                <p className="text-xs font-semibold tracking-widest text-primary-500 uppercase mb-4">Why this matters</p>
+              <div className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-8 md:p-10">
+                <p className="text-xs font-semibold tracking-widest text-primary-400 uppercase mb-4">Why this matters</p>
                 <div className="space-y-4 text-sm text-text-secondary leading-relaxed">
                   <p>
                     Every sustainability platform in the market today operates the same way: owners pay to submit data, the platform aggregates it into proprietary benchmarks, then sells those benchmarks back — often to the same owners who provided the inputs. The value created by contributor data is captured entirely by the platform operator.
@@ -79,7 +79,7 @@ export default function DataDividendPage() {
 
       <StepFlow />
 
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#0A0A0A]">
         <Container>
           <SectionHeading
             eyebrow="Licensed Content"
@@ -89,8 +89,8 @@ export default function DataDividendPage() {
           <div className="max-w-2xl mx-auto space-y-4">
             {revenueSources.map((source, i) => (
               <FadeInView key={i}>
-                <div className="flex items-start gap-4 bg-surface-bg border border-gray-100 rounded-xl p-5">
-                  <Check className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-4 bg-[#111111] border border-[#2A2A2A] rounded-xl p-5">
+                  <Check className="w-5 h-5 text-primary-400 shrink-0 mt-0.5" />
                   <p className="text-sm text-text-secondary leading-relaxed">{source}</p>
                 </div>
               </FadeInView>
@@ -102,7 +102,7 @@ export default function DataDividendPage() {
       <SharedValueEconomics />
 
       {/* Dividend Formula */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#0A0A0A]">
         <Container>
           <SectionHeading
             eyebrow="The Dividend Formula"
@@ -113,36 +113,36 @@ export default function DataDividendPage() {
           {/* Formula variables */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
             <FadeInView>
-              <div className="bg-surface-bg border border-gray-100 rounded-xl p-6 text-center h-full">
-                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
-                  <Building2 className="w-6 h-6 text-primary-500" />
+              <div className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary-500/15 flex items-center justify-center mx-auto mb-4">
+                  <Building2 className="w-6 h-6 text-primary-400" />
                 </div>
                 <h3 className="font-semibold text-text-primary mb-2">Number of Buildings</h3>
                 <p className="text-xs text-text-secondary leading-relaxed">More buildings contributed means a larger share. Incentivizes organizations to bring their full portfolio onto the platform.</p>
               </div>
             </FadeInView>
             <FadeInView>
-              <div className="bg-surface-bg border border-gray-100 rounded-xl p-6 text-center h-full">
-                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
-                  <Ruler className="w-6 h-6 text-primary-500" />
+              <div className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary-500/15 flex items-center justify-center mx-auto mb-4">
+                  <Ruler className="w-6 h-6 text-primary-400" />
                 </div>
                 <h3 className="font-semibold text-text-primary mb-2">Total Square Footage</h3>
                 <p className="text-xs text-text-secondary leading-relaxed">Larger properties contribute more data to the substrate. Floor area weighting ensures proportional recognition of contribution scale.</p>
               </div>
             </FadeInView>
             <FadeInView>
-              <div className="bg-surface-bg border border-gray-100 rounded-xl p-6 text-center h-full">
-                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="w-6 h-6 text-primary-500" />
+              <div className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary-500/15 flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="w-6 h-6 text-primary-400" />
                 </div>
                 <h3 className="font-semibold text-text-primary mb-2">Data Quality Score</h3>
                 <p className="text-xs text-text-secondary leading-relaxed">Completeness, coverage, and freshness of whole-building data. Higher quality data produces better benchmarks and earns a larger dividend.</p>
               </div>
             </FadeInView>
             <FadeInView>
-              <div className="bg-surface-bg border border-gray-100 rounded-xl p-6 text-center h-full">
-                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-4">
-                  <Scale className="w-6 h-6 text-primary-500" />
+              <div className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary-500/15 flex items-center justify-center mx-auto mb-4">
+                  <Scale className="w-6 h-6 text-primary-400" />
                 </div>
                 <h3 className="font-semibold text-text-primary mb-2">Whole-Building Completeness</h3>
                 <p className="text-xs text-text-secondary leading-relaxed">Energy, water, waste, and emissions data for the entire building. Incentivizes contributors to close data gaps, not just report partial metrics.</p>
@@ -205,8 +205,8 @@ export default function DataDividendPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {guardrails.map((g, i) => (
               <Card key={i}>
-                <div className="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center mb-4">
-                  <g.icon className="w-5 h-5 text-primary-500" />
+                <div className="w-10 h-10 rounded-lg bg-primary-500/15 flex items-center justify-center mb-4">
+                  <g.icon className="w-5 h-5 text-primary-400" />
                 </div>
                 <h3 className="text-lg font-semibold text-text-primary mb-2">{g.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{g.description}</p>
@@ -236,7 +236,7 @@ export default function DataDividendPage() {
         </Container>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[#0A0A0A]">
         <Container>
           <SectionHeading
             eyebrow="FAQ"
