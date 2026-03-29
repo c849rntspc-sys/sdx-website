@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
+import { SDXLogo } from '@/components/ui/SDXLogo';
 import { NewsletterSignup } from '@/components/marketing/NewsletterSignup';
 
 const footerLinks = {
@@ -24,11 +25,8 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center">
-                <span className="text-sm font-bold text-[#0A0A0A]">S</span>
-              </div>
-              <span className="text-lg font-bold text-white tracking-tight">SDX</span>
+            <Link href="/" className="inline-block mb-4">
+              <SDXLogo size="sm" />
             </Link>
             <p className="text-sm leading-relaxed">
               The neutral measurement substrate for comparable, audit-ready real estate sustainability data.
@@ -67,7 +65,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Sustainability Data Exchange. All rights reserved.
           </p>
           <p className="text-xs text-[#777777]">
-            Neutral. Shared Value. Owner-governed.
+            Neutral. Shared Value. Not-for-profit.
           </p>
         </Container>
       </div>

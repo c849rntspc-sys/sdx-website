@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import { SDXLogo } from '@/components/ui/SDXLogo';
 import { NAV_LINKS, APP_URL } from '@/lib/constants';
 
 export function Navbar() {
@@ -35,13 +36,8 @@ export function Navbar() {
         <Container>
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-primary-400 flex items-center justify-center shadow-lg shadow-primary-500/25">
-                <span className="text-sm font-bold text-[#0A0A0A]">S</span>
-              </div>
-              <span className={`text-lg font-bold tracking-tight ${scrolled ? 'text-text-primary' : 'text-white'}`}>
-                SDX
-              </span>
+            <Link href="/">
+              <SDXLogo size="sm" />
             </Link>
 
             {/* Desktop Nav — visible on md+ */}
