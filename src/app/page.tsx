@@ -49,12 +49,12 @@ export default function HomePage() {
           <>
             Sustainability data for{' '}
             <span className="bg-gradient-to-r from-primary-400 to-cyan bg-clip-text text-transparent">
-              everyone, everywhere.
+              everyone.
             </span>
           </>
         }
-        subtitle="SDX unifies today's patchwork of incompatible real estate sustainability data into a single, neutral platform — free to use and built on the principle of shared value."
-        pillars={['Neutral', 'Shared Value', 'Owner-governed']}
+        subtitle="SDX unifies today's patchwork of incompatible real estate sustainability data into a single, neutral platform — free to everyone to use and build on."
+        pillars={['Neutral', 'Shared Value', 'Not-for-profit']}
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button href="/data-dividend" size="lg">
