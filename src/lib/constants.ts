@@ -3,10 +3,10 @@
 
 // ─── Problem Cards (from pitch deck) ─────────────────────────
 export const PROBLEMS = [
-  { icon: 'ArrowLeftRight', title: 'Not Comparable', description: 'Every platform normalizes differently. A building scored in one system can\'t be meaningfully compared to a building scored in another. This makes cross-portfolio and cross-border analysis unreliable.' },
-  { icon: 'Shield', title: 'Not Auditable', description: 'Data moves through multiple systems with no shared lineage. When an investor or regulator asks "where did this number come from?" — the answer is often incomplete.' },
-  { icon: 'Settings', title: 'Resources Spent on Inputs, Not Decisions', description: 'Sustainability teams spend a disproportionate share of their time collecting, cleaning, and reconciling data. The analysis and decision-making that data should enable gets squeezed.' },
-  { icon: 'DollarSign', title: 'Value Extracted, Not Shared', description: 'Owners submit their data to platforms that aggregate it into benchmarks and sell those benchmarks back — often to the same owners who provided the inputs. The economics flow one way.' },
+  { icon: 'ArrowLeftRight', title: 'Comparable', description: 'Every building measured the same way — regardless of platform, geography, or asset class. One normalization standard means scores are directly comparable across portfolios and borders.' },
+  { icon: 'Shield', title: 'Auditable', description: 'Every number traces back to its source. Shared data lineage means investors, regulators, and owners can verify exactly where a figure came from and how it was calculated.' },
+  { icon: 'Settings', title: 'Integrated, Not Siloed', description: 'Data flows freely between owners, service providers, and software platforms through a single shared substrate. No more reconciling exports across disconnected systems.' },
+  { icon: 'DollarSign', title: 'Value Shared, Not Extracted', description: 'Contributors receive benchmarks free and earn a share of the revenue their data generates. The economics flow both ways — the more you contribute, the more you receive.' },
 ];
 
 // ─── Market Stats ────────────────────────────────────────────
