@@ -5,10 +5,10 @@ interface SDXLogoProps {
 }
 
 const sizeConfig = {
-  lg:      { height: 62, radius: 12, px: 24, fontSize: 30, iconW: 22, iconH: 16, sepMx: 17 },
-  default: { height: 44, radius: 9,  px: 18, fontSize: 22, iconW: 16, iconH: 12, sepMx: 13 },
-  sm:      { height: 28, radius: 6,  px: 10, fontSize: 13, iconW: 11, iconH: 8,  sepMx: 8  },
-  xs:      { height: 20, radius: 4,  px: 7,  fontSize: 10, iconW: 8,  iconH: 6,  sepMx: 6  },
+  lg:      { height: 62, radius: 12, px: 24, fontSize: 30, iconW: 22, iconH: 24, sepMx: 17 },
+  default: { height: 44, radius: 9,  px: 18, fontSize: 22, iconW: 16, iconH: 17, sepMx: 13 },
+  sm:      { height: 28, radius: 6,  px: 10, fontSize: 13, iconW: 11, iconH: 12, sepMx: 8  },
+  xs:      { height: 20, radius: 4,  px: 7,  fontSize: 10, iconW: 8,  iconH: 9,  sepMx: 6  },
 };
 
 export function SDXLogo({ size = 'default', variant = 'primary', className }: SDXLogoProps) {
@@ -32,11 +32,11 @@ export function SDXLogo({ size = 'default', variant = 'primary', className }: SD
         border: isPrimary ? 'none' : '1.5px solid #f49522',
       }}
     >
-      <svg width={s.iconW} height={s.iconH} viewBox="0 0 22 16" fill="none">
-        <line x1="2" y1="5" x2="18" y2="5" stroke={strokeColor} strokeWidth="1.6" strokeLinecap="round"/>
-        <path d="M 14,2 L 18.5,5 L 14,8" fill="none" stroke={strokeColor} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-        <line x1="20" y1="11" x2="4" y2="11" stroke={strokeColor} strokeWidth="1.6" strokeLinecap="round"/>
-        <path d="M 8,8 L 3.5,11 L 8,14" fill="none" stroke={strokeColor} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width={s.iconW} height={s.iconH} viewBox="0 0 22 24" fill="none">
+        <line x1="2" y1="6" x2="18" y2="6" stroke={strokeColor} strokeWidth="2.4" strokeLinecap="round"/>
+        <path d="M 14,2 L 18.5,6 L 14,10" fill="none" stroke={strokeColor} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
+        <line x1="20" y1="18" x2="4" y2="18" stroke={strokeColor} strokeWidth="2.4" strokeLinecap="round"/>
+        <path d="M 8,14 L 3.5,18 L 8,22" fill="none" stroke={strokeColor} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
       <div style={{
         width: 1,
